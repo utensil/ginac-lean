@@ -1,0 +1,25 @@
+--- src/base/low/cl_low_mul_old.cc	2023-09-18 14:18:14
++++ src/base/low/cl_low_mul.cc	2023-09-18 14:18:58
+@@ -10,11 +10,11 @@
+ // Implementation.
+ 
+ #ifdef NEED_VAR_mulu32_high
+-uint32 mulu32_high;
++extern "C" { uint32 mulu32_high; }
+ #endif
+ 
+ #ifdef NEED_FUNCTION_mulu32_
+-uint32 mulu32_high;
++extern "C" { uint32 mulu32_high; }
+ namespace cln {
+ uint32 mulu32_ (uint32 x, uint32 y)
+ {
+@@ -54,7 +54,7 @@
+ #endif
+ 
+ #ifdef NEED_FUNCTION_mulu64_
+-uint64 mulu64_high;
++extern "C" { uint64 mulu64_high; }
+ namespace cln {
+ extern "C" uint64 mulu64_ (uint64 x, uint64 y);
+ uint64 mulu64_ (uint64 x, uint64 y)
