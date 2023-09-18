@@ -1,0 +1,17 @@
+{
+    "name": "Ubuntu",
+    // "image": "mcr.microsoft.com/devcontainers/base:jammy"
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "onCreateCommand": ".devcontainer/setup.sh",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "leanprover.lean4"              // Lean 4 extension
+            ]
+        }
+    },
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "PATH" : "${containerEnv:PATH}:/home/vscode/.elan/bin:/home/vscode/.local/bin"
+    }
+}
