@@ -39,7 +39,7 @@ jobs:
       - name: apt install
         run: |
           sudo apt update
-          sudo apt install -y curl wget git git-lfs clang lld libc++-dev libunwind-dev
+          sudo apt install -y curl wget git git-lfs clang lld libc++-dev
       - name: build ginac
         run: |
           bash scripts/build_ginac.sh 
