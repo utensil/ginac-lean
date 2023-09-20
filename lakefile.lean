@@ -1,10 +1,17 @@
 import Lake
 open System Lake DSL
 
-package «ginac-lean» {
+package «ginac-lean» where
   srcDir := "lean"
   precompileModules := true
-}
+  -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
+  buildType := BuildType.debug
+  -- buildArchive? := is_arm? |>.map (if · then "arm64" else "x86_64")
+  moreLinkArgs := #[s!"-L{__dir__}/build/lib", "-lcln", "-lginac", "-lstdc++"]
+  weakLeanArgs := #[
+    s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "cln",
+    s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "ginac"
+  ]
 
 lean_lib «GinacLean» {
   -- add library configuration options here
@@ -60,11 +67,13 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
   let mut flags := #[
     "-fPIC",
     "-std=c++11",
+    -- "-lstdc++",
+    -- "-stdlib=libc++",
     -- "-I", (← getLeanIncludeDir).toString,
-    "-I", (pkg.buildDir / "include").toString,
-    "-L", (pkg.buildDir / "lib").toString,
-    "-l", "cln",
-    "-l", "ginac",
+    -- "-I", (pkg.buildDir / "include").toString,
+    -- "-L", (pkg.buildDir / "lib").toString,
+    -- "-lcln",
+    -- "-lginac",
     optLevel
   ]
   match get_config? targetArch with
@@ -74,7 +83,7 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
   let oFile := pkg.buildDir / (path.withExtension "o")
   let srcJob ← inputFile <| pkg.dir / path
   buildFileAfterDepList oFile (srcJob :: deps) (extraDepTrace := computeHash flags) fun deps =>
-    compileO path.toString oFile deps[0]! args
+    compileO path.toString oFile deps[0]! args "clang++"
 
 target ginac_ffi.o pkg : FilePath := do
   -- let oFile := pkg.buildDir / "cpp" / "ginac_ffi.o"
@@ -96,5 +105,5 @@ target ginac_ffi.o pkg : FilePath := do
 
 extern_lib libginacffi pkg := do
   let name := nameToStaticLib "ginacffi"
-  let ffiO ← fetch <| pkg.target ``ginac_ffi.o
+  let ffiO ← ginac_ffi.o.fetch
   buildStaticLib (pkg.nativeLibDir / name) #[ffiO]
