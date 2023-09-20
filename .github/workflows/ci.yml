@@ -35,8 +35,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: build
-          key: build
-      - name: build_ginac
+          key: build-ginac
+      - name: apt install
+        run: |
+          sudo apt update
+          sudo apt install -y curl wget git git-lfs clang lld libc++-dev libunwind-dev
+      - name: build ginac
         run: |
           bash scripts/build_ginac.sh 
       - name: lake build

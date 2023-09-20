@@ -57,8 +57,8 @@ LIBCLN=cln-1.3.6
 
 download https://www.ginac.de/CLN/$LIBCLN.tar.bz2
 
-# export CC="clang"
-# export CXX="clang++"
+export CC="clang"
+export CXX="clang++"
 export CPPFLAGS=-DNO_ASM 
 
 cd $LIBCLN
