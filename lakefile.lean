@@ -7,7 +7,7 @@ package «ginac-lean» where
   -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
   buildType := BuildType.debug
   -- buildArchive? := is_arm? |>.map (if · then "arm64" else "x86_64")
-  moreLinkArgs := #[s!"-L{__dir__}/build/lib", "-lcln", "-lginac", "-lstdc++"]
+  moreLinkArgs := #[s!"-L{__dir__}/build/lib", "-lginac", "-lcln", "-lstdc++"]
   weakLeanArgs := #[
     s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "cln",
     s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "ginac"
@@ -137,7 +137,7 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
     -- "-stdlib=libstdc++", -- gcc
     -- "-static-libstdc++", -- gcc
     "-stdlib=libc++", -- clang
-    "-L", (← getLeanSystemLibDir).toString,
+    -- "-L", (← getLeanSystemLibDir).toString,
     -- "-I", (← getLeanIncludeDir).toString,
     -- "-I", (pkg.buildDir / "include").toString,
     -- "-L", (pkg.buildDir / "lib").toString,
@@ -171,7 +171,7 @@ target ginac_ffi.o pkg : FilePath := do
   let unwind ← libunwind.fetch
   let cln ← libcln.fetch
   let ginac ← libginac.fetch
-  let build := buildCpp pkg "cpp/ginac_ffi.cpp" [cln, ginac, cpp, cppabi, unwind]
+  let build := buildCpp pkg "cpp/ginac_ffi.cpp" [ginac, cln, cpp, cppabi, unwind]
   afterReleaseSync pkg build
   -- buildO "ginac_ffi.cpp" oFile srcJob flags "c++"
 
