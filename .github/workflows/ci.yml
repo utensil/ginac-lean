@@ -31,9 +31,16 @@ jobs:
       #   uses: actions/setup-python@v4.6.1
       #   with:
       #     python-version: 3.x
-      - name: check
+      - name: Set up olean cache
+        uses: actions/cache@v3
+        with:
+          path: build
+          key: build
+      - name: build_ginac
         run: |
           bash scripts/build_ginac.sh 
+      - name: lake build
+        run: |
           lake build
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v1
