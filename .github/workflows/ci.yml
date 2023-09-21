@@ -19,7 +19,10 @@ on:
 jobs:
   lean4:
     name: ginac-lean
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest] # , windows-latest]
     steps:
       - name: install elan
         run: |
@@ -36,13 +39,19 @@ jobs:
         with:
           path: build
           key: build-ginac
-      - name: apt install
+      - name: package install
         run: |
-          sudo apt update
-          sudo apt install -y curl wget git git-lfs clang lld libc++-dev
+          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+            sudo apt update
+            sudo apt install -y curl wget git git-lfs clang lld libc++-dev
+          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+            echo "Running on macOS"
+          else
+            echo "Unsupported OS"
+          fi
       - name: build ginac
         run: |
-          bash scripts/build_ginac.sh 
+          bash scripts/build_ginac.sh
       - name: lake build
         run: |
           lake build
