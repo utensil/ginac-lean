@@ -62,7 +62,6 @@ download https://www.ginac.de/CLN/$LIBCLN.tar.bz2
 
 export CC="clang"
 export CXX="clang++"
-export CPPFLAGS="-DNO_ASM -stdlib=libc++"
 
 cd $LIBCLN
 
@@ -77,7 +76,11 @@ patch -N src/base/low/cl_low_mul.cc < $SCRIPTS_DIR/cl_low_mul.patch
 
 # error: macho does not support linking multiple objects into one
 
-./configure --prefix=$INSTALLED_DIR && make -j8
+./configure --prefix=$INSTALLED_DIR
+
+export CPPFLAGS="-DNO_ASM -stdlib=libc++"
+
+make -j8 V=1
 
 # make  check-TESTS
 # PASS: exam
@@ -109,7 +112,13 @@ cd ginac-1.8.7
 export CLN_CFLAGS="-I$INSTALLED_DIR/include"
 export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"
 
-./configure  --prefix=$INSTALLED_DIR && make -j8
+export CPPFLAGS=""
+
+./configure  --prefix=$INSTALLED_DIR
+
+export CPPFLAGS="-stdlib=libc++"
+
+make -j8
 
 # make  check-TESTS
 # PASS: exam_paranoia
