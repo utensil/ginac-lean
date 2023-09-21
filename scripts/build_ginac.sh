@@ -93,7 +93,7 @@ patch -N src/base/low/cl_low_mul.cc < $SCRIPTS_DIR/cl_low_mul.patch
 # ============================================================================
 # See tests/test-suite.log
 # ============================================================================
-# make check
+make check
 
 make install
 
@@ -180,9 +180,7 @@ export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"
 # # FAIL:  2
 # # XPASS: 0
 # # ERROR: 0
-# make check
-
-#  && make check && 
+make check
 
 make install
 
