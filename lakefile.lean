@@ -69,9 +69,9 @@ def copyLibJob (pkg : Package) (libName : String) : IndexBuildM (BuildJob FilePa
     try
       let depTrace := Hash.ofString libName
       let trace ← buildFileUnlessUpToDate dst depTrace do
-        -- let srcLeanBundled := (← getLeanSystemLibDir) / libName
-        -- let src <-getLibPath libName srcLeanBundled
-        let some src ← getLibPath libName | error s!"{libName} not found"
+        let srcLeanBundled := (← getLeanSystemLibDir) / libName
+        let src := srcLeanBundled
+        -- let some src ← getLibPath libName | error s!"{libName} not found"
         logStep s!"Copying from {src} to {dst}"
         proc {
           cmd := "cp"
