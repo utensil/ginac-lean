@@ -1,11 +1,14 @@
 #!/bin/bash
 
-SCRIPTS_DIR=$(dirname "$0")
-WORKSPACES=$(cd "$SCRIPTS_DIR/../build" && pwd)
-INSTALLED_DIR=$WORKSPACES
-
+SCRIPTS_DIR=$(cd $(dirname "$0") && pwd)
+# echo "SCRIPTS_DIR=$SCRIPTS_DIR"
+WORKSPACES="$SCRIPTS_DIR/../build"
 mkdir -p $WORKSPACES/
+WORKSPACES=$(cd $WORKSPACES && pwd)
+# echo "WORKSPACES=$WORKSPACES"
+INSTALLED_DIR=$WORKSPACES
 mkdir -p $INSTALLED_DIR/
+# echo "INSTALLED_DIR=$INSTALLED_DIR"
 
 show_warning()
 {
