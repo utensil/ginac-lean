@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SCRIPTS_DIR=$(realpath "$(dirname "$0")")
-WORKSPACES=$(realpath "$(dirname "$0")/../build")
+SCRIPTS_DIR=$(dirname "$0")
+WORKSPACES=$(cd "$SCRIPTS_DIR/../build" && pwd)
 INSTALLED_DIR=$WORKSPACES
 
 mkdir -p $WORKSPACES/
