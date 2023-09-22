@@ -7,7 +7,9 @@ package «ginac-lean» where
   -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
   buildType := BuildType.debug
   -- buildArchive? := is_arm? |>.map (if · then "arm64" else "x86_64")
-  moreLinkArgs := #[s!"-L{__dir__}/build/lib", "-v", "-lginac", "-lcln", "-lstdc++"] --, "-lc++", "-lc++abi", "-lunwind"] -- "-lstdc++"]
+  moreLinkArgs := #[s!"-L{__dir__}/build/lib", 
+    -- "-L/usr/bin/../lib/gcc/aarch64-linux-gnu/11 -L/lib/aarch64-linux-gnu -L/usr/lib/aarch64-linux-gnu -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib",
+    "-lginac_ffi", "-lginac", "-lcln", "-lstdc++", "-v"] -- "-v",  --, "-lc++", "-lc++abi", "-lunwind"] -- "-lstdc++"]
   weakLeanArgs := #[
     s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "cln",
     s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "ginac"
@@ -15,7 +17,11 @@ package «ginac-lean» where
 
 lean_lib «GinacLean» 
 
-lean_lib «GinacFFI»
+lean_lib «GinacFFI» where
+  moreLinkArgs := #[s!"-L{__dir__}/build/lib",
+  "-lginac_ffi", 
+  "-lstdc++"]
+  extraDepTargets := #["libginac_ffi"]
 
 @[default_target]
 lean_exe «ginac-lean» where
@@ -66,11 +72,11 @@ def copyLibJob (pkg : Package) (libName : String) : IndexBuildM (BuildJob FilePa
       let depTrace := Hash.ofString libName
       let trace ← buildFileUnlessUpToDate dst depTrace do
 
-        let srcLeanBundled := (← getLeanSystemLibDir) / libName
-        proc {
-          cmd := "ls"
-          args := #[(srcLeanBundled.toString.splitOn ".")[0]!]
-        }
+        -- let srcLeanBundled := (← getLeanSystemLibDir) / libName
+        -- proc {
+        --   cmd := "ls"
+        --   args := #[(srcLeanBundled.toString.splitOn ".")[0]! ++ "*"]
+        -- }
         -- let src := srcLeanBundled
         let some src ← getLibPath libName | error s!"{libName} not found"
         logStep s!"Copying from {src} to {dst}"
@@ -168,16 +174,29 @@ target ginac_ffi.o pkg : FilePath := do
   --   "-l", "cln",
   --   "-l", "ginac"
   --   ]
-  -- let cpp ← libcpp.fetch
-  -- let cppabi ← libcppabi.fetch
-  -- let unwind ← libunwind.fetch
+  -- TODO figure out why these are required for linking, otherwise
+  -- [5/5] Linking ginac-lean
+  -- error: > /home/vscode/.elan/toolchains/leanprover--lean4---4.0.0/bin/leanc -o ./build/bin/ginac-lean ./build/ir/Main.o ./build/ir/GinacFFI.o -L./build/lib -lginac_ffi -lginac -lcln -lstdc++
+  -- error: stderr:
+  -- ld.lld: error: undefined reference due to --no-allow-shlib-undefined: std::ios_base::Init::Init()
+  -- >>> referenced by ./build/lib/libginac_ffi.so
+  let _cpp ← libcpp.fetch
+  let _cppabi ← libcppabi.fetch
+  let _unwind ← libunwind.fetch
+
   let cln ← libcln.fetch
   let ginac ← libginac.fetch
   let build := buildCpp pkg "cpp/ginac_ffi.cpp" [ginac, cln] --, cpp, cppabi, unwind]
   afterReleaseSync pkg build
   -- buildO "ginac_ffi.cpp" oFile srcJob flags "c++"
 
-extern_lib libginac_ffi pkg := do
-  let name := nameToStaticLib "ginac_ffi"
+-- extern_lib libginac_ffi pkg := do
+  -- let name := nameToStaticLib "ginac_ffi"
+  -- let ffiO ← ginac_ffi.o.fetch
+  -- buildStaticLib (pkg.nativeLibDir / name) #[ffiO]
+
+target libginac_ffi pkg : FilePath := do
+  let name := nameToSharedLib "ginac_ffi"
   let ffiO ← ginac_ffi.o.fetch
-  buildStaticLib (pkg.nativeLibDir / name) #[ffiO]
+  buildLeanSharedLib (pkg.nativeLibDir / name) #[ffiO] #["-lstdc++", "-v"]
+
