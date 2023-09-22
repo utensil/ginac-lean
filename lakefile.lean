@@ -31,7 +31,7 @@ def clangxx : String := "clang++"
 
 def getClangSearchPaths : IO (Array FilePath) := do
   let output ← IO.Process.output {
-    cmd := "clang++", args := #["-lstdc++"] -- "-v"
+    cmd := "clang++", args := #["-lstdc++", "-v"]
   }
   let mut paths := #[]
   for s in output.stderr.splitOn do
@@ -46,6 +46,8 @@ def getLibPath (name : String) : IO (Option FilePath) := do
     let libPath := path / name
     if ← libPath.pathExists then
       return libPath
+
+  println! "Couldn't find {name} in {searchPaths}"
   return none
 
 
@@ -185,3 +187,36 @@ target libginac_ffi pkg : FilePath := do
   let ffiO ← ginac_ffi.o.fetch
   buildLeanSharedLib (pkg.nativeLibDir / name) #[ffiO] #["-lstdc++", "-v"]
 
+
+def shouldKeep (fileName : String) (keepPrefix : Array String := #[]) (keepPostfix : Array String := #[]): Bool := Id.run do
+  for pf in keepPrefix do
+    if fileName.startsWith pf then
+      return true
+  for pf in keepPostfix do
+    if fileName.endsWith pf then
+      return true
+  return false
+
+def removeDirIfExists (path : String) : IO Unit := do
+  let dir := FilePath.mk path
+  if (<-dir.pathExists) then
+    println! s!"Removing {dir}"
+    IO.FS.removeDirAll dir.toString
+
+script clear := do
+  println! "Clearing all products of `lake build`, but keep built C++ libraries"
+  let libDir := FilePath.mk s!"{__dir__}/build/lib/"
+  let paths := <-libDir.walkDir -- fun path => do
+  --  return !(<-path.isDir)
+
+  for path in paths do
+    if (<-path.isDir) then continue
+    let some fileName := path.fileName | continue
+    if !shouldKeep fileName #["libcln.", "libginac."] #[".pc"] then
+      println! s!"Removing {path.toString}"
+      IO.FS.removeFile path.toString
+
+  removeDirIfExists s!"{__dir__}/build/cpp/"
+  removeDirIfExists s!"{__dir__}/build/ir/"
+
+  return 0

@@ -57,6 +57,7 @@ jobs:
           bash scripts/build_ginac.sh
       - name: lake build
         run: |
+          lake run clear
           lake build
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v1
