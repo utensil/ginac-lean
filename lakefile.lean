@@ -7,24 +7,19 @@ package «ginac-lean» where
   -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
   buildType := BuildType.debug
   -- buildArchive? := is_arm? |>.map (if · then "arm64" else "x86_64")
-  moreLinkArgs := #[s!"-L{__dir__}/build/lib", "-lginac", "-lcln", "-lstdc++"]
+  moreLinkArgs := #[s!"-L{__dir__}/build/lib", "-v", "-lginac", "-lcln", "-lstdc++"] --, "-lc++", "-lc++abi", "-lunwind"] -- "-lstdc++"]
   weakLeanArgs := #[
     s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "cln",
     s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "ginac"
   ]
 
-lean_lib «GinacLean» {
-  -- add library configuration options here
-}
+lean_lib «GinacLean» 
 
-lean_lib «GinacFFI» {
-  -- add library configuration options here
-}
+lean_lib «GinacFFI»
 
 @[default_target]
-lean_exe «ginac-lean» {
+lean_exe «ginac-lean» where
   root := `Main
-}
 
 def clangxx : String := "clang++"
 
@@ -61,6 +56,7 @@ def afterReleaseAsync (pkg : Package) (build : BuildM α) : IndexBuildM (Job α)
   else
     Job.async build
 
+-- #eval ("a.b.c".splitOn ".")[0]
 
 def copyLibJob (pkg : Package) (libName : String) : IndexBuildM (BuildJob FilePath) :=
   afterReleaseAsync pkg do
@@ -69,10 +65,11 @@ def copyLibJob (pkg : Package) (libName : String) : IndexBuildM (BuildJob FilePa
     try
       let depTrace := Hash.ofString libName
       let trace ← buildFileUnlessUpToDate dst depTrace do
+
         let srcLeanBundled := (← getLeanSystemLibDir) / libName
         proc {
           cmd := "ls"
-          args := #[srcLeanBundled.toString]
+          args := #[(srcLeanBundled.toString.splitOn ".")[0]!]
         }
         -- let src := srcLeanBundled
         let some src ← getLibPath libName | error s!"{libName} not found"
@@ -140,13 +137,14 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
     -- "-lstdc++",
     -- "-stdlib=libstdc++", -- gcc
     -- "-static-libstdc++", -- gcc
-    "-stdlib=libc++", -- clang
+    -- "-stdlib=libc++", -- clang
     -- "-L", (← getLeanSystemLibDir).toString,
     -- "-I", (← getLeanIncludeDir).toString,
     -- "-I", (pkg.buildDir / "include").toString,
     -- "-L", (pkg.buildDir / "lib").toString,
     -- "-lcln",
     -- "-lginac",
+    "-v",
     optLevel
   ]
   match get_config? targetArch with
@@ -170,16 +168,16 @@ target ginac_ffi.o pkg : FilePath := do
   --   "-l", "cln",
   --   "-l", "ginac"
   --   ]
-  let cpp ← libcpp.fetch
-  let cppabi ← libcppabi.fetch
-  let unwind ← libunwind.fetch
+  -- let cpp ← libcpp.fetch
+  -- let cppabi ← libcppabi.fetch
+  -- let unwind ← libunwind.fetch
   let cln ← libcln.fetch
   let ginac ← libginac.fetch
-  let build := buildCpp pkg "cpp/ginac_ffi.cpp" [ginac, cln, cpp, cppabi, unwind]
+  let build := buildCpp pkg "cpp/ginac_ffi.cpp" [ginac, cln] --, cpp, cppabi, unwind]
   afterReleaseSync pkg build
   -- buildO "ginac_ffi.cpp" oFile srcJob flags "c++"
 
-extern_lib libginacffi pkg := do
-  let name := nameToStaticLib "ginacffi"
+extern_lib libginac_ffi pkg := do
+  let name := nameToStaticLib "ginac_ffi"
   let ffiO ← ginac_ffi.o.fetch
   buildStaticLib (pkg.nativeLibDir / name) #[ffiO]
