@@ -1,8 +1,8 @@
-import GinacFFI
+import Ginac
 
 def main : IO Unit := do
   myLeanFun
-  let x := GiNaC.Symbol.mk "x"
+  let x := Ginac.Symbol.mk "x"
   println! x.name
 
 #eval main

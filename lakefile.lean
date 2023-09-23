@@ -1,7 +1,7 @@
 import Lake
 open System Lake DSL
 
-package «ginac-lean» where
+package «GinacLean» where
   srcDir := "lean"
   precompileModules := true
   -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
@@ -15,17 +15,16 @@ package «ginac-lean» where
     s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "ginac"
   ]
 
-lean_lib «GinacLean» 
-
-lean_lib «GinacFFI» where
+lean_lib «GinacLean» where
+  roots := #[`Ginac]
   moreLinkArgs := #[s!"-L{__dir__}/build/lib",
   "-lginac_ffi", 
   "-lstdc++"]
   extraDepTargets := #["libginac_ffi"]
 
 @[default_target]
-lean_exe «ginac-lean» where
-  root := `Main
+lean_exe «ginac_hello» where
+  root := `examples.Hello
 
 def clangxx : String := "clang++"
 
@@ -166,7 +165,7 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
   buildFileAfterDepList oFile (srcJob :: deps) (extraDepTrace := computeHash flags) fun deps =>
     compileO path.toString oFile deps[0]! args clangxx
 
-target ginac_ffi.o pkg : FilePath := do
+target GinacFFI.o pkg : FilePath := do
   -- TODO figure out why these are required for linking, otherwise
   -- [5/5] Linking ginac-lean
   -- error: > /home/vscode/.elan/toolchains/leanprover--lean4---4.0.0/bin/leanc -o ./build/bin/ginac-lean ./build/ir/Main.o ./build/ir/GinacFFI.o -L./build/lib -lginac_ffi -lginac -lcln -lstdc++
@@ -179,7 +178,7 @@ target ginac_ffi.o pkg : FilePath := do
 
   let cln ← libcln.fetch
   let ginac ← libginac.fetch
-  let build := buildCpp pkg "cpp/ginac_ffi.cpp" [ginac, cln] --, cpp, cppabi, unwind]
+  let build := buildCpp pkg "cpp/GinacFFI.cpp" [ginac, cln] --, cpp, cppabi, unwind]
   afterReleaseSync pkg build
 
 target Symbol.o pkg : FilePath := do
@@ -200,9 +199,9 @@ target Symbol.o pkg : FilePath := do
 
 target libginac_ffi pkg : FilePath := do
   let name := nameToSharedLib "ginac_ffi"
-  let ffiO ← ginac_ffi.o.fetch
+  let ffiO ← GinacFFI.o.fetch
   let symbolO <- Symbol.o.fetch
-  buildLeanSharedLib (pkg.nativeLibDir / name) #[ffiO, symbolO] #["-lstdc++", "-v"]
+  buildLeanSharedLib (pkg.nativeLibDir / name) #[ffiO, symbolO] #["-lstdc++"] --, "-v"]
 
 def shouldKeep (fileName : String) (keepPrefix : Array String := #[]) (keepPostfix : Array String := #[]): Bool := Id.run do
   for pf in keepPrefix do

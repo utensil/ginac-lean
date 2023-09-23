@@ -1,4 +1,4 @@
-namespace GiNaC
+namespace Ginac
 
 opaque SymbolPointed : NonemptyType
 def Symbol : Type := (SymbolPointed).type
