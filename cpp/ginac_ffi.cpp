@@ -1,6 +1,7 @@
 #include <lean/lean.h>
 #include <iostream>
 #include <ginac/ginac.h>
+#include "CppClass.h"
 using namespace std;
 using namespace GiNaC;
 
@@ -21,10 +22,12 @@ extern "C" lean_obj_res my_lean_fun() {
     return lean_io_result_mk_ok(lean_box(0));
 }
 
-extern "C" lean_obj_res GiNaC_symbol(b_lean_obj_arg name) {
-    return reinterpret_cast<lean_obj_res>(new symbol(lean_string_cstr(name)));
+extern "C" LEAN_EXPORT lean_obj_res GiNaC_symbol(b_lean_obj_arg name) {
+    auto sym = new symbol(lean_string_cstr(name));
+    return of_cppClass(sym);
 }
 
-extern "C" lean_obj_res GiNaC_symbol_name(b_lean_obj_arg sym) {
-    return lean_mk_string(reinterpret_cast<symbol*>(sym)->get_name().c_str());
+extern "C" LEAN_EXPORT lean_obj_res GiNaC_symbol_name(b_lean_obj_arg _sym) {
+    auto sym = to_cppClass<symbol>(_sym);
+    return lean_mk_string(sym->get_name().c_str());
 }

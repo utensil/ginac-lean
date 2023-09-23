@@ -143,7 +143,7 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
   let optLevel := if pkg.buildType == .release then "-O3" else "-O0"
   let mut flags := #[
     "-fPIC",
-    "-std=c++11",
+    "-std=c++14",
     -- "-lstdc++",
     -- "-stdlib=libstdc++", -- gcc
     -- "-static-libstdc++", -- gcc
