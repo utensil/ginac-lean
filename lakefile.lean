@@ -165,43 +165,87 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
   buildFileAfterDepList oFile (srcJob :: deps) (extraDepTrace := computeHash flags) fun deps =>
     compileO path.toString oFile deps[0]! args clangxx
 
-target GinacFFI.o pkg : FilePath := do
-  -- TODO figure out why these are required for linking, otherwise
-  -- [5/5] Linking ginac-lean
-  -- error: > /home/vscode/.elan/toolchains/leanprover--lean4---4.0.0/bin/leanc -o ./build/bin/ginac-lean ./build/ir/Main.o ./build/ir/GinacFFI.o -L./build/lib -lginac_ffi -lginac -lcln -lstdc++
-  -- error: stderr:
-  -- ld.lld: error: undefined reference due to --no-allow-shlib-undefined: std::ios_base::Init::Init()
-  -- >>> referenced by ./build/lib/libginac_ffi.so
-  let _cpp ← libcpp.fetch
-  let _cppabi ← libcppabi.fetch
-  let _unwind ← libunwind.fetch
+-- target GinacFFI.o pkg : FilePath := do
+--   let cln ← libcln.fetch
+--   let ginac ← libginac.fetch
+--   let build := buildCpp pkg "cpp/GinacFFI.cpp" [ginac, cln]
+--   afterReleaseSync pkg build
 
-  let cln ← libcln.fetch
-  let ginac ← libginac.fetch
-  let build := buildCpp pkg "cpp/GinacFFI.cpp" [ginac, cln] --, cpp, cppabi, unwind]
-  afterReleaseSync pkg build
+-- target Symbol.o pkg : FilePath := do
+--   let cln ← libcln.fetch
+--   let ginac ← libginac.fetch
+--   let build := buildCpp pkg "cpp/Symbol.cpp" [ginac, cln]
+--   afterReleaseSync pkg build
 
-target Symbol.o pkg : FilePath := do
-  -- TODO figure out why these are required for linking, otherwise
-  -- [5/5] Linking ginac-lean
-  -- error: > /home/vscode/.elan/toolchains/leanprover--lean4---4.0.0/bin/leanc -o ./build/bin/ginac-lean ./build/ir/Main.o ./build/ir/GinacFFI.o -L./build/lib -lginac_ffi -lginac -lcln -lstdc++
-  -- error: stderr:
-  -- ld.lld: error: undefined reference due to --no-allow-shlib-undefined: std::ios_base::Init::Init()
-  -- >>> referenced by ./build/lib/libginac_ffi.so
-  let _cpp ← libcpp.fetch
-  let _cppabi ← libcppabi.fetch
-  let _unwind ← libunwind.fetch
+-- macro kw:"cpptarget " id:ident : command => do
+--   let name := Name.quoteFrom id id.getId
+--   `(target $id pkg : FilePath := do
+--     let srcFile := (pkg.buildDir / "cpp" / $name).withExtension "cpp"
+--     let cln ← libcln.fetch
+--     let ginac ← libginac.fetch
+--     let build := buildCpp pkg srcFile [ginac, cln]
+--     afterReleaseSync pkg build)
 
-  let cln ← libcln.fetch
-  let ginac ← libginac.fetch
-  let build := buildCpp pkg "cpp/Symbol.cpp" [ginac, cln] --, cpp, cppabi, unwind]
-  afterReleaseSync pkg build
+-- cpptarget Symbol.o
+
+-- def buildCppJob (pkg : Package) (srcFile : FilePath) : IndexBuildM (BuildJob FilePath)  := do
+--   let cln ← libcln.fetch
+--   let ginac ← libginac.fetch
+--   afterReleaseSync pkg do
+--     -- let dst := pkg.buildDir / "cpp" / (srcFile.withExtension "o").fileName.get!
+--     let build := buildCpp pkg srcFile [ginac, cln]
+--     build
+    -- try
+    --   let depTrace := Hash.ofString srcFile.toString
+    --   let trace ← buildFileUnlessUpToDate dst depTrace do
+        
+    --   pure (dst, trace)
+    -- else
+    --   pure (dst, ← computeTrace dst)
 
 target libginac_ffi pkg : FilePath := do
+  -- TODO figure out why these are required for linking, otherwise
+  -- [5/5] Linking ginac-lean
+  -- error: > /home/vscode/.elan/toolchains/leanprover--lean4---4.0.0/bin/leanc -o ./build/bin/ginac-lean ./build/ir/Main.o ./build/ir/GinacFFI.o -L./build/lib -lginac_ffi -lginac -lcln -lstdc++
+  -- error: stderr:
+  -- ld.lld: error: undefined reference due to --no-allow-shlib-undefined: std::ios_base::Init::Init()
+  -- >>> referenced by ./build/lib/libginac_ffi.so
+  let _cpp ← libcpp.fetch
+  let _cppabi ← libcppabi.fetch
+  let _unwind ← libunwind.fetch
+  let cln ← libcln.fetch
+  let ginac ← libginac.fetch
+
+  let srcFiles := #[
+    pkg.dir / "cpp" / "GinacFFI.cpp",
+    pkg.dir / "cpp" / "Symbol.cpp"
+  ]
+
+  let mut buildJobs : Array (BuildJob FilePath) := Array.mkEmpty srcFiles.size
+    
+  for srcFile in srcFiles do
+    let oFile := pkg.buildDir / "cpp" / (srcFile.withExtension "o").fileName.get!
+    let srcJob ← inputFile <| srcFile
+    let optLevel := if pkg.buildType == .release then "-O3" else "-O0"
+    let mut flags := #[
+      "-fPIC",
+      "-std=c++14",
+      optLevel
+    ]
+    match get_config? targetArch with
+    | none => pure ()
+    | some arch => flags := flags.push s!"--target={arch}"
+    let args := flags ++ #["-I", (← getLeanIncludeDir).toString, "-I", (pkg.buildDir / "include").toString]
+    let (srcFile, _srcTrace) <- srcJob.get
+    let job ← buildFileAfterDepList oFile (srcJob :: [ginac, cln]) (extraDepTrace := computeHash flags) fun deps =>
+      compileO srcFile.fileName.get! oFile deps[0]! args clangxx
+    buildJobs := buildJobs.push job
+
   let name := nameToSharedLib "ginac_ffi"
-  let ffiO ← GinacFFI.o.fetch
-  let symbolO <- Symbol.o.fetch
-  buildLeanSharedLib (pkg.nativeLibDir / name) #[ffiO, symbolO] #["-lstdc++"] --, "-v"]
+  -- let ffiO ← GinacFFI.o.fetch
+  -- let symbolO <- Symbol.o.fetch
+  let build := buildLeanSharedLib (pkg.nativeLibDir / name) buildJobs #["-lstdc++"] --, "-v"]
+  afterReleaseSync pkg build
 
 def shouldKeep (fileName : String) (keepPrefix : Array String := #[]) (keepPostfix : Array String := #[]): Bool := Id.run do
   for pf in keepPrefix do
@@ -233,5 +277,6 @@ script clear := do
 
   removeDirIfExists s!"{__dir__}/build/cpp/"
   removeDirIfExists s!"{__dir__}/build/ir/"
-
+  removeDirIfExists s!"{__dir__}/build/lib/examples"
+  removeDirIfExists s!"{__dir__}/build/lib/Ginac"
   return 0
