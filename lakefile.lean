@@ -171,7 +171,6 @@ target libginac_ffi pkg : FilePath := do
     | none => pure ()
     | some arch => flags := flags.push s!"--target={arch}"
     let args := flags ++ #["-I", (← getLeanIncludeDir).toString, "-I", (pkg.buildDir / "include").toString]
-    let (srcFile, _srcTrace) <- srcJob.get
     let job ← buildFileAfterDepList oFile (srcJob :: [ginac, cln]) (extraDepTrace := computeHash flags) fun deps =>
       compileO srcFile.fileName.get! oFile deps[0]! args clangxx
     buildJobs := buildJobs.push job
