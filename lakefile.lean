@@ -138,71 +138,6 @@ target libginac pkg : FilePath := do
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
 
-def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath)) : SchedulerM (BuildJob FilePath) := do
-  let optLevel := if pkg.buildType == .release then "-O3" else "-O0"
-  let mut flags := #[
-    "-fPIC",
-    "-std=c++14",
-    -- "-lstdc++",
-    -- "-stdlib=libstdc++", -- gcc
-    -- "-static-libstdc++", -- gcc
-    -- "-stdlib=libc++", -- clang
-    -- "-L", (← getLeanSystemLibDir).toString,
-    -- "-I", (← getLeanIncludeDir).toString,
-    -- "-I", (pkg.buildDir / "include").toString,
-    -- "-L", (pkg.buildDir / "lib").toString,
-    -- "-lcln",
-    -- "-lginac",
-    -- "-v",
-    optLevel
-  ]
-  match get_config? targetArch with
-  | none => pure ()
-  | some arch => flags := flags.push s!"--target={arch}"
-  let args := flags ++ #["-I", (← getLeanIncludeDir).toString, "-I", (pkg.buildDir / "include").toString]
-  let oFile := pkg.buildDir / (path.withExtension "o")
-  let srcJob ← inputFile <| pkg.dir / path
-  buildFileAfterDepList oFile (srcJob :: deps) (extraDepTrace := computeHash flags) fun deps =>
-    compileO path.toString oFile deps[0]! args clangxx
-
--- target GinacFFI.o pkg : FilePath := do
---   let cln ← libcln.fetch
---   let ginac ← libginac.fetch
---   let build := buildCpp pkg "cpp/GinacFFI.cpp" [ginac, cln]
---   afterReleaseSync pkg build
-
--- target Symbol.o pkg : FilePath := do
---   let cln ← libcln.fetch
---   let ginac ← libginac.fetch
---   let build := buildCpp pkg "cpp/Symbol.cpp" [ginac, cln]
---   afterReleaseSync pkg build
-
--- macro kw:"cpptarget " id:ident : command => do
---   let name := Name.quoteFrom id id.getId
---   `(target $id pkg : FilePath := do
---     let srcFile := (pkg.buildDir / "cpp" / $name).withExtension "cpp"
---     let cln ← libcln.fetch
---     let ginac ← libginac.fetch
---     let build := buildCpp pkg srcFile [ginac, cln]
---     afterReleaseSync pkg build)
-
--- cpptarget Symbol.o
-
--- def buildCppJob (pkg : Package) (srcFile : FilePath) : IndexBuildM (BuildJob FilePath)  := do
---   let cln ← libcln.fetch
---   let ginac ← libginac.fetch
---   afterReleaseSync pkg do
---     -- let dst := pkg.buildDir / "cpp" / (srcFile.withExtension "o").fileName.get!
---     let build := buildCpp pkg srcFile [ginac, cln]
---     build
-    -- try
-    --   let depTrace := Hash.ofString srcFile.toString
-    --   let trace ← buildFileUnlessUpToDate dst depTrace do
-        
-    --   pure (dst, trace)
-    -- else
-    --   pure (dst, ← computeTrace dst)
-
 target libginac_ffi pkg : FilePath := do
   -- TODO figure out why these are required for linking, otherwise
   -- [5/5] Linking ginac-lean
@@ -242,8 +177,6 @@ target libginac_ffi pkg : FilePath := do
     buildJobs := buildJobs.push job
 
   let name := nameToSharedLib "ginac_ffi"
-  -- let ffiO ← GinacFFI.o.fetch
-  -- let symbolO <- Symbol.o.fetch
   let build := buildLeanSharedLib (pkg.nativeLibDir / name) buildJobs #["-lstdc++"] --, "-v"]
   afterReleaseSync pkg build
 
