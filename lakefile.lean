@@ -138,6 +138,22 @@ target libginac pkg : FilePath := do
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
 
+def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath)) : SchedulerM (BuildJob FilePath) := do
+    let oFile := pkg.buildDir / "cpp" / (path.withExtension "o").fileName.get!
+    let srcJob ← inputFile <| path
+    let optLevel := if pkg.buildType == .release then "-O3" else "-O0"
+    let mut flags := #[
+      "-fPIC",
+      "-std=c++14",
+      optLevel
+    ]
+    match get_config? targetArch with
+    | none => pure ()
+    | some arch => flags := flags.push s!"--target={arch}"
+    let args := flags ++ #["-I", (← getLeanIncludeDir).toString, "-I", (pkg.buildDir / "include").toString]
+    buildFileAfterDepList oFile (srcJob :: deps) (extraDepTrace := computeHash flags) fun deps =>
+      compileO path.toString oFile deps[0]! args clangxx
+
 target libginac_ffi pkg : FilePath := do
   -- TODO figure out why these are required for linking, otherwise
   -- [5/5] Linking ginac-lean
@@ -159,20 +175,7 @@ target libginac_ffi pkg : FilePath := do
   let mut buildJobs : Array (BuildJob FilePath) := Array.mkEmpty srcFiles.size
     
   for srcFile in srcFiles do
-    let oFile := pkg.buildDir / "cpp" / (srcFile.withExtension "o").fileName.get!
-    let srcJob ← inputFile <| srcFile
-    let optLevel := if pkg.buildType == .release then "-O3" else "-O0"
-    let mut flags := #[
-      "-fPIC",
-      "-std=c++14",
-      optLevel
-    ]
-    match get_config? targetArch with
-    | none => pure ()
-    | some arch => flags := flags.push s!"--target={arch}"
-    let args := flags ++ #["-I", (← getLeanIncludeDir).toString, "-I", (pkg.buildDir / "include").toString]
-    let job ← buildFileAfterDepList oFile (srcJob :: [ginac, cln]) (extraDepTrace := computeHash flags) fun deps =>
-      compileO srcFile.fileName.get! oFile deps[0]! args clangxx
+    let job ← buildCpp pkg srcFile [ginac, cln]
     buildJobs := buildJobs.push job
 
   let name := nameToSharedLib "ginac_ffi"
