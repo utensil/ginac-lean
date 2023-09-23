@@ -182,11 +182,27 @@ target ginac_ffi.o pkg : FilePath := do
   let build := buildCpp pkg "cpp/ginac_ffi.cpp" [ginac, cln] --, cpp, cppabi, unwind]
   afterReleaseSync pkg build
 
+target Symbol.o pkg : FilePath := do
+  -- TODO figure out why these are required for linking, otherwise
+  -- [5/5] Linking ginac-lean
+  -- error: > /home/vscode/.elan/toolchains/leanprover--lean4---4.0.0/bin/leanc -o ./build/bin/ginac-lean ./build/ir/Main.o ./build/ir/GinacFFI.o -L./build/lib -lginac_ffi -lginac -lcln -lstdc++
+  -- error: stderr:
+  -- ld.lld: error: undefined reference due to --no-allow-shlib-undefined: std::ios_base::Init::Init()
+  -- >>> referenced by ./build/lib/libginac_ffi.so
+  let _cpp ← libcpp.fetch
+  let _cppabi ← libcppabi.fetch
+  let _unwind ← libunwind.fetch
+
+  let cln ← libcln.fetch
+  let ginac ← libginac.fetch
+  let build := buildCpp pkg "cpp/Symbol.cpp" [ginac, cln] --, cpp, cppabi, unwind]
+  afterReleaseSync pkg build
+
 target libginac_ffi pkg : FilePath := do
   let name := nameToSharedLib "ginac_ffi"
   let ffiO ← ginac_ffi.o.fetch
-  buildLeanSharedLib (pkg.nativeLibDir / name) #[ffiO] #["-lstdc++", "-v"]
-
+  let symbolO <- Symbol.o.fetch
+  buildLeanSharedLib (pkg.nativeLibDir / name) #[ffiO, symbolO] #["-lstdc++", "-v"]
 
 def shouldKeep (fileName : String) (keepPrefix : Array String := #[]) (keepPostfix : Array String := #[]): Bool := Id.run do
   for pf in keepPrefix do
