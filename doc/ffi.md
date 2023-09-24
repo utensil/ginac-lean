@@ -28,7 +28,7 @@ This is mostly covered by [LeanInfer](https://github.com/lean-dojo/LeanInfer), w
 
 Some limitations of LeanInfer's solution: At the time of writing, it relies on local builds by the authors, including building LLVM, Clang and its standard library `libc++` from source, no CI has been set up to run this continuously to make it applicable for other projects. It also requires to build the C++ part with `clang++` and its standard library `libc++` on all platforms, which could be chanllenaging for FFI binding developers who are not familiar with C++ toolchains, also some libraries requires heavy patching to compile and link with `libc++` instead of the more widely available `libstdc++` from GNU.
 
-There is also another library worth noticing, [hashbrown4lean](https://github.com/SchrodingerZhu/hashbrown4lean) which successfully create a Lean 4 binding to the Rust library [hashbrown](https://github.com/rust-lang/hashbrown). Its solution is very similar to EigenLean's, but it also demonstrates how to ensure memory safety, and type correspondance in the FFI boundary in Rust, which could be inspriring for C++ FFI binding developers as well.
+There is also another library worth noticing, [hashbrown4lean](https://github.com/SchrodingerZhu/hashbrown4lean) which successfully creates a Lean 4 binding to the Rust library [hashbrown](https://github.com/rust-lang/hashbrown). Its solution is very similar to EigenLean's, but it also demonstrates how to ensure memory safety, and type correspondance across the FFI boundary bewteen Lean and Rust, which could be inspriring for C++ FFI binding developers as well.
 
 ### FFI to C++ in some other languages
 
@@ -36,7 +36,7 @@ In general, creating a binding to a C++ library requires a C shim layer, which i
 
 These tasks are non-trival and tedious. The only fun may be designing the idiomatic high-level interface in the target language, which is the only part that is not mechanical, and could be very different from the original C++ API. That's why people tend to create code generators to automate the process.
 
-[SWIG](http://www.swig.org/) is a popular code generator for creating bindings to C and C++ libraries. It supports many target languages, including Python, Ruby, Java, C#, Go, etc. Its own C++ parser supports many but not all C++ features, but as C++ has been greatly evolved in the last decade, good libraries might have been utilizing these new features, not only internally but also in the API surface. It would be hard to assess up front whether SWIG is a good fit for a particular C++ library.
+[SWIG](http://www.swig.org/) is a popular code generator for creating bindings to C and C++ libraries. It supports many target languages, including Python, Ruby, Java, C#, Go, etc. Its own C++ parser supports many but not all C++ features, but as C++ has been greatly evolved in the last decade, good libraries might have been utilizing these new features, not only internally but also on the API surface. It would be hard to assess upfront whether SWIG is a good fit for a particular C++ library.
 
 For popular languages like Python and Node.js, there are many solutions to create bindings to C++ libraries, also for Rust libraries nowadays. Enumerating them is out of the scope of this post. The gist of these solutions are to parse C/C++ header files, align the primitive and composite types, align the way to call functions and efficiently pass things around, then using a template to generate the target language code.
 
