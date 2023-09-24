@@ -20,7 +20,7 @@ Lean 4 manual provides [documents](https://lean-lang.org/lean4/doc/dev/ffi.html)
 
 There's [a minimal FFI to C++ example](https://github.com/lecopivo/lean-cpp-ffi) which explores only the basics of calling C++ standard library functions inside a `extern "C"` Lean FFI function.
 
-[EigenLean](https://github.com/lecopivo/EigenLean) gives a complete solution to safely create opaque C++ objects, using them from a Lean type, calling C++ methods on them, and safely destroy them via reference counting mechanism available in Lean and destructor mechanism in C++. The solution slightly utilizes C++14 features. One caveat is that the solution is not immediately thread-safe but can be made so easily. And the bonus is it builds all the foundation to call template methods on C++ template classes, which in retrospect, is very natural but technical non-trivial. There are quite a few great header-only libraries could be brought to Lean 4 in the same way. It also settles on a good way to organize the C++ code and the Lean code, as well as some naming conventions (an exotic naming like GiNaC still has its own subtleties, though).
+[EigenLean](https://github.com/lecopivo/EigenLean) gives a complete solution to safely create C++ objects, use them from an opaque Lean type, call C++ methods on them, and safely destroy them via reference counting mechanism available in Lean 4 and destructor mechanism in C++. The solution slightly utilizes C++14 features, thus require a C++14-compatible compiler. One caveat is that the solution is not immediately thread-safe but can be made so easily. And the bonus is it builds all the foundation to call template methods on C++ template classes, which in retrospect, is very natural from Lean's dependent types but technical non-trivial. There are quite a few great header-only libraries could be brought to Lean 4 in the same way. It also settles on a good way to organize the C++ code and the Lean code, as well as some naming conventions (an exotic naming like GiNaC still has its own subtleties, though).
 
 What EigenLean didn't explore, is to work with a non-header-only C++ library, which is the case for GiNaC, as well as many other C++ libraries. One particularly common case is that you have some C++ header and a pre-compiled shared library, whether it's due to the unavailability of the source code, or the difficulties to compile and link, including long compilation time. Its lakefiles is thus very simple and applicable only to libraries with less complications from its source code or binary distribution.
 
@@ -64,11 +64,16 @@ There are quite a few issues to investigate and reproduce in minimal settings, t
 
 This project is a work-in-progress, in case it would help others, so far it has successfully explored the following aspects, which are essential basics for similar projects:
 
-- compile `GiNaC` and its dependency `CLN` with `clang++` and `libstdc++` from GNU as it fails to compile with `libc++` from LLVM without heavy patching: check `scripts/build_ginac.sh` for details, a few minor patches are applied
-- make `GiNaC` with `libstdc++` compile and link with Lean FFI glue code which seems to require linking with `libc++` from LLVM as well: check `lakefile.lean` for details, it's adapted from `LeanInfer`'s `lakefile.lean`
-- map a few GiNaC C++ APIs to Lean opaque types and opaque functions on it following the practice of EigenLean, which applies to almost all other classes and methods in GiNaC: check `lean/` and `cpp/` for details
-- use the Python binding of `libclang` to parse GiNaC headers, and identified the required elements for generating the Lean interface of these opaque types and functions: check `scripts/parse.py` for details
-- set up a CI to pass under both Ubuntu and Mac OS (Windows support is in similar spirit but it's not a priority for now): `.github/workflows/ci.yml` for details
+- compile `GiNaC` and its dependency `CLN` with `clang++` and `libstdc++` from GNU as it fails to compile with `libc++` from LLVM without heavy patching
+  - check `scripts/build_ginac.sh` for details, a few minor patches are applied
+- make `GiNaC` with `libstdc++` compile and link with Lean FFI glue code which seems to require linking with `libc++` from LLVM as well, this completes the call chain `Lean -> FFI C++ glue code -> C++ GiNaC code -> GNU C++ stdlib`
+  - check `lakefile.lean` for details, it's adapted from `LeanInfer`'s `lakefile.lean`
+- map a few GiNaC C++ APIs to Lean opaque types and opaque functions on it following the practice of EigenLean, which applies to almost all other classes and methods in GiNaC, this improves the previous call chain to `Idiomatic Lean -> Lean FFI glue code -> C++ GiNaC code -> GNU C++ stdlib`
+  - check `lean/` and `cpp/` for details
+- use the Python binding of `libclang` to parse GiNaC headers, and identified the required elements for generating the Lean interface of these opaque types and functions
+  - check `scripts/parse.py` for details
+- set up a CI to pass under both Ubuntu and Mac OS (Windows support is in similar spirit but it's not a priority for now), which caches the compilation product of C++ CLN&GiNa but rebuild everything for C++ FFI glue code and Lean code, this shortens the build time from 25min to less than 10min (which includes running C++ test cases, close to the run time of Lean test cases yet to be generated) but also ensures modifications to lakefile, FFI&Lean code are continuously verified as we will tweak them a lot
+  - check `.github/workflows/ci.yml` for details
 
 A few major TODOs, these might be interesting goals for similar projects:
 
