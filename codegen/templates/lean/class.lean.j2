@@ -1,0 +1,19 @@
+{% extends "lean/base.lean.j2" %}
+
+{% block import %}
+{% for dep in deps %}
+import {{namespace}}.{{dep.lean}}
+{% endfor %}
+{% endblock %}
+
+{% block content %}
+opaque {{type.lean}}Pointed : NonemptyType
+def {{type.lean}} : Type := ({{type.lean}}Pointed).type
+instance : Nonempty ({{type.lean}}) := ({{type.lean}}Pointed).property
+
+{% for method in type.methods %}
+@[extern "{{namespace}}_{{type.lean}}_{{method.lean}}"]
+opaque {{type.lean}}.{{method.lean}} {{list_sig_params_lean(method.params)}} : {{method.return_type.lean}}
+
+{% endfor %}
+{% endblock %}

@@ -71,7 +71,7 @@ This project is a work-in-progress, in case it would help others, so far it has 
 - map a few GiNaC C++ APIs to Lean opaque types and opaque functions on it following the practice of EigenLean, which applies to almost all other classes and methods in GiNaC, this improves the previous call chain to `Idiomatic Lean -> Lean FFI glue code -> C++ GiNaC code -> GNU C++ stdlib`
   - check `lean/` and `cpp/` for details
 - use the Python binding of `libclang` to parse GiNaC headers, and have identified the required elements for generating the Lean interface of these opaque types and functions
-  - check `scripts/parse.py` for details
+  - check `codegen/parse.py` for details
 - set up a CI to pass under both Ubuntu and Mac OS (Windows support is in similar spirit but it's not a priority for now), which caches the compilation product of C++ CLN&GiNa but rebuild everything for C++ FFI glue code and Lean code, this shortens the build time from 25min to less than 10min (which includes running C++ test cases, close to the run time of Lean test cases yet to be generated) but also ensures modifications to lakefile, FFI&Lean code are continuously verified as we will tweak them a lot
   - check `.github/workflows/ci.yml` for details
 

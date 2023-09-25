@@ -1,0 +1,34 @@
+namespace: Ginac
+deps:
+  - lean: Dep
+type:
+  lean: Symbol
+  cpp: symbol
+  methods:
+    - kind: CONSTRUCTOR
+      lean: mk
+      cpp: symbol
+      params:
+        - name: name
+          # own: false
+          type:
+            lean: "@&String"
+            cpp: "const std::string &"
+            to_lean: "lean_string_cstr(%s)"
+        - name: another
+          # own: false
+          type:
+            lean: "@&String"
+            cpp: "const std::string &"
+            to_lean: "lean_string_cstr(%s)"
+      return_type:
+        lean: Symbol
+        cpp: symbol
+    - kind: CXX_METHOD
+      lean: name
+      cpp: get_name
+      params: []
+      return_type:
+        lean: String
+        cpp: std::string
+        to_lean: "lean_mk_string(%s.c_str())"

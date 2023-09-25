@@ -1,0 +1,50 @@
+{% macro add_sep(loop, sep) %}
+{% if loop.last %}{% else %}{{sep}}{% endif %}
+{%- endmacro %}
+
+{% macro maybe(sep, test_subject) %}
+{% if test_subject | length > 0 %}{{sep}}{% endif %}
+{%- endmacro %}
+
+{% macro lean_arg(own) %}
+{% if own %}lean_obj_arg{% else %}b_lean_obj_arg{% endif %}
+{%- endmacro %}
+
+{% macro arg(name) %}
+_arg_{{name|replace('::', '_')}}
+{%- endmacro %}
+
+{% macro ret(name) %}
+_ret_{{name|replace('::', '_')}}
+{%- endmacro %}
+
+{% macro list_params(params) %}
+{% if params|length > 1 %}
+{# TODO: account for many params #}
+{% set sep = joiner(", ") %}
+{% else %}
+{% set sep = joiner(", ") %}
+{%- endif %}
+{% for param in params %}
+{{ sep() }}{{ param.type.to_lean|format(arg(param.name))}}
+{%- endfor %}
+{%- endmacro %}
+
+{% macro list_sig_params_cpp(params) %}
+{% if params|length > 1 %}
+{# TODO: account for many params #}
+{% set sep = joiner(",\n") %}
+{% else %}
+{% set sep = joiner(", ") %}
+{%- endif %}
+{% for param in params %}
+{{ sep() }}{{ lean_arg(param.own) }} {{arg(param.name)}}
+{%- endfor %}
+{%- endmacro %}
+
+{% macro list_sig_params_lean(params) %}
+{% set sep = joiner(" ") %}
+{% for param in params %}
+{{ sep() }}({{param.name}} : {{param.type.lean}})
+{%- endfor %}
+{%- endmacro %}
