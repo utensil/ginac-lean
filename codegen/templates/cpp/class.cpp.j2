@@ -18,7 +18,7 @@ extern "C" LEAN_EXPORT lean_obj_res {{namespace}}_{{type.lean}}_{{method.lean}}(
 }
 {% endif %}
 {% if method.kind == "CXX_METHOD" %}
-extern "C" LEAN_EXPORT lean_obj_res {{namespace}}_{{type.lean}}_{{method.lean}}(b_lean_obj_arg _self{{maybe(", ", params)}}{{list_sig_params_cpp(method.params)}}) {
+extern "C" LEAN_EXPORT lean_obj_res {{namespace}}_{{type.lean}}_{{method.lean}}(b_lean_obj_arg _self{{maybe(", ", method.params)}}{{list_sig_params_cpp(method.params)}}) {
     auto self = to_cppClass<symbol>(_self);
     auto {{ret(method.return_type.cpp)}} = self->{{method.cpp}}({{list_params_call_cpp(method.params)}});
     return {{ method.return_type.to_lean|format(ret(method.return_type.cpp))}};

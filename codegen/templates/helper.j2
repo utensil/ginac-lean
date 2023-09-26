@@ -19,7 +19,7 @@ _ret_{{name|replace('::', '_')}}
 {%- endmacro %}
 
 {% macro list_params_call_cpp(params) %}
-{% if params|length > 1 %}
+{% if params|length > 100 %}
 {# TODO: account for many params #}
 {% set sep = joiner(", ") %}
 {% else %}
@@ -31,7 +31,7 @@ _ret_{{name|replace('::', '_')}}
 {%- endmacro %}
 
 {% macro list_sig_params_cpp(params) %}
-{% if params|length > 1 %}
+{% if params|length > 100 %}
 {# TODO: account for many params #}
 {% set sep = joiner(",\n") %}
 {% else %}
