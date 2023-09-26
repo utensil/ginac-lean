@@ -18,7 +18,7 @@ _arg_{{name|replace('::', '_')}}
 _ret_{{name|replace('::', '_')}}
 {%- endmacro %}
 
-{% macro list_params(params) %}
+{% macro list_params_call_cpp(params) %}
 {% if params|length > 1 %}
 {# TODO: account for many params #}
 {% set sep = joiner(", ") %}
@@ -26,7 +26,7 @@ _ret_{{name|replace('::', '_')}}
 {% set sep = joiner(", ") %}
 {%- endif %}
 {% for param in params %}
-{{ sep() }}{{ param.type.to_lean|format(arg(param.name))}}
+{{ sep() }}{{ param.type.from_lean|format(arg(param.name))}}
 {%- endfor %}
 {%- endmacro %}
 

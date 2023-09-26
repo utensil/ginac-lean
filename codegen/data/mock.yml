@@ -14,20 +14,26 @@ type:
           type:
             lean: "@&String"
             cpp: "const std::string &"
-            to_lean: "lean_string_cstr(%s)"
+            from_lean: "lean_string_cstr(%s)"
         - name: another
           # own: false
           type:
             lean: "@&String"
             cpp: "const std::string &"
-            to_lean: "lean_string_cstr(%s)"
+            from_lean: "lean_string_cstr(%s)"
       return_type:
         lean: Symbol
         cpp: symbol
     - kind: CXX_METHOD
       lean: name
       cpp: get_name
-      params: []
+      params:
+        - name: how
+          # own: false
+          type:
+            lean: "@&String"
+            cpp: "const std::string &"
+            from_lean: "lean_string_cstr(%s)"
       return_type:
         lean: String
         cpp: std::string
