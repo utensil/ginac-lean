@@ -18,7 +18,7 @@ In this section, we give a non-exhaustive survey on the status quo of creating b
 
 Lean 4 manual provides [documents](https://lean-lang.org/lean4/doc/dev/ffi.html) and [an example](https://github.com/leanprover/lean4/blob/master/src/lake/examples/ffi) on FFI to C.
 
-There's [a minimal FFI to C++ example](https://github.com/lecopivo/lean-cpp-ffi) which explores only the basics of calling C++ standard library functions inside a `extern "C"` Lean FFI function.
+In Lean 4 unit tests, there's [a minimal FFI to C++ example](https://github.com/leanprover/lean4/tree/master/tests/compiler/foreign) which explores the basics of wrapping a C++ object using an `lean_external_object`.
 
 [EigenLean](https://github.com/lecopivo/EigenLean) gives a complete solution to safely create C++ objects, use them from an opaque Lean type, call C++ methods on them, and safely destroy them via reference counting mechanism available in Lean 4 and destructor mechanism in C++. The solution slightly utilizes C++14 features, thus require a C++14-compatible compiler. One caveat is that the solution is not immediately thread-safe but can be made so easily. And the bonus is it builds all the foundation to call template methods on C++ template classes, which in retrospect, is very natural from Lean's dependent types but technical non-trivial. There are quite a few great header-only libraries could be brought to Lean 4 in the same way. It also settles on a good way to organize the C++ code and the Lean code, as well as some naming conventions (an exotic naming like GiNaC still has its own subtleties, though).
 
