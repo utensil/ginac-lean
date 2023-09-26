@@ -18,10 +18,9 @@ _arg_{{name|replace('::', '_')}}
 _ret_{{name|replace('::', '_')}}
 {%- endmacro %}
 
-{% macro list_params_call_cpp(params) %}
-{% if params|length > 100 %}
-{# TODO: account for many params #}
-{% set sep = joiner(", ") %}
+{% macro list_params_call_cpp(params, indent_level=2, indent_threshold=1) %}
+{% if params|length > indent_threshold %}
+{% set sep = joiner(",\n" ~ "    " * indent_level) %}
 {% else %}
 {% set sep = joiner(", ") %}
 {%- endif %}
@@ -30,16 +29,19 @@ _ret_{{name|replace('::', '_')}}
 {%- endfor %}
 {%- endmacro %}
 
-{% macro list_sig_params_cpp(params) %}
-{% if params|length > 100 %}
-{# TODO: account for many params #}
-{% set sep = joiner(",\n") %}
+{% macro list_sig_params_cpp(params, indent_level=2, indent_threshold=1) %}
+{% if params|length > indent_threshold %}
+{% set indent_width = 4 * indent_level %}
+{% set sep = joiner(",\n")%}
 {% else %}
+{% set indent_width = 0 %}
 {% set sep = joiner(", ") %}
 {%- endif %}
+{% filter indent(width=4 * indent_level) %}
 {% for param in params %}
 {{ sep() }}{{ lean_arg(param.own) }} {{arg(param.name)}}
 {%- endfor %}
+{% endfilter %}
 {%- endmacro %}
 
 {% macro list_sig_params_lean(params) %}

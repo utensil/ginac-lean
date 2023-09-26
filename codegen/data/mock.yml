@@ -34,6 +34,18 @@ type:
             lean: "@&String"
             cpp: "const std::string &"
             from_lean: "lean_string_cstr(%s)"
+        - name: are
+          # own: false
+          type:
+            lean: "@&String"
+            cpp: "const std::string &"
+            from_lean: "lean_string_cstr(%s)"
+        - name: you
+          # own: false
+          type:
+            lean: "@&String"
+            cpp: "const std::string &"
+            from_lean: "lean_string_cstr(%s)"
       return_type:
         lean: String
         cpp: std::string
