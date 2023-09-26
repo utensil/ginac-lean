@@ -18,30 +18,18 @@ _arg_{{name|replace('::', '_')}}
 _ret_{{name|replace('::', '_')}}
 {%- endmacro %}
 
-{% macro list_params_call_cpp(params, indent_level=2, indent_threshold=1) %}
-{% if params|length > indent_threshold %}
-{% set sep = joiner(",\n" ~ "    " * indent_level) %}
-{% else %}
+{% macro list_params_call_cpp(params) %}
 {% set sep = joiner(", ") %}
-{%- endif %}
 {% for param in params %}
 {{ sep() }}{{ param.type.from_lean|format(arg(param.name))}}
 {%- endfor %}
 {%- endmacro %}
 
-{% macro list_sig_params_cpp(params, indent_level=2, indent_threshold=1) %}
-{% if params|length > indent_threshold %}
-{% set indent_width = 4 * indent_level %}
-{% set sep = joiner(",\n")%}
-{% else %}
-{% set indent_width = 0 %}
+{% macro list_sig_params_cpp(params) %}
 {% set sep = joiner(", ") %}
-{%- endif %}
-{% filter indent(width=4 * indent_level) %}
 {% for param in params %}
 {{ sep() }}{{ lean_arg(param.own) }} {{arg(param.name)}}
 {%- endfor %}
-{% endfilter %}
 {%- endmacro %}
 
 {% macro list_sig_params_lean(params) %}
