@@ -26,6 +26,16 @@ jobs:
           python-version: 3.11
       - name: package install
         run: |
+          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+            sudo apt update
+            sudo apt install -y curl wget git git-lfs clang lld libc++-dev
+          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+            echo "Running on macOS"
+          else
+            echo "Unsupported OS"
+          fi
+      - name: pip install
+        run: |
           pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
       - name: run pre-commit
         run: |
