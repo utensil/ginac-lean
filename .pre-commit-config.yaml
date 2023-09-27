@@ -7,10 +7,17 @@ repos:
     hooks:
     -   id: check-yaml
     -   id: end-of-file-fixer
-        exclude: ^scripts/.*patch$
+        exclude: |
+            (?x)^(
+            scripts/.*patch |
+            codegen/templates/.*
+            )$
     -   id: trailing-whitespace
-        exclude: ^scripts/.*patch$
-
+        exclude: |
+            (?x)^(
+            scripts/.*patch |
+            codegen/templates/.*
+            )$
 -   repo: https://github.com/psf/black
     rev: 23.3.0
     hooks:
