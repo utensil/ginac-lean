@@ -7,7 +7,7 @@ package «GinacLean» where
   -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
   buildType := BuildType.debug
   -- buildArchive? := is_arm? |>.map (if · then "arm64" else "x86_64")
-  moreLinkArgs := #[s!"-L{__dir__}/build/lib", 
+  moreLinkArgs := #[s!"-L{__dir__}/build/lib",
     -- "-L/usr/bin/../lib/gcc/aarch64-linux-gnu/11 -L/lib/aarch64-linux-gnu -L/usr/lib/aarch64-linux-gnu -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib",
     "-lginac_ffi", "-lginac", "-lcln", "-lstdc++"] -- "-v",  --, "-lc++", "-lc++abi", "-lunwind"] -- "-lstdc++"]
   weakLeanArgs := #[
@@ -18,7 +18,7 @@ package «GinacLean» where
 lean_lib «GinacLean» where
   roots := #[`Ginac]
   moreLinkArgs := #[s!"-L{__dir__}/build/lib",
-  "-lginac_ffi", 
+  "-lginac_ffi",
   "-lstdc++"]
   extraDepTargets := #["libginac_ffi"]
 
@@ -173,7 +173,7 @@ target libginac_ffi pkg : FilePath := do
   ]
 
   let mut buildJobs : Array (BuildJob FilePath) := Array.mkEmpty srcFiles.size
-    
+
   for srcFile in srcFiles do
     let job ← buildCpp pkg srcFile [ginac, cln]
     buildJobs := buildJobs.push job

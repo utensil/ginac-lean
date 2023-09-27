@@ -24,7 +24,7 @@ In Lean 4 unit tests, there's [a minimal FFI to C++ example](https://github.com/
 
 What EigenLean didn't explore, is to work with a non-header-only C++ library, which is the case for GiNaC, as well as many other C++ libraries. One particularly common case is that you have some C++ header and a pre-compiled shared library, whether it's due to the unavailability of the source code, or the difficulties to compile and link, including long compilation time. Its lakefiles is thus very simple and applicable only to libraries with less complications from its source code or binary distribution.
 
-This is mostly covered by [LeanInfer](https://github.com/lean-dojo/LeanInfer), which does a great job to make binary-only runtime to work with Lean, integreated with the Lake's [cloud build releases](https://github.com/leanprover/lean4/tree/master/src/lake#cloud-releases) to bundle binaries like pre-compiled linker-happy shared libraries for supported platforms. 
+This is mostly covered by [LeanInfer](https://github.com/lean-dojo/LeanInfer), which does a great job to make binary-only runtime to work with Lean, integreated with the Lake's [cloud build releases](https://github.com/leanprover/lean4/tree/master/src/lake#cloud-releases) to bundle binaries like pre-compiled linker-happy shared libraries for supported platforms.
 
 Some limitations of LeanInfer's solution: At the time of writing, it relies on local builds by the authors, including building LLVM, Clang and its standard library `libc++` from source, no CI has been set up to run this continuously to make it applicable for other projects. It also requires to build the C++ part with `clang++` and its standard library `libc++` on all platforms, which could be chanllenaging for FFI binding developers who are not familiar with C++ toolchains, also some libraries requires heavy patching to compile and link with `libc++` instead of the more widely available `libstdc++` from GNU.
 
@@ -89,5 +89,3 @@ Some possible future explorations:
 - the binding generating capability can become a spin-off project, which can be reused in other Lean 4 binding projects
 - explore creating bindings to Rust libraries(e.g. [egglog](https://github.com/egraphs-good/egglog/)) and making them idiomatic in Lean, like [egglog's Python binding](https://egg-smol-python.readthedocs.io/en/latest/)
 - explore reverse-FFI, i.e. calling Lean functions from C++/Rust code, even from JavaScript in the browser provided [Lean 4 WASM build makes progress](https://leanprover.zulipchat.com/#narrow/stream/270676-lean4/topic/wasm.20build)
-
-

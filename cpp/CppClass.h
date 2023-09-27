@@ -43,4 +43,3 @@ lean_object * cppClass_make_exclusive(lean_object * o) {
     return of_cppClass(t_unique);
   }
 }
-

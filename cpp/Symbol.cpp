@@ -13,4 +13,3 @@ extern "C" LEAN_EXPORT lean_obj_res Ginac_Symbol_name(b_lean_obj_arg _sym) {
     auto sym = to_cppClass<symbol>(_sym);
     return lean_mk_string(sym->get_name().c_str());
 }
-
