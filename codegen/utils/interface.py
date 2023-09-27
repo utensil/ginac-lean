@@ -29,6 +29,16 @@ class MethodParam:
     name: str
     type: ParamType
 
+    def to_dict(self: MethodParam):
+        return {
+            "name": self.name,
+            "type": {
+                "lean": self.type.lean,
+                "cpp": self.type.cpp,
+                "from_lean": self.type.from_lean,
+            },
+        }
+
 
 @dataclass
 class Method:
@@ -37,6 +47,19 @@ class Method:
     cpp: str
     params: List[MethodParam]
     return_type: ReturnType
+
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "kind": self.kind,
+            "lean": self.lean,
+            "cpp": self.cpp,
+            "params": [param.to_dict() for param in self.params],
+            "return_type": {
+                "lean": self.return_type.lean,
+                "cpp": self.return_type.cpp,
+                "to_lean": self.return_type.to_lean,
+            },
+        }
 
 
 @dataclass
@@ -53,36 +76,12 @@ class ClassInterface:
     type: ClassType
 
     def to_dict(self: ClassInterface):
-        data_dict = {
+        return {
             "namespace": self.namespace,
             "deps": self.deps,
-            "type": {"lean": self.type.lean, "cpp": self.type.cpp, "methods": []},
+            "type": {
+                "lean": self.type.lean,
+                "cpp": self.type.cpp,
+                "methods": [method.to_dict() for method in self.type.methods],
+            },
         }
-
-        for method in self.type.methods:
-            method_dict = {
-                "kind": method.kind,
-                "lean": method.lean,
-                "cpp": method.cpp,
-                "params": [],
-                "return_type": {
-                    "lean": method.return_type.lean,
-                    "cpp": method.return_type.cpp,
-                    "to_lean": method.return_type.to_lean,
-                },
-            }
-
-            for param in method.params:
-                param_dict = {
-                    "name": param.name,
-                    "type": {
-                        "lean": param.type.lean,
-                        "cpp": param.type.cpp,
-                        "from_lean": param.type.from_lean,
-                    },
-                }
-                method_dict["params"].append(param_dict)
-
-            data_dict["type"]["methods"].append(method_dict)
-
-        return data_dict

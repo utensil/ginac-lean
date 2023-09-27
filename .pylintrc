@@ -11,4 +11,4 @@ init-hook="from pylint.config import find_pylintrc; import os, sys; sys.path.app
 [pylint.messages_control]
 disable=missing-function-docstring, line-too-long, import-error,
     too-many-arguments, too-many-locals, too-many-statements, too-many-branches, too-few-public-methods,
-    too-many-instance-attributes, fixme, import-outside-toplevel, logging-fstring-interpolation, missing-module-docstring, unused-import, missing-class-docstring
+    too-many-instance-attributes, fixme, import-outside-toplevel, logging-fstring-interpolation, missing-module-docstring, unused-import, missing-class-docstring, no-else-return
