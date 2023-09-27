@@ -16,7 +16,7 @@ In this section, we give a non-exhaustive survey on the status quo of creating b
 
 ### FFI to C++ in Lean 4
 
-Lean 4 manual provides [documents](https://lean-lang.org/lean4/doc/dev/ffi.html) and [an example](https://github.com/leanprover/lean4/blob/master/src/lake/examples/ffi) on FFI to C.
+Lean 4 manual provides [documents](https://lean-lang.org/lean4/doc/dev/ffi.html) and [an example](https://github.com/leanprover/lean4/blob/master/src/lake/examples/ffi) on FFI to C. [lean-gccjit](https://github.com/SchrodingerZhu/lean-gccjit) is a exellent project that demonstrates how to map complicated C function signatures to Lean 4 types, and how a Lean 4 binding to a sofisticated C library is organized and documented.
 
 In Lean 4 unit tests, there's [a minimal FFI to C++ example](https://github.com/leanprover/lean4/tree/master/tests/compiler/foreign) which explores the basics of wrapping a C++ object using an `lean_external_object`.
 
