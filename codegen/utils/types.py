@@ -21,8 +21,8 @@ from clang.cindex import Type as CppType
 from clang.cindex import TypeKind, conf
 
 
-def to_lean_type_name(type_name_cpp, cpp_type: CppType):
-    if is_primitive_type(cpp_type.kind):
+def to_lean_type_name(type_name_cpp, cpp_type: CppType = None):
+    if cpp_type and is_primitive_type(cpp_type.kind):
         return map_primitive_type(type_name_cpp, cpp_type)
     if "::" in type_name_cpp:
         return to_lean_type_name(type_name_cpp.split("::")[-1], cpp_type)

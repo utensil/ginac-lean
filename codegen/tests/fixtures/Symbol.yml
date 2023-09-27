@@ -1,0 +1,335 @@
+deps: []
+namespace: Ginac
+type:
+  cpp: symbol
+  lean: Symbol
+  methods:
+  - cpp: get_class_info_static
+    kind: CXX_METHOD
+    lean: get_class_info_static
+    params: []
+    return_type:
+      cpp: GiNaC::registered_class_info &
+      lean: RegisteredClassInfo &
+      to_lean: '%s'
+  - cpp: symbol
+    kind: CONSTRUCTOR
+    lean: mk
+    params: []
+    return_type:
+      cpp: symbol
+      lean: Symbol
+      to_lean: '%s'
+  - cpp: duplicate
+    kind: CXX_METHOD
+    lean: duplicate
+    params: []
+    return_type:
+      cpp: symbol *
+      lean: Symbol *
+      to_lean: '%s'
+  - cpp: accept
+    kind: CXX_METHOD
+    lean: accept
+    params:
+    - name: v
+      type:
+        cpp: GiNaC::visitor &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    return_type:
+      cpp: void
+      lean: Void
+      to_lean: '%s'
+  - cpp: get_class_info
+    kind: CXX_METHOD
+    lean: get_class_info
+    params: []
+    return_type:
+      cpp: const GiNaC::registered_class_info &
+      lean: RegisteredClassInfo &
+      to_lean: '%s'
+  - cpp: get_class_info
+    kind: CXX_METHOD
+    lean: get_class_info
+    params: []
+    return_type:
+      cpp: GiNaC::registered_class_info &
+      lean: RegisteredClassInfo &
+      to_lean: '%s'
+  - cpp: class_name
+    kind: CXX_METHOD
+    lean: class_name
+    params: []
+    return_type:
+      cpp: const char *
+      lean: Const char *
+      to_lean: lean_mk_string(%s)
+  - cpp: symbol
+    kind: CONSTRUCTOR
+    lean: mk
+    params:
+    - name: initname
+      type:
+        cpp: const std::string &
+        from_lean: lean_string_cstr(%s)
+        lean: '@&String'
+    return_type:
+      cpp: symbol
+      lean: Symbol
+      to_lean: '%s'
+  - cpp: symbol
+    kind: CONSTRUCTOR
+    lean: mk
+    params:
+    - name: initname
+      type:
+        cpp: const std::string &
+        from_lean: lean_string_cstr(%s)
+        lean: '@&String'
+    - name: texname
+      type:
+        cpp: const std::string &
+        from_lean: lean_string_cstr(%s)
+        lean: '@&String'
+    return_type:
+      cpp: symbol
+      lean: Symbol
+      to_lean: '%s'
+  - cpp: info
+    kind: CXX_METHOD
+    lean: info
+    params:
+    - name: inf
+      type:
+        cpp: unsigned int
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UInt32
+    return_type:
+      cpp: bool
+      lean: Bool
+      to_lean: '%s'
+  - cpp: eval
+    kind: CXX_METHOD
+    lean: eval
+    params: []
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: evalf
+    kind: CXX_METHOD
+    lean: evalf
+    params: []
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: series
+    kind: CXX_METHOD
+    lean: series
+    params:
+    - name: s
+      type:
+        cpp: const relational &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    - name: order
+      type:
+        cpp: int
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: Int32
+    - name: options
+      type:
+        cpp: unsigned int
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UInt32
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: subs
+    kind: CXX_METHOD
+    lean: subs
+    params:
+    - name: m
+      type:
+        cpp: const exmap &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    - name: options
+      type:
+        cpp: unsigned int
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UInt32
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: normal
+    kind: CXX_METHOD
+    lean: normal
+    params:
+    - name: repl
+      type:
+        cpp: exmap &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    - name: rev_lookup
+      type:
+        cpp: exmap &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    - name: modifier
+      type:
+        cpp: lst &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: to_rational
+    kind: CXX_METHOD
+    lean: to_rational
+    params:
+    - name: repl
+      type:
+        cpp: exmap &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: to_polynomial
+    kind: CXX_METHOD
+    lean: to_polynomial
+    params:
+    - name: repl
+      type:
+        cpp: exmap &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: conjugate
+    kind: CXX_METHOD
+    lean: conjugate
+    params: []
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: real_part
+    kind: CXX_METHOD
+    lean: real_part
+    params: []
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: imag_part
+    kind: CXX_METHOD
+    lean: imag_part
+    params: []
+    return_type:
+      cpp: ex
+      lean: Ex
+      to_lean: '%s'
+  - cpp: is_polynomial
+    kind: CXX_METHOD
+    lean: is_polynomial
+    params:
+    - name: var
+      type:
+        cpp: const ex &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    return_type:
+      cpp: bool
+      lean: Bool
+      to_lean: '%s'
+  - cpp: archive
+    kind: CXX_METHOD
+    lean: archive
+    params:
+    - name: n
+      type:
+        cpp: archive_node &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    return_type:
+      cpp: void
+      lean: Void
+      to_lean: '%s'
+  - cpp: read_archive
+    kind: CXX_METHOD
+    lean: read_archive
+    params:
+    - name: n
+      type:
+        cpp: const archive_node &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    - name: syms
+      type:
+        cpp: lst &
+        from_lean: UNKOWN_FROM_LEAN_FUNCTION
+        lean: UNKOWN_LEAN_PARAM_NAME
+    return_type:
+      cpp: void
+      lean: Void
+      to_lean: '%s'
+  - cpp: get_domain
+    kind: CXX_METHOD
+    lean: get_domain
+    params: []
+    return_type:
+      cpp: unsigned int
+      lean: UInt32
+      to_lean: '%s'
+  - cpp: set_name
+    kind: CXX_METHOD
+    lean: set_name
+    params:
+    - name: n
+      type:
+        cpp: const std::string &
+        from_lean: lean_string_cstr(%s)
+        lean: '@&String'
+    return_type:
+      cpp: void
+      lean: Void
+      to_lean: '%s'
+  - cpp: set_TeX_name
+    kind: CXX_METHOD
+    lean: set_TeX_name
+    params:
+    - name: n
+      type:
+        cpp: const std::string &
+        from_lean: lean_string_cstr(%s)
+        lean: '@&String'
+    return_type:
+      cpp: void
+      lean: Void
+      to_lean: '%s'
+  - cpp: get_name
+    kind: CXX_METHOD
+    lean: get_name
+    params: []
+    return_type:
+      cpp: std::string
+      lean: String
+      to_lean: '%s'
+  - cpp: get_TeX_name
+    kind: CXX_METHOD
+    lean: get_TeX_name
+    params: []
+    return_type:
+      cpp: std::string
+      lean: String
+      to_lean: '%s'

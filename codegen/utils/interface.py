@@ -9,6 +9,11 @@ from typing import Any, Dict, Generator, Iterator, List, Optional, Sequence, Set
 
 import yaml
 
+# TODO: it would be nice to use a library for converting from/to YAML,
+# e.g. https://dataclass-wizard.readthedocs.io/en/latest/common_use_cases/wizard_mixins.html#yamlwizard
+# but it seems to have some regression for Python 3.11:
+# https://github.com/rnag/dataclass-wizard/issues/89
+
 
 @dataclass
 class ParamType:
