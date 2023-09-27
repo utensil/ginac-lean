@@ -87,8 +87,6 @@ export CPPFLAGS="-DNO_ASM" # -stdlib=libc++"
 
 make -j8 V=1
 
-make check -j4
-
 make install
 
 cd $WORKSPACES
@@ -107,8 +105,6 @@ export CPPFLAGS=""
 # export CPPFLAGS="-stdlib=libc++"
 
 make -j8
-
-make check -j4
 
 make install
 

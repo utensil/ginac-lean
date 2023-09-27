@@ -31,10 +31,10 @@ jobs:
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | bash -s -- -y
           echo "$HOME/.elan/bin" >> $GITHUB_PATH
       - uses: actions/checkout@v3
-      # - name: Setup Python
-      #   uses: actions/setup-python@v4.6.1
-      #   with:
-      #     python-version: 3.x
+      - name: Setup Python
+        uses: actions/setup-python@v4.6.1
+        with:
+          python-version: 3.x
       - name: Set up cache for deps
         uses: actions/cache@v3
         with:
@@ -52,13 +52,26 @@ jobs:
           else
             echo "Unsupported OS"
           fi
+      - name: pip install
+        run: |
+          pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
+      - name: run pre-commit
+        run: |
+          pre-commit run --all-files
       - name: build ginac
         run: |
           bash scripts/build_ginac.sh
+      - name: run codegen tests
+        run: |
+          pytest codegen/tests
+      - name: check ginac
+        run: |
+          bash scripts/check_ginac.sh
       - name: lake build
         run: |
           lake run clear
           lake build
+
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v1
       #   with:
