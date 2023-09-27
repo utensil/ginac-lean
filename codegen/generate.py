@@ -20,7 +20,7 @@ env = Environment(loader=file_loader, trim_blocks=True, lstrip_blocks=True)
 template_lean = env.get_template("lean/class.lean.j2")
 template_cpp = env.get_template("cpp/class.cpp.j2")
 
-with open(dir_data / "mock.yml", "rt") as f:
+with open(dir_data / "mock.yml", "rt", encoding="utf-8") as f:
     mock_data = yaml.safe_load(f.read())
 
 output = template_lean.render(**mock_data)

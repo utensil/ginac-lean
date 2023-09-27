@@ -54,12 +54,12 @@ print(f"Parsing {ginac_header}...")
 ginac_ast: TranslationUnit = index.parse(ginac_header, args=index_args)
 
 
-def to_lean_type_name(s, cpp_type: CppType):
+def to_lean_type_name(type_name_cpp, cpp_type: CppType):
     if is_primitive_type(cpp_type.kind):
-        return map_primitive_type(s, cpp_type)
-    if "::" in s:
-        return to_lean_type_name(s.split("::")[-1], cpp_type)
-    return "".join(word.capitalize() for word in s.split("_"))
+        return map_primitive_type(type_name_cpp, cpp_type)
+    if "::" in type_name_cpp:
+        return to_lean_type_name(type_name_cpp.split("::")[-1], cpp_type)
+    return "".join(word.capitalize() for word in type_name_cpp.split("_"))
 
 
 class EntityCollector:
@@ -97,8 +97,8 @@ class EntityCollector:
                     included_ast: TranslationUnit = index.parse(
                         included_filename, args=index_args
                     )
-                    for cursor in self.walk(included_ast):
-                        yield cursor
+                    for inner_cursor in self.walk(included_ast):
+                        yield inner_cursor
 
         for cursor in ast.cursor.walk_preorder():
             yield cursor
@@ -380,7 +380,7 @@ for cursor in collector.walk(ginac_ast):
 for class_name, class_interface in collector.data.items():
     if class_name == "Symbol":
         class_interface.namespace = "Ginac"
-        with open(dir_data / f"{class_name}.yml", "w") as file:
+        with open(dir_data / f"{class_name}.yml", "w", encoding='utf-8') as file:
             yaml.dump(class_interface.to_dict(), file)
 
 print(conf.lib)
