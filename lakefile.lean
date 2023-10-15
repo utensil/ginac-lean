@@ -3,6 +3,7 @@ open System Lake DSL
 
 package «GinacLean» where
   srcDir := "lean"
+  preferReleaseBuild := get_config? noCloudRelease |>.isNone
   precompileModules := true
   -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
   buildType := BuildType.debug
