@@ -38,7 +38,7 @@ def check_valid(_cursor: Cursor):
 # If libclang can't determine a type, it's int! Should be fixed by adding C++ include paths to the index.
 # Here we have a hacky way to detect this error.
 # TODO: find a better way to detect argument type parsing error
-def check_arg_valid(cursor: Cursor):
+def check_arg_valid(cursor: Cursor, file=sys.stderr):
     check_valid(cursor)
     token_spellings = " ".join([token.spelling for token in cursor.get_tokens()])
     # If the argument type is int, but the token spellings don't contain 'int', it's probably a parsing error
@@ -53,7 +53,7 @@ def check_arg_valid(cursor: Cursor):
         # TODO: gather all the warnings and print them at the end, then give hints on how to fix them
         print(
             f"WARN Invalid argument type detected: {cursor.type.spelling} != {token_spellings} at {cursor.location.file.name}:{cursor.location.line}:{cursor.location.column}",
-            file=sys.stderr,
+            file=file,
         )
 
 
