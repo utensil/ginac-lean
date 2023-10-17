@@ -18,6 +18,9 @@ on:
 #   pages: write
 #   id-token: write
 
+permissions:
+  contents: write
+
 jobs:
   lean4:
     name: ginac-lean
