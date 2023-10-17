@@ -76,7 +76,7 @@ jobs:
       - name: lake upload
         if: github.event_name == 'release'
         run: |
-          lake upload ${{ github.ref }}
+          lake upload ${{ github.ref_name }}
         env:
           GH_TOKEN: ${{ github.token }}
 
