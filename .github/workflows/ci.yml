@@ -89,6 +89,7 @@ jobs:
           else
             echo "Unsupported OS"
           fi
+        shell: bash
 
         env:
           GH_TOKEN: ${{ github.token }}
