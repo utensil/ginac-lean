@@ -79,7 +79,17 @@ jobs:
       - name: lake upload
         if: github.event_name == 'release'
         run: |
-          lake upload ${{ github.ref_name }}
+          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+            # lake upload reports "tar: .: file changed as we read it" on Ubuntu
+            # https://leanprover.zulipchat.com/#narrow/stream/270676-lean4/topic/lake.20upload.20for.20Cloud.20Release
+            tar -c -z --exclude=*.tar.gz --exclude=*.tar.gz.trace -f ./build/linux-64.tar.gz -C ./build .
+            gh release upload ${{ github.ref_name }} ./build/linux-64.tar.gz --clobber
+          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+            lake upload ${{ github.ref_name }}
+          else
+            echo "Unsupported OS"
+          fi
+
         env:
           GH_TOKEN: ${{ github.token }}
 
