@@ -6,3 +6,4 @@ build/
 **/*.pyc
 codegen/tests/fixtures/all_methods.txt
 lakefile.olean
+.lake/

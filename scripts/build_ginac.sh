@@ -3,15 +3,7 @@
 set -e
 set -o pipefail
 
-SCRIPTS_DIR=$(cd $(dirname "$0") && pwd)
-# echo "SCRIPTS_DIR=$SCRIPTS_DIR"
-WORKSPACES="$SCRIPTS_DIR/../build"
-mkdir -p $WORKSPACES/
-WORKSPACES=$(cd $WORKSPACES && pwd)
-# echo "WORKSPACES=$WORKSPACES"
-INSTALLED_DIR=$WORKSPACES
-mkdir -p $INSTALLED_DIR/
-# echo "INSTALLED_DIR=$INSTALLED_DIR"
+source $(dirname "$0")/config.sh
 
 show_warning()
 {
@@ -59,8 +51,6 @@ download()
 mkdir -p $WORKSPACES
 cd $WORKSPACES
 
-LIBCLN=cln-1.3.6
-
 download https://www.ginac.de/CLN/$LIBCLN.tar.bz2
 
 export CC="clang"
@@ -91,9 +81,9 @@ make install
 
 cd $WORKSPACES
 
-download https://www.ginac.de/ginac-1.8.7.tar.bz2
+download https://www.ginac.de/$LIBGINAC.tar.bz2
 
-cd ginac-1.8.7
+cd $LIBGINAC
 
 export CLN_CFLAGS="-I$INSTALLED_DIR/include"
 export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"

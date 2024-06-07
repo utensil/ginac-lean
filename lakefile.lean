@@ -8,20 +8,20 @@ package «GinacLean» where
   -- preferReleaseBuild := get_config? noCloudRelease |>.isNone
   buildType := BuildType.debug
   -- buildArchive? := is_arm? |>.map (if · then "arm64" else "x86_64")
-  moreLinkArgs := #[s!"-L{__dir__}/build/lib",
+  moreLinkArgs := #[s!"-L{__dir__}/.lake/build/lib",
     -- "-L/usr/bin/../lib/gcc/aarch64-linux-gnu/11 -L/lib/aarch64-linux-gnu -L/usr/lib/aarch64-linux-gnu -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib",
     "-lginac_ffi", "-lginac", "-lcln", "-lstdc++"] -- "-v",  --, "-lc++", "-lc++abi", "-lunwind"] -- "-lstdc++"]
   weakLeanArgs := #[
-    s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "cln",
-    s!"--load-dynlib={__dir__}/build/lib/" ++ nameToSharedLib "ginac"
+    s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "cln",
+    s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "ginac"
   ]
 
 lean_lib «GinacLean» where
   roots := #[`Ginac]
-  moreLinkArgs := #[s!"-L{__dir__}/build/lib",
+  moreLinkArgs := #[s!"-L{__dir__}/.lake/build/lib",
   "-lginac_ffi",
   "-lstdc++"]
-  extraDepTargets := #["libginac_ffi"]
+  extraDepTargets := #[`libginac_ffi]
 
 @[default_target]
 lean_exe «ginac_hello» where
@@ -51,14 +51,14 @@ def getLibPath (name : String) : IO (Option FilePath) := do
   return none
 
 
-def afterReleaseSync (pkg : Package) (build : SchedulerM (Job α)) : IndexBuildM (Job α) := do
+def afterReleaseSync (pkg : Package) (build : SpawnM (Job α)) : FetchM (Job α) := do
   if pkg.preferReleaseBuild ∧ pkg.name ≠ (← getRootPackage).name then
     (← pkg.release.fetch).bindAsync fun _ _ => build
   else
     build
 
 
-def afterReleaseAsync (pkg : Package) (build : BuildM α) : IndexBuildM (Job α) := do
+def afterReleaseAsync (pkg : Package) (build : JobM α) : FetchM (Job α) := do
   if pkg.preferReleaseBuild ∧ pkg.name ≠ (← getRootPackage).name then
     (← pkg.release.fetch).bindSync fun _ _ => build
   else
@@ -66,7 +66,7 @@ def afterReleaseAsync (pkg : Package) (build : BuildM α) : IndexBuildM (Job α)
 
 -- #eval ("a.b.c".splitOn ".")[0]
 
-def copyLibJob (pkg : Package) (libName : String) : IndexBuildM (BuildJob FilePath) :=
+def copyLibJob (pkg : Package) (libName : String) : FetchM (BuildJob FilePath) :=
   afterReleaseAsync pkg do
   if !Platform.isOSX then  -- Only required for Linux
     let dst := pkg.nativeLibDir / libName
@@ -80,7 +80,7 @@ def copyLibJob (pkg : Package) (libName : String) : IndexBuildM (BuildJob FilePa
         -- }
         -- let src := srcLeanBundled
         let some src ← getLibPath libName | error s!"{libName} not found"
-        logStep s!"Copying from {src} to {dst}"
+        logVerbose s!"Copying from {src} to {dst}"
         proc {
           cmd := "cp"
           args := #[src.toString, dst.toString]
@@ -139,7 +139,7 @@ target libginac pkg : FilePath := do
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
 
-def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath)) : SchedulerM (BuildJob FilePath) := do
+def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath)) : Lake.SpawnM (BuildJob FilePath) := do
     let oFile := pkg.buildDir / "cpp" / (path.withExtension "o").fileName.get!
     let srcJob ← inputFile <| path
     let optLevel := if pkg.buildType == .release then "-O3" else "-O0"
@@ -153,7 +153,7 @@ def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath))
     | some arch => flags := flags.push s!"--target={arch}"
     let args := flags ++ #["-I", (← getLeanIncludeDir).toString, "-I", (pkg.buildDir / "include").toString]
     buildFileAfterDepList oFile (srcJob :: deps) (extraDepTrace := computeHash flags) fun deps =>
-      compileO path.toString oFile deps[0]! args clangxx
+      compileO oFile deps[0]! args clangxx
 
 target libginac_ffi pkg : FilePath := do
   -- TODO figure out why these are required for linking, otherwise
@@ -200,7 +200,7 @@ def removeDirIfExists (path : String) : IO Unit := do
 
 script clear := do
   println! "Clearing all products of `lake build`, but keep built C++ libraries"
-  let libDir := FilePath.mk s!"{__dir__}/build/lib/"
+  let libDir := FilePath.mk s!"{__dir__}/.lake/build/lib/"
   let paths := <-libDir.walkDir -- fun path => do
   --  return !(<-path.isDir)
 
@@ -211,8 +211,8 @@ script clear := do
       println! s!"Removing {path.toString}"
       IO.FS.removeFile path.toString
 
-  removeDirIfExists s!"{__dir__}/build/cpp/"
-  removeDirIfExists s!"{__dir__}/build/ir/"
-  removeDirIfExists s!"{__dir__}/build/lib/examples"
-  removeDirIfExists s!"{__dir__}/build/lib/Ginac"
+  removeDirIfExists s!"{__dir__}/.lake/build/cpp/"
+  removeDirIfExists s!"{__dir__}/.lake/build/ir/"
+  removeDirIfExists s!"{__dir__}/.lake/build/lib/examples"
+  removeDirIfExists s!"{__dir__}/.lake/build/lib/Ginac"
   return 0
