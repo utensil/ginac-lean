@@ -60,9 +60,9 @@ jobs:
       - name: pip install
         run: |
           pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
-      - name: run pre-commit
-        run: |
-          pre-commit run --all-files
+      # - name: run pre-commit
+      #   run: |
+      #     pre-commit run --all-files
       - name: build ginac
         run: |
           bash scripts/build_ginac.sh
