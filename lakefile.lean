@@ -120,8 +120,8 @@ target libcln pkg : FilePath := do
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
       proc {
-        cmd := "echo"
-        args := #["Looking for", dst.toString]
+        cmd := "bash"
+        args := #["scripts/build_cln.sh"]
       }
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
@@ -133,8 +133,8 @@ target libginac pkg : FilePath := do
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
       proc {
-        cmd := "echo"
-        args := #["Looking for", dst.toString]
+        cmd := "bash"
+        args := #["scripts/build_ginac.sh"]
       }
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
