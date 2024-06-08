@@ -127,6 +127,7 @@ target libcln pkg : FilePath := do
     return (dst, trace)
 
 target libginac pkg : FilePath := do
+  let _cln ← libcln.fetch
   afterReleaseAsync pkg do
     let dst := pkg.nativeLibDir / (nameToSharedLib "ginac")
     createParentDirs dst
