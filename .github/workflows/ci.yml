@@ -41,6 +41,7 @@ jobs:
         if: ${{ startsWith(matrix.os, 'windows') }}
         uses: msys2/setup-msys2@v2
         with:
+          cache: false
           install: >
             git
             base-devel
