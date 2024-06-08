@@ -74,10 +74,10 @@ def copyLibJob (pkg : Package) (libName : String) : FetchM (BuildJob FilePath) :
       let depTrace := Hash.ofString libName
       let trace ← buildFileUnlessUpToDate dst depTrace do
         let some src ← getLibPath libName | error s!"{libName} not found"
-        proc {
-          cmd := "ls"
-          args := #[(src.toString.splitOn ".")[0]! ++ "*"]
-        }
+        -- proc {
+        --   cmd := "ls"
+        --   args := #[(src.toString.splitOn ".")[0]! ++ "*"]
+        -- }
         logVerbose s!"Copying from {src} to {dst}"
         proc {
           cmd := "cp"
