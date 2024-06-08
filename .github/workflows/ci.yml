@@ -48,12 +48,19 @@ jobs:
             mingw-w64-${{matrix.arch}}-clang
             mingw-w64-${{matrix.arch}}-toolchain
             mingw-w64-${{matrix.arch}}-lld
-      - name: install elan
+      - name: install elan on Ubuntu and macOS
+        if: matrix.os != 'windows-latest'
         shell: bash
         run: |
           set -o pipefail
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | bash -s -- -y
           echo "$HOME/.elan/bin" >> $GITHUB_PATH
+      - name: install elan on Windows
+        if: matrix.os == 'windows-latest'
+        run: |
+          curl -O --location https://raw.githubusercontent.com/leanprover/elan/master/elan-init.ps1
+          .\elan-init.ps1 -NoPrompt 1 -DefaultToolchain none
+          echo "$HOME\.elan\bin" >> $env:GITHUB_PATH
       - uses: actions/checkout@v3
       - name: Setup Python
         uses: actions/setup-python@v4.6.1
