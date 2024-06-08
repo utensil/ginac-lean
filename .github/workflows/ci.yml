@@ -62,7 +62,7 @@ jobs:
           # Following https://github.com/drivendataorg/cookiecutter-data-science/pull/319
           # See also https://github.com/actions/runner-images/issues/7218
           # Set bash executable explicitly since lake may pick wrong shell
-          echo "BASH_EXECUTABLE=$(which bash)" >> "$GITHUB_ENV"
+          echo "BASH_EXECUTABLE=C:\msys64\usr\bin\bash" >> "$GITHUB_ENV"
       - name: install elan on Ubuntu and macOS
         if: matrix.os != 'windows-latest'
         shell: bash
