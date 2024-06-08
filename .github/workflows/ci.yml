@@ -30,8 +30,8 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         arch: [x86_64]
       fail-fast: false
-    env:
-      SHELLOPTS: igncr
+    # env:
+    #   SHELLOPTS: igncr
     steps:
       # Following https://github.com/axboe/fio/blob/master/.github/workflows/ci.yml
       - name: git config line endings (Windows)
@@ -42,12 +42,14 @@ jobs:
         uses: msys2/setup-msys2@v2
         with:
           cache: false
-          install: >
+          install: >-
             git
             base-devel
             mingw-w64-${{matrix.arch}}-clang
             mingw-w64-${{matrix.arch}}-toolchain
             mingw-w64-${{matrix.arch}}-lld
+          # pacboy: >-
+          #   libunwind:p
       - name: install elan on Ubuntu and macOS
         if: matrix.os != 'windows-latest'
         shell: bash
