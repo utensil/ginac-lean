@@ -68,7 +68,7 @@ def afterReleaseAsync (pkg : Package) (build : JobM α) : FetchM (Job α) := do
 
 def copyLibJob (pkg : Package) (libName : String) : FetchM (BuildJob FilePath) :=
   afterReleaseAsync pkg do
-  if !Platform.isOSX then  -- Only required for Linux
+  if !Platform.isOSX && !Platform.isWindows then  -- Only required for Linux
     let dst := pkg.nativeLibDir / libName
     try
       let depTrace := Hash.ofString libName

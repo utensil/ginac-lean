@@ -48,8 +48,10 @@ jobs:
             mingw-w64-${{matrix.arch}}-clang
             mingw-w64-${{matrix.arch}}-toolchain
             mingw-w64-${{matrix.arch}}-lld
-          # pacboy: >-
-          #   libunwind:p
+          pacboy: >-
+            libc++:p
+            libc++abi:p
+            libunwind:p
       - name: install elan on Ubuntu and macOS
         if: matrix.os != 'windows-latest'
         shell: bash
