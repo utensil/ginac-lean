@@ -49,6 +49,7 @@ jobs:
             mingw-w64-${{matrix.arch}}-toolchain
             mingw-w64-${{matrix.arch}}-lld
       - name: install elan
+        shell: bash
         run: |
           set -o pipefail
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | bash -s -- -y
@@ -66,6 +67,7 @@ jobs:
           restore-keys: |
             cache-${{ runner.os }}-
       - name: package install
+        shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
             sudo apt update
@@ -78,6 +80,7 @@ jobs:
             echo "Unsupported OS"
           fi
       - name: pip install
+        shell: bash
         run: |
           pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
       # - name: run pre-commit
@@ -96,6 +99,7 @@ jobs:
       #       bash scripts/check_ginac.sh
       #     fi
       - name: lake build
+        shell: bash
         run: |
           # avoid cache causing unclean build
           lake run clear
