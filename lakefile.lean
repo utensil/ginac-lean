@@ -205,6 +205,7 @@ def removeDirIfExists (path : String) : IO Unit := do
 script clear := do
   println! "Clearing all products of `lake build`, but keep built C++ libraries"
   let libDir := FilePath.mk s!"{__dir__}/.lake/build/lib/"
+  IO.FS.createDirAll libDir
   let paths := <-libDir.walkDir -- fun path => do
   --  return !(<-path.isDir)
 
