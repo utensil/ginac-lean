@@ -44,10 +44,13 @@ jobs:
           cache: false
           install: >-
             git
+            wget
+            tar
             base-devel
             mingw-w64-${{matrix.arch}}-clang
             mingw-w64-${{matrix.arch}}-toolchain
             mingw-w64-${{matrix.arch}}-lld
+            mingw-w64-${{matrix.arch}}-pkg-config
           pacboy: >-
             libc++:p
             libc++abi:p
