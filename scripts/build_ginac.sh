@@ -20,7 +20,7 @@ export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"
 export CPPFLAGS=""
 
 # patch configure
-sed -i '' '/expected an absolute directory name/d' configure
+sed -i '' -e "/expected an absolute directory name/d" configure
 
 ./configure  --prefix=$INSTALLED_DIR
 

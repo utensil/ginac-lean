@@ -31,7 +31,7 @@ patch -N src/base/low/cl_low_mul.cc < $SCRIPTS_DIR/cl_low_mul.patch || true
 export CPPFLAGS=""
 
 # patch configure
-sed -i '' '/expected an absolute directory name/d' configure
+sed -i '' -e "/expected an absolute directory name/d" configure
 
 ./configure --prefix=$INSTALLED_DIR
 
