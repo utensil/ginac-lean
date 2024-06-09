@@ -1,8 +1,12 @@
 set -e
 set -o pipefail
 
-SCRIPTS_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
-# echo "SCRIPTS_DIR=$SCRIPTS_DIR"
+SCRIPTS_DIR=$(cd $(dirname $(echo "$0")) && pwd)
+# patch SCRIPTS_DIR on Windows CI
+if [ "$RUNNER_OS" == "Windows" ]; then
+    SCRIPTS_DIR=$(cd "./scripts" && pwd)
+fi
+echo "SCRIPTS_DIR=$SCRIPTS_DIR"
 WORKSPACES="$SCRIPTS_DIR/../.lake/build"
 mkdir -p $WORKSPACES/
 WORKSPACES=$(cd $WORKSPACES && pwd)
