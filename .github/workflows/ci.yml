@@ -24,23 +24,38 @@ permissions:
 jobs:
   lean4:
     name: ginac-lean
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.platform.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.platform.shell }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest] #, windows-latest]
-        arch: [x86_64]
+        platform:
+          - os: ubuntu-latest
+            arch: x86_64
+            shell: bash
+          - os: macos-latest
+            arch: x86_64
+            shell: bash
+          - os: windows-latest
+            arch: x86_64
+            shell: "msys2 {0}"
+            msystem: clang64
+            msys-env: mingw-w64-clang-x86_64
       fail-fast: false
-    # env:
+    env:
+      GH_TOKEN: ${{ github.token }}
     #   SHELLOPTS: igncr
     steps:
       # Following https://github.com/axboe/fio/blob/master/.github/workflows/ci.yml
       - name: git config line endings (Windows)
-        if: ${{ contains( matrix.os, 'windows' ) }}
+        if: runner.os == 'Windows'
         run: git config --global core.autocrlf input
       - name: Install msys2 toolchain (Windows)
-        if: ${{ startsWith(matrix.os, 'windows') }}
+        if: runner.os == 'Windows'
         uses: msys2/setup-msys2@v2
         with:
+          msystem: ${{ matrix.platform.msystem }}
           cache: false
           install: >-
             git
@@ -48,30 +63,28 @@ jobs:
             autoconf
             automake
             libtool
-            mingw-w64-${{matrix.arch}}-clang
-            mingw-w64-${{matrix.arch}}-toolchain
-            mingw-w64-${{matrix.arch}}-lld
+            ${{ matrix.platform.msys-env }}-clang
+            ${{ matrix.platform.msys-env }}-toolchain
+            ${{ matrix.platform.msys-env }}-lld
           pacboy: >-
             libc++:p
             libc++abi:p
             libunwind:p
       - name: Setup Bash (Windows)
-        if: ${{ startsWith(matrix.os, 'windows') }}
-        shell: bash
+        if: runner.os == 'Windows'
         run: |
           # Following https://github.com/drivendataorg/cookiecutter-data-science/pull/319
           # See also https://github.com/actions/runner-images/issues/7218
           # Set bash executable explicitly since lake may pick wrong shell
           echo "BASH_EXECUTABLE=C:\msys64\usr\bin\bash" >> "$GITHUB_ENV"
       - name: install elan on Ubuntu and macOS
-        if: matrix.os != 'windows-latest'
-        shell: bash
+        if: runner.os == 'Linux' || runner.os == 'macOS'
         run: |
           set -o pipefail
           curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | bash -s -- -y
           echo "$HOME/.elan/bin" >> $GITHUB_PATH
       - name: install elan on Windows
-        if: matrix.os == 'windows-latest'
+        if: runner.os == 'Windows'
         run: |
           curl -O --location https://raw.githubusercontent.com/leanprover/elan/master/elan-init.ps1
           .\elan-init.ps1 -NoPrompt 1 -DefaultToolchain none
@@ -89,20 +102,18 @@ jobs:
           restore-keys: |
             cache-${{ runner.os }}-
       - name: package install
-        shell: bash
         run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+          if [[ "${{ runner.os }}" == "Linux" ]]; then
             sudo apt update
             sudo apt install -y curl wget git git-lfs clang lld libc++-dev
-          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+          elif [[ "${{ runner.os }}" == "macOS" ]]; then
             echo "Running on macOS"
-          elif [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+          elif [[ "${{ runner.os }}" == "Windows" ]]; then
             echo "Running on Windows"
           else
             echo "Unsupported OS"
           fi
       # - name: pip install
-      #   shell: bash
       #   run: |
       #     pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
       # - name: run pre-commit
@@ -117,32 +128,27 @@ jobs:
       # - name: check ginac
       #   run: |
       #     # Not all tests are passing on mac for now
-      #     if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+      #     if [[ "${{ matrix.platform.os }}" == "ubuntu-latest" ]]; then
       #       bash scripts/check_ginac.sh
       #     fi
+      # Use `lake run clear` to avoid cache causing unclean build
       - name: lake build
-        shell: bash
         run: |
-          # avoid cache causing unclean build
           lake run clear
           lake build
       - name: lake upload
         if: github.event_name == 'release'
         run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+          if [[ "${{ runner.os }}" == "Linux" ]]; then
             # lake upload reports "tar: .: file changed as we read it" on Ubuntu
             # https://leanprover.zulipchat.com/#narrow/stream/270676-lean4/topic/lake.20upload.20for.20Cloud.20Release
             tar -c -z --exclude=*.tar.gz --exclude=*.tar.gz.trace -f /tmp/linux-64.tar.gz -C ./build .
             gh release upload ${{ github.ref_name }} /tmp/linux-64.tar.gz --clobber
-          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+          elif [[ "${{ runner.os }}" == "macOS" ]]; then
             lake upload ${{ github.ref_name }}
           else
             echo "Unsupported OS"
           fi
-        shell: bash
-
-        env:
-          GH_TOKEN: ${{ github.token }}
 
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v1
