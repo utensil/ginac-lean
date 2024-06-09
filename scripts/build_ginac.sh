@@ -31,6 +31,8 @@ if [ "$RUNNER_OS" == "Windows" ]; then
     sed -i -E "/as_fn_error \$\? \"expected an absolute directory name for --\$ac_var: \$ac_val\"/d" ./configure
 fi
 
+export LDFLAGS="-Wl,-no-undefined"
+
 ./configure  --prefix=$INSTALLED_DIR
 
 # patch libtool
