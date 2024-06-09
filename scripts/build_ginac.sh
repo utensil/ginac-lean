@@ -19,6 +19,9 @@ export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"
 
 export CPPFLAGS=""
 
+# patch configure
+sed -i '' '/expected an absolute directory name/d' configure
+
 ./configure  --prefix=$INSTALLED_DIR
 
 # export CPPFLAGS="-stdlib=libc++"
