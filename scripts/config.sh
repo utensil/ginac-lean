@@ -42,7 +42,8 @@ download()
 
     if [ ! -f "$WORKSPACES/$TAR" ]; then
         echo "Downloading to $WORKSPACES/$TAR"
-        wget --no-check-certificate "$URL" -O "$WORKSPACES/$TAR"
+        curl -L -o "$WORKSPACES/$TAR" "$URL"
+        # wget --no-check-certificate "$URL" -O "$WORKSPACES/$TAR"
     else
         echo "Found downloaded $WORKSPACES/$TAR"
     fi
