@@ -137,6 +137,7 @@ jobs:
       - name: lake build
         run: |
           lake run clear
+          mkdir -p .lake/build
           lake build
       - name: lake upload
         if: github.event_name == 'release'
