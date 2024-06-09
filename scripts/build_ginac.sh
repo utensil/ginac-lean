@@ -19,8 +19,10 @@ export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"
 
 export CPPFLAGS=""
 
-# patch configure
-sed -i '' -e "/expected an absolute directory name/d" configure
+# patch configure on Windows CI
+if [ "$RUNNER_OS" == "Windows" ]; then
+    sed -i -e "/expected an absolute directory name/d" ./configure
+fi
 
 ./configure  --prefix=$INSTALLED_DIR
 
