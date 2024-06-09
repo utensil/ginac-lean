@@ -10,12 +10,19 @@ echo "SCRIPTS_DIR=$SCRIPTS_DIR"
 WORKSPACES="$SCRIPTS_DIR/../.lake/build"
 if [ "$RUNNER_OS" == "Windows" ]; then
     WORKSPACES=".lake/build"
+else
+    mkdir -p $WORKSPACES
 fi
-mkdir -p $WORKSPACES
+
 WORKSPACES=$(cd $WORKSPACES && pwd)
 echo "WORKSPACES=$WORKSPACES"
 INSTALLED_DIR=$WORKSPACES
-mkdir -p $INSTALLED_DIR/
+if [ "$RUNNER_OS" == "Windows" ]; then
+    INSTALLED_DIR=$WORKSPACES
+else
+    mkdir -p $INSTALLED_DIR/
+fi
+
 echo "INSTALLED_DIR=$INSTALLED_DIR"
 
 export LIBCLN=cln-1.3.7

@@ -12,7 +12,6 @@ if [ "$RUNNER_OS" == "Windows" ]; then
 fi
 source $SCRIPTS_DIR/config.sh
 
-mkdir -p $WORKSPACES
 cd $WORKSPACES
 
 download https://www.ginac.de/CLN/$LIBCLN.tar.bz2
