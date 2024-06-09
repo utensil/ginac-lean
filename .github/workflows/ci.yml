@@ -47,10 +47,6 @@ jobs:
       GH_TOKEN: ${{ github.token }}
     #   SHELLOPTS: igncr
     steps:
-      # Following https://github.com/axboe/fio/blob/master/.github/workflows/ci.yml
-      - name: git config line endings (Windows)
-        if: runner.os == 'Windows'
-        run: git config --global core.autocrlf input
       - name: Install msys2 toolchain (Windows)
         if: runner.os == 'Windows'
         uses: msys2/setup-msys2@v2
@@ -77,6 +73,10 @@ jobs:
           # See also https://github.com/actions/runner-images/issues/7218
           # Set bash executable explicitly since lake may pick wrong shell
           echo "BASH_EXECUTABLE=C:\msys64\usr\bin\bash" >> "$GITHUB_ENV"
+      # Following https://github.com/axboe/fio/blob/master/.github/workflows/ci.yml
+      - name: git config line endings (Windows)
+        if: runner.os == 'Windows'
+        run: git config --global core.autocrlf input
       - name: install elan on Ubuntu and macOS
         if: runner.os == 'Linux' || runner.os == 'macOS'
         run: |
