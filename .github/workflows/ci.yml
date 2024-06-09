@@ -51,6 +51,7 @@ jobs:
             mingw-w64-${{matrix.arch}}-toolchain
             mingw-w64-${{matrix.arch}}-lld
             mingw-w64-${{matrix.arch}}-pkg-config
+            mingw-w64-${{matrix.arch}}-wget
           pacboy: >-
             libc++:p
             libc++abi:p
