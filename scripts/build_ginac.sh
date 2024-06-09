@@ -16,6 +16,9 @@ cd $WORKSPACES
 
 download https://www.ginac.de/$LIBGINAC.tar.bz2
 
+export CC="clang"
+export CXX="clang++"
+
 cd $LIBGINAC
 
 export CLN_CFLAGS="-I$INSTALLED_DIR/include"
