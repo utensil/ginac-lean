@@ -117,10 +117,10 @@ target libcln pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+      -- let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
       proc {
-        cmd := bash
-        args := #["scripts/build_cln.sh"]
+        cmd := "./scripts/build_cln.sh"
+        args := #[]
       }
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
@@ -133,10 +133,10 @@ target libginac pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+      -- let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
       proc {
-        cmd := bash
-        args := #["scripts/build_ginac.sh"]
+        cmd := "./scripts/build_ginac.sh"
+        args := #[]
       }
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
