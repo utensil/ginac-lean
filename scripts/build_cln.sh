@@ -5,7 +5,8 @@ set -o pipefail
 
 echo "Building CLN"
 
-source $(dirname $(echo "$0"))/config.sh
+SCRIPTS_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+source $SCRIPTS_DIR/config.sh
 
 mkdir -p $WORKSPACES
 cd $WORKSPACES
