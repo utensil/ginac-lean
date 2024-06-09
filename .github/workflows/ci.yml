@@ -68,10 +68,10 @@ jobs:
           msystem: ${{ matrix.platform.msystem }}
           cache: false
           install: >-
-            ${{ matrix.platform.msys-env }}-git
-            ${{ matrix.platform.msys-env }}-base-devel
-            ${{ matrix.platform.msys-env }}-autoconf
-            ${{ matrix.platform.msys-env }}-automake
+            git
+            base-devel
+            autoconf
+            automake
             ${{ matrix.platform.msys-env }}-libtool
             ${{ matrix.platform.msys-env }}-clang
             ${{ matrix.platform.msys-env }}-toolchain
