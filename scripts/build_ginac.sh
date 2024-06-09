@@ -33,6 +33,10 @@ fi
 
 ./configure  --prefix=$INSTALLED_DIR
 
+# patch libtool
+# https://stackoverflow.com/questions/61215047/how-to-fix-libtool-undefined-symbols-not-allowed-in-x86-64-pc-msys-shared
+sed -i.bak -e "s/\(allow_undefined=\)yes/\1no/" libtool
+
 # export CPPFLAGS="-stdlib=libc++"
 
 make -j8
