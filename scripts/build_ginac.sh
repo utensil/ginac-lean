@@ -26,7 +26,7 @@ export CPPFLAGS=""
 
 # patch configure on Windows CI
 if [ "$RUNNER_OS" == "Windows" ]; then
-    sed -i -E "/expected an absolute directory name/d" ./configure
+    sed -i -E "/as_fn_error \$\? \"expected an absolute directory name for --\$ac_var: \$ac_val\"/d" ./configure
 fi
 
 ./configure  --prefix=$INSTALLED_DIR
