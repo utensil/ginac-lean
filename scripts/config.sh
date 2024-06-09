@@ -4,25 +4,27 @@ set -v
 
 SCRIPTS_DIR=$(cd $(dirname $(echo "$0")) && pwd)
 # patch SCRIPTS_DIR on Windows CI
-if [ "$RUNNER_OS" == "Windows" ]; then
-    SCRIPTS_DIR=$(cd "./scripts" && pwd)
-fi
+# if [ "$RUNNER_OS" == "Windows" ]; then
+#     SCRIPTS_DIR=$(cd "./scripts" && pwd)
+# fi
 echo "SCRIPTS_DIR=$SCRIPTS_DIR"
 WORKSPACES="$SCRIPTS_DIR/../.lake/build"
-if [ "$RUNNER_OS" == "Windows" ]; then
-    WORKSPACES=".lake/build"
-else
-    mkdir -p $WORKSPACES
-fi
+# if [ "$RUNNER_OS" == "Windows" ]; then
+#     WORKSPACES=".lake/build"
+# else
+#     mkdir -p $WORKSPACES
+# fi
+mkdir -p $WORKSPACES
 
 WORKSPACES=$(cd $WORKSPACES && pwd)
 echo "WORKSPACES=$WORKSPACES"
 INSTALLED_DIR=$WORKSPACES
-if [ "$RUNNER_OS" == "Windows" ]; then
-    INSTALLED_DIR=$WORKSPACES
-else
-    mkdir -p $INSTALLED_DIR/
-fi
+# if [ "$RUNNER_OS" == "Windows" ]; then
+#     INSTALLED_DIR=$WORKSPACES
+# else
+#     mkdir -p $INSTALLED_DIR/
+# fi
+mkdir -p $INSTALLED_DIR/
 
 echo "INSTALLED_DIR=$INSTALLED_DIR"
 

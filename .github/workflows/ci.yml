@@ -86,7 +86,7 @@ jobs:
           # Following https://github.com/drivendataorg/cookiecutter-data-science/pull/319
           # See also https://github.com/actions/runner-images/issues/7218
           # Set bash executable explicitly since lake may pick wrong shell
-          echo "BASH_EXECUTABLE=C:\msys64\usr\bin\bash" >> "$GITHUB_ENV"
+          echo "BASH_EXECUTABLE=$(/usr/bin/env bash)" >> "$GITHUB_ENV"
       # Following https://github.com/axboe/fio/blob/master/.github/workflows/ci.yml
       - name: git config line endings (Windows)
         if: runner.os == 'Windows'
@@ -138,8 +138,8 @@ jobs:
         run: |
           lake run clear
           mkdir -p .lake/build
-          ./scripts/build_cln.sh
-          ./scripts/build_ginac.sh          
+          # ./scripts/build_cln.sh
+          # ./scripts/build_ginac.sh
           lake build
       - name: lake upload
         if: github.event_name == 'release'
