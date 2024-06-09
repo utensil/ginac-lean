@@ -8,7 +8,10 @@ if [ "$RUNNER_OS" == "Windows" ]; then
 fi
 echo "SCRIPTS_DIR=$SCRIPTS_DIR"
 WORKSPACES="$SCRIPTS_DIR/../.lake/build"
-mkdir -p $WORKSPACES/
+if [ "$RUNNER_OS" == "Windows" ]; then
+    WORKSPACES=".lake/build"
+fi
+mkdir -p $WORKSPACES
 WORKSPACES=$(cd $WORKSPACES && pwd)
 echo "WORKSPACES=$WORKSPACES"
 INSTALLED_DIR=$WORKSPACES
