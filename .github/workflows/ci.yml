@@ -136,10 +136,10 @@ jobs:
       # Use `lake run clear` to avoid cache causing unclean build
       - name: lake build
         run: |
-          ./scripts/build_cln.sh
-          ./scripts/build_ginac.sh
           lake run clear
           mkdir -p .lake/build
+          ./scripts/build_cln.sh
+          ./scripts/build_ginac.sh          
           lake build
       - name: lake upload
         if: github.event_name == 'release'
