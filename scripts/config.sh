@@ -1,7 +1,7 @@
 set -e
 set -o pipefail
 
-SCRIPTS_DIR=$(cd $(dirname "$0") && pwd)
+SCRIPTS_DIR=$(cd $(dirname $(echo "$0")) && pwd)
 # echo "SCRIPTS_DIR=$SCRIPTS_DIR"
 WORKSPACES="$SCRIPTS_DIR/../.lake/build"
 mkdir -p $WORKSPACES/
