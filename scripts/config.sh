@@ -1,5 +1,5 @@
-set -e
-set -o pipefail
+set -euo pipefail
+set -v
 
 SCRIPTS_DIR=$(cd $(dirname $(echo "$0")) && pwd)
 # patch SCRIPTS_DIR on Windows CI

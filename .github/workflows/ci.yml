@@ -136,7 +136,6 @@ jobs:
       # Use `lake run clear` to avoid cache causing unclean build
       - name: lake build
         run: |
-          export PATH="$HOME/.elan/bin:$PATH"
           lake run clear
           lake build
       - name: lake upload
