@@ -85,6 +85,7 @@ jobs:
           echo "$HOME/.elan/bin" >> $GITHUB_PATH
       - name: install elan on Windows
         if: runner.os == 'Windows'
+        shell: pwsh
         run: |
           curl -O --location https://raw.githubusercontent.com/leanprover/elan/master/elan-init.ps1
           .\elan-init.ps1 -NoPrompt 1 -DefaultToolchain none
