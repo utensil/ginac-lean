@@ -92,7 +92,6 @@ patch_configure()
         
         # Bypass: configure: error: expected an absolute directory name for --prefix: 0
         sed -i -E "/as_fn_error \$\? \"expected an absolute directory name for --\$ac_var: \$ac_val\"/d" ./configure
-        export LDFLAGS="-Wl,-no-undefined"
         export EXTRA_CONFIGURE_FLAGS="--host=x86_64-w64-mingw32 "
     fi
 }
