@@ -31,6 +31,11 @@ echo "INSTALLED_DIR=$INSTALLED_DIR"
 export LIBCLN=cln-1.3.7
 export LIBGINAC=ginac-1.8.7
 
+RUNNER_OS=${RUNNER_OS:-""}
+
+export CC="clang"
+export CXX="clang++"
+
 show_warning()
 {
     echo -e "\e[31mWARN\e[0m" "$@"

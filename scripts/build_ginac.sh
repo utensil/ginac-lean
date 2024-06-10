@@ -16,9 +16,6 @@ cd $WORKSPACES
 
 download https://www.ginac.de/$LIBGINAC.tar.bz2
 
-export CC="clang"
-export CXX="clang++"
-
 cd $LIBGINAC
 
 export CLN_CFLAGS="-I$INSTALLED_DIR/include"
@@ -32,7 +29,7 @@ if [ "$RUNNER_OS" == "Windows" ]; then
     export LDFLAGS="-Wl,-no-undefined"
 fi
 
-./configure  --prefix=$INSTALLED_DIR
+./configure  --prefix=$INSTALLED_DIR --enable-shared --enable-static
 
 # patch libtool
 # https://stackoverflow.com/questions/61215047/how-to-fix-libtool-undefined-symbols-not-allowed-in-x86-64-pc-msys-shared
