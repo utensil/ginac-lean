@@ -27,6 +27,10 @@ patch -N src/base/low/cl_low_div.cc < $SCRIPTS_DIR/cl_low_div.patch || true
 # created by diff -u src/base/low/cl_low_mul_old.cc src/base/low/cl_low_mul.cc > cl_low_mul.patch
 patch -N src/base/low/cl_low_mul.cc < $SCRIPTS_DIR/cl_low_mul.patch || true
 
+# https://github.com/mstorsjo/llvm-mingw?tab=readme-ov-file#known-issues
+patch -N build-aux/ltmain.sh < $SCRIPTS_DIR/fix-linker-scripts-for-mingw.patch || true
+patch -N m4/libtool.m4 < $SCRIPTS_DIR/fix-linker-scripts-for-mingw.patch || true
+
 # error: macho does not support linking multiple objects into one
 
 export CPPFLAGS=""

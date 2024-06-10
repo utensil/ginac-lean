@@ -87,7 +87,9 @@ patch_configure()
     # patch configure on Windows CI
     if [ "$RUNNER_OS" == "Windows" ]; then
         # https://github.com/msys2/MINGW-packages/discussions/7589#discussioncomment-261679
-        autoreconf -fiv
+        # autoreconf -fiv
+        # aclocal-1.16: error: aclocal: file '/a/_temp/msys64/usr/share/aclocal/progtest.m4' does not exist
+        
         # Bypass: configure: error: expected an absolute directory name for --prefix: 0
         sed -i -E "/as_fn_error \$\? \"expected an absolute directory name for --\$ac_var: \$ac_val\"/d" ./configure
         export LDFLAGS="-Wl,-no-undefined"
