@@ -36,7 +36,7 @@ make -j8
 make install
 
 if [ "$RUNNER_OS" == "Windows" ]; then
-    cp $INSTALLED_DIR/bin/libginac-11.dll $INSTALLED_DIR/bin/ginac.dll
+    cp $INSTALLED_DIR/bin/libginac-11.dll $INSTALLED_DIR/lib/ginac.dll
 fi
 
 # -###
