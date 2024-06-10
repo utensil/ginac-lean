@@ -55,5 +55,9 @@ fi
 
 make install
 
+if [ "$RUNNER_OS" == "Windows" ]; then
+    cp $INSTALLED_DIR/bin/libcln-6.dll $INSTALLED_DIR/bin/cln.dll
+else
+
 echo Add the following to your ~/.profile or similar files that applies to your shell
 echo export PATH=$INSTALLED_DIR/bin:$PATH
