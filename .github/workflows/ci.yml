@@ -149,7 +149,7 @@ jobs:
           ./scripts/build_cln.sh
           ./scripts/build_ginac.sh
           if [[ "${{ runner.os }}" == "Windows" ]]; then
-            lake build
+            lake env lake build
             # echo "Skipping lake build on Windows"
           else
             lake build
