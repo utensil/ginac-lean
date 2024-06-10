@@ -24,6 +24,9 @@ permissions:
 jobs:
   lean4:
     name: ginac-lean
+    if: >-
+      !contains(github.event.head_commit.message, '[skip ci]')
+      && !contains(github.event.head_commit.message, '[skip tests]')
     runs-on: ${{ matrix.platform.os }}
     defaults:
       run:
