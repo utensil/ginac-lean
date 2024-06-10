@@ -45,10 +45,8 @@ patch_libtool
 
 export CPPFLAGS="-DNO_ASM" # -stdlib=libc++"
 
-# https://docs.binarybuilder.org/dev/troubleshooting/#Libtool-refuses-to-build-shared-library-because-of-undefined-symbols
-FLAGS=()
-
 if [ "$RUNNER_OS" == "Windows" ]; then
+    # https://docs.binarybuilder.org/dev/troubleshooting/#Libtool-refuses-to-build-shared-library-because-of-undefined-symbols
     make -j8 V=1 LDFLAGS="-no-undefined"
 else
     make -j8 V=1
