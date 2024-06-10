@@ -33,6 +33,7 @@ jobs:
         shell: ${{ matrix.platform.shell }}
     strategy:
       matrix:
+        # Following https://github.com/libsdl-org/SDL/blob/main/.github/workflows/main.yml
         platform:
           - os: ubuntu-latest
             arch: x86_64
@@ -67,6 +68,7 @@ jobs:
         if: runner.os == 'Windows'
         uses: msys2/setup-msys2@v2
         with:
+          # Following https://github.com/tydeu/lean4-alloy/blob/master/.github/workflows/ci.yml
           path-type: inherit
           msystem: ${{ matrix.platform.msystem }}
           cache: false

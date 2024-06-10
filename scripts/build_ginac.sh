@@ -23,17 +23,11 @@ export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"
 
 export CPPFLAGS=""
 
-# patch configure on Windows CI
-if [ "$RUNNER_OS" == "Windows" ]; then
-    sed -i -E "/as_fn_error \$\? \"expected an absolute directory name for --\$ac_var: \$ac_val\"/d" ./configure
-    export LDFLAGS="-Wl,-no-undefined"
-fi
+patch_configure
 
 ./configure  --prefix=$INSTALLED_DIR --enable-shared --enable-static
 
-# patch libtool
-# https://stackoverflow.com/questions/61215047/how-to-fix-libtool-undefined-symbols-not-allowed-in-x86-64-pc-msys-shared
-sed -i.bak -e "s/\(allow_undefined=\)yes/\1no/" libtool
+patch_libtool
 
 # export CPPFLAGS="-stdlib=libc++"
 

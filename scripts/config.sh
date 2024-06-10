@@ -31,6 +31,7 @@ echo "INSTALLED_DIR=$INSTALLED_DIR"
 export LIBCLN=cln-1.3.7
 export LIBGINAC=ginac-1.8.7
 
+# fix unbounded variable
 RUNNER_OS=${RUNNER_OS:-""}
 
 export CC="clang"
@@ -78,4 +79,23 @@ download()
     fi
 
     # declare -g INSTALLED_DIR="$WORKSPACES/$DIR"
+}
+
+patch_configure()
+{
+    # patch configure on Windows CI
+    if [ "$RUNNER_OS" == "Windows" ]; then
+        # https://github.com/msys2/MINGW-packages/discussions/7589#discussioncomment-261679
+        autoreconf -fiv
+        # Bypass: configure: error: expected an absolute directory name for --prefix: 0
+        sed -i -E "/as_fn_error \$\? \"expected an absolute directory name for --\$ac_var: \$ac_val\"/d" ./configure
+        export LDFLAGS="-Wl,-no-undefined"
+    fi
+}
+
+patch_libtool()
+{
+    # patch libtool
+    # https://stackoverflow.com/questions/61215047/how-to-fix-libtool-undefined-symbols-not-allowed-in-x86-64-pc-msys-shared
+    sed -i.bak -e "s/\(allow_undefined=\)yes/\1no/" libtool
 }
