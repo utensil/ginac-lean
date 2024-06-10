@@ -12,8 +12,8 @@ package «GinacLean» where
     -- "-L/usr/bin/../lib/gcc/aarch64-linux-gnu/11 -L/lib/aarch64-linux-gnu -L/usr/lib/aarch64-linux-gnu -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib",
     "-lginac_ffi", "-lginac", "-lcln", "-lstdc++"] -- "-v",  --, "-lc++", "-lc++abi", "-lunwind"] -- "-lstdc++"]
   weakLeanArgs := #[
-    s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "cln",
-    s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "ginac"
+    FilePath.toString <| FilePath.normalize <| s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "cln",
+    FilePath.toString <| FilePath.normalize <| s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "ginac"
   ]
 
 lean_lib «GinacLean» where
