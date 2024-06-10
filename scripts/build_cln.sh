@@ -33,7 +33,7 @@ export CPPFLAGS=""
 
 patch_configure
 
-./configure --prefix=$INSTALLED_DIR --enable-shared --enable-static
+./configure --prefix=$INSTALLED_DIR --enable-shared --enable-static $EXTRA_CONFIGURE_FLAGS
 
 patch_libtool
 
