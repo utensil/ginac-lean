@@ -191,8 +191,11 @@ target libginac_ffi pkg : FilePath := do
     "-lstdc++" --, "-v"
   ]
 
+  -- Linux: -Wl,-unresolved-symbols=ignore-all
+  -- Mac OS: -Wl,-undefined,dynamic_lookup
+  -- Windows: -Wl,--no-undefined
   if Platform.isWindows then
-    flags := flags.push "-Wl,--no-undefined"
+    flags := #["-Wl,--no-undefined", s!"-L{__dir__}/.lake/build/lib", "-lginac_ffi", "-lginac", "-lcln", "-lstdc++"]
 
   let name := nameToSharedLib "ginac_ffi"
   let build := buildLeanSharedLib (pkg.nativeLibDir / name) buildJobs flags
