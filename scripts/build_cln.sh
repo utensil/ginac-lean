@@ -31,6 +31,7 @@ if [ "$RUNNER_OS" == "Windows" ]; then
     # https://github.com/mstorsjo/llvm-mingw?tab=readme-ov-file#known-issues
     patch -N build-aux/ltmain.sh < $SCRIPTS_DIR/fix-linker-scripts-for-mingw.patch || true
     patch -N m4/libtool.m4 < $SCRIPTS_DIR/fix-linker-scripts-for-mingw.patch || true
+    patch -N m4/libtool.m4 < $SCRIPTS_DIR/fix-clang_rt-for-mingw.patch || true
 fi
 
 # error: macho does not support linking multiple objects into one
