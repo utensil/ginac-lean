@@ -49,10 +49,10 @@ export CPPFLAGS="-DNO_ASM" # -stdlib=libc++"
 FLAGS=()
 
 if [ "$RUNNER_OS" == "Windows" ]; then
-    FLAGS+=(LDFLAGS="-no-undefined")
+    make -j8 V=1 LDFLAGS="-no-undefined"
+else
+    make -j8 V=1
 fi
-
-make -j8 V=1 "${FLAGS[@]}"
 
 make install
 
