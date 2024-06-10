@@ -77,6 +77,7 @@ jobs:
             base-devel
             autoconf
             automake
+            automake-wrapper
             ${{ matrix.platform.msys-env }}-libtool
             ${{ matrix.platform.msys-env }}-clang
             ${{ matrix.platform.msys-env }}-toolchain
