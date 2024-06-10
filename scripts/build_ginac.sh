@@ -37,7 +37,7 @@ make install
 
 if [ "$RUNNER_OS" == "Windows" ]; then
     cp $INSTALLED_DIR/bin/libginac-11.dll $INSTALLED_DIR/bin/ginac.dll
-else
+fi
 
 # -###
 clang++ -x c++ -E -std=c++11 -stdlib=libc++ - -v < /dev/null 2>&1
