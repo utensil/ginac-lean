@@ -187,8 +187,15 @@ target libginac_ffi pkg : FilePath := do
     let job ← buildCpp pkg srcFile [ginac, cln]
     buildJobs := buildJobs.push job
 
+  let mut flags := #[
+    "-lstdc++" --, "-v"
+  ]
+
+  if Platform.isWindows then
+    flags := flags.push "-Wl,--no-undefined"
+
   let name := nameToSharedLib "ginac_ffi"
-  let build := buildLeanSharedLib (pkg.nativeLibDir / name) buildJobs #["-lstdc++"] --, "-v"]
+  let build := buildLeanSharedLib (pkg.nativeLibDir / name) buildJobs flags
   afterReleaseSync pkg build
 
 def shouldKeep (fileName : String) (keepPrefix : Array String := #[]) (keepPostfix : Array String := #[]): Bool := Id.run do
