@@ -146,7 +146,12 @@ jobs:
       - name: lake build
         run: |
           lake run clear
-          lake env lake build
+          if [[ "${{ runner.os }}" == "Windows" ]]; then
+            lake env lake build
+            # echo "Skipping lake build on Windows"
+          else
+            lake build
+          fi
       - name: lake upload
         if: github.event_name == 'release'
         run: |
