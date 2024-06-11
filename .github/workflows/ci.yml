@@ -146,15 +146,7 @@ jobs:
       - name: lake build
         run: |
           lake run clear
-          mkdir -p .lake/build
-          ./scripts/build_cln.sh
-          ./scripts/build_ginac.sh
-          if [[ "${{ runner.os }}" == "Windows" ]]; then
-            lake env lake build
-            # echo "Skipping lake build on Windows"
-          else
-            lake build
-          fi
+          lake env lake build
       - name: lake upload
         if: github.event_name == 'release'
         run: |

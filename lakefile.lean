@@ -117,25 +117,11 @@ target libcln pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      if !Platform.isWindows then
-        let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
-        proc {
-          cmd := bash
-          args := #["scripts/build_cln.sh"]
-        }
-      -- if Platform.isWindows then
-      --   proc {
-      --     cmd := "msys2"
-      --     args := #["scripts/build_cln.sh"]
-      --   }
-      -- else
-      --   -- let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
-      --   proc {
-      --     cmd := "bash"
-      --     args := #["scripts/build_cln.sh"]
-      --   }
-
-    -- TODO figure out how to trigger the build from lake
+      let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+      proc {
+        cmd := bash
+        args := #["scripts/build_cln.sh"]
+      }
     return (dst, trace)
 
 target libginac pkg : FilePath := do
@@ -146,13 +132,11 @@ target libginac pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      -- TODO: check existence on Windows
       let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
       proc {
         cmd := bash
         args := #["scripts/build_ginac.sh"]
       }
-    -- TODO figure out how to trigger the build from lake
     return (dst, trace)
 
 def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath)) : Lake.SpawnM (BuildJob FilePath) := do

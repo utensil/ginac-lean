@@ -5,11 +5,7 @@ set -v
 
 echo "Building GiNaC"
 
-SCRIPTS_DIR=$(cd $(dirname $(echo "$0")) && pwd)
-# patch SCRIPTS_DIR on Windows CI
-# if [ "$RUNNER_OS" == "Windows" ]; then
-#     SCRIPTS_DIR=$(cd "./scripts" && pwd)
-# fi
+SCRIPTS_DIR=$(cd $(dirname "$0") && pwd)
 source $SCRIPTS_DIR/config.sh
 
 cd $WORKSPACES
