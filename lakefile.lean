@@ -68,18 +68,16 @@ def afterReleaseAsync (pkg : Package) (build : JobM α) : FetchM (Job α) := do
 
 def copyLibJob (pkg : Package) (libName : String) : FetchM (BuildJob FilePath) :=
   afterReleaseAsync pkg do
-  if !Platform.isOSX then  -- Only required for Linux
+  if !Platform.isOSX && !Platform.isWindows then  -- Only required for Linux
     let dst := pkg.nativeLibDir / libName
     try
       let depTrace := Hash.ofString libName
       let trace ← buildFileUnlessUpToDate dst depTrace do
-        -- let srcLeanBundled := (← getLeanSystemLibDir) / libName
+        let some src ← getLibPath libName | error s!"{libName} not found"
         -- proc {
         --   cmd := "ls"
-        --   args := #[(srcLeanBundled.toString.splitOn ".")[0]! ++ "*"]
+        --   args := #[(src.toString.splitOn ".")[0]! ++ "*"]
         -- }
-        -- let src := srcLeanBundled
-        let some src ← getLibPath libName | error s!"{libName} not found"
         logVerbose s!"Copying from {src} to {dst}"
         proc {
           cmd := "cp"
@@ -119,11 +117,14 @@ target libcln pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      proc {
-        cmd := "bash"
-        args := #["scripts/build_cln.sh"]
-      }
-    -- TODO figure out how to trigger the build from lake
+      -- On Windows, we need to use bash outside of lake
+      -- aclocal-1.16: error: aclocal: file '/a/_temp/msys64/usr/share/aclocal/progtest.m4' does not exist
+      if !Platform.isWindows then
+        let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+        proc {
+          cmd := bash
+          args := #["scripts/build_cln.sh"]
+        }
     return (dst, trace)
 
 target libginac pkg : FilePath := do
@@ -134,11 +135,14 @@ target libginac pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      proc {
-        cmd := "bash"
-        args := #["scripts/build_ginac.sh"]
-      }
-    -- TODO figure out how to trigger the build from lake
+      -- On Windows, we need to use bash outside of lake
+      -- aclocal-1.16: error: aclocal: file '/a/_temp/msys64/usr/share/aclocal/progtest.m4' does not exist
+      if !Platform.isWindows then
+        let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+        proc {
+          cmd := bash
+          args := #["scripts/build_ginac.sh"]
+        }
     return (dst, trace)
 
 def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath)) : Lake.SpawnM (BuildJob FilePath) := do
@@ -183,8 +187,18 @@ target libginac_ffi pkg : FilePath := do
     let job ← buildCpp pkg srcFile [ginac, cln]
     buildJobs := buildJobs.push job
 
+  let mut flags := #[
+    "-lstdc++" --, "-v"
+  ]
+
+  -- Linux: -Wl,-unresolved-symbols=ignore-all
+  -- Mac OS: -Wl,-undefined,dynamic_lookup
+  -- Windows: -Wl,--no-undefined
+  if Platform.isWindows then
+    flags := #["-Wl,--no-undefined", s!"-L{__dir__}/.lake/build/lib", "-lginac", "-lcln", "-lstdc++"]
+
   let name := nameToSharedLib "ginac_ffi"
-  let build := buildLeanSharedLib (pkg.nativeLibDir / name) buildJobs #["-lstdc++"] --, "-v"]
+  let build := buildLeanSharedLib (pkg.nativeLibDir / name) buildJobs flags
   afterReleaseSync pkg build
 
 def shouldKeep (fileName : String) (keepPrefix : Array String := #[]) (keepPostfix : Array String := #[]): Bool := Id.run do

@@ -1,11 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 set -o pipefail
 
-source $(dirname "$0")/config.sh
+SCRIPTS_DIR=$(cd $(dirname $(echo "$0")) && pwd)
+# patch SCRIPTS_DIR on Windows CI
+# if [ "$RUNNER_OS" == "Windows" ]; then
+#     SCRIPTS_DIR=$(cd "./scripts" && pwd)
+# fi
+source $SCRIPTS_DIR/config.sh
 
-mkdir -p $WORKSPACES
 cd $WORKSPACES
 
 export CC="clang"

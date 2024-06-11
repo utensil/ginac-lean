@@ -1,19 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
-set -o pipefail
+set -euo pipefail
+set -v
 
 echo "Building CLN"
 
-source $(dirname "$0")/config.sh
+SCRIPTS_DIR=$(cd $(dirname "$0") && pwd)
+source $SCRIPTS_DIR/config.sh
 
-mkdir -p $WORKSPACES
 cd $WORKSPACES
 
 download https://www.ginac.de/CLN/$LIBCLN.tar.bz2
-
-export CC="clang"
-export CXX="clang++"
 
 cd $LIBCLN
 
@@ -26,17 +23,37 @@ patch -N src/base/low/cl_low_div.cc < $SCRIPTS_DIR/cl_low_div.patch || true
 # created by diff -u src/base/low/cl_low_mul_old.cc src/base/low/cl_low_mul.cc > cl_low_mul.patch
 patch -N src/base/low/cl_low_mul.cc < $SCRIPTS_DIR/cl_low_mul.patch || true
 
+if [ "$RUNNER_OS" == "Windows" ]; then
+    # https://github.com/mstorsjo/llvm-mingw?tab=readme-ov-file#known-issues
+    patch -N build-aux/ltmain.sh < $SCRIPTS_DIR/fix-linker-scripts-for-mingw.patch || true
+    patch -N m4/libtool.m4 < $SCRIPTS_DIR/fix-linker-scripts-for-mingw.patch || true
+    patch -N m4/libtool.m4 < $SCRIPTS_DIR/fix-clang_rt-for-mingw.patch || true
+fi
+
 # error: macho does not support linking multiple objects into one
 
 export CPPFLAGS=""
 
-./configure --prefix=$INSTALLED_DIR
+patch_configure
+
+./configure --prefix=$INSTALLED_DIR --enable-shared --enable-static $EXTRA_CONFIGURE_FLAGS
+
+patch_libtool
 
 export CPPFLAGS="-DNO_ASM" # -stdlib=libc++"
 
-make -j8 V=1
+if [ "$RUNNER_OS" == "Windows" ]; then
+    # https://docs.binarybuilder.org/dev/troubleshooting/#Libtool-refuses-to-build-shared-library-because-of-undefined-symbols
+    make -j8 V=1 LDFLAGS="-no-undefined"
+else
+    make -j8 V=1
+fi
 
 make install
+
+if [ "$RUNNER_OS" == "Windows" ]; then
+    cp $INSTALLED_DIR/bin/libcln-6.dll $INSTALLED_DIR/lib/cln.dll
+fi
 
 echo Add the following to your ~/.profile or similar files that applies to your shell
 echo export PATH=$INSTALLED_DIR/bin:$PATH

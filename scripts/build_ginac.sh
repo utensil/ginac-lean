@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-set -e
-set -o pipefail
+set -euo pipefail
+set -v
 
 echo "Building GiNaC"
 
-source $(dirname "$0")/config.sh
+SCRIPTS_DIR=$(cd $(dirname "$0") && pwd)
+source $SCRIPTS_DIR/config.sh
 
-mkdir -p $WORKSPACES
 cd $WORKSPACES
 
 download https://www.ginac.de/$LIBGINAC.tar.bz2
@@ -19,13 +19,21 @@ export CLN_LIBS="-L$INSTALLED_DIR/lib -lcln"
 
 export CPPFLAGS=""
 
-./configure  --prefix=$INSTALLED_DIR
+patch_configure
+
+./configure  --prefix=$INSTALLED_DIR --enable-shared --enable-static $EXTRA_CONFIGURE_FLAGS
+
+patch_libtool
 
 # export CPPFLAGS="-stdlib=libc++"
 
 make -j8
 
 make install
+
+if [ "$RUNNER_OS" == "Windows" ]; then
+    cp $INSTALLED_DIR/bin/libginac-11.dll $INSTALLED_DIR/lib/ginac.dll
+fi
 
 # -###
 clang++ -x c++ -E -std=c++11 -stdlib=libc++ - -v < /dev/null 2>&1

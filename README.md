@@ -10,12 +10,9 @@ See [this doc](doc/ffi.md) to learn more.
 ## Development
 
 ```bash
-bash ./scripts/build_ginac.sh
-bash ./scripts/check_ginac.sh
 lake -R build
 # Follow https://pre-commit.com/ to install pre-commit
 # pyenv shell 3.11
 # brew install pre-commit
 # pre-commit install
-
 ```

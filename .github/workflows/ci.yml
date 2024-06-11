@@ -24,17 +24,81 @@ permissions:
 jobs:
   lean4:
     name: ginac-lean
-    runs-on: ${{ matrix.os }}
+    if: >-
+      !contains(github.event.head_commit.message, '[skip ci]')
+      && !contains(github.event.head_commit.message, '[skip tests]')
+    runs-on: ${{ matrix.platform.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.platform.shell }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest] # , windows-latest]
+        # Following https://github.com/libsdl-org/SDL/blob/main/.github/workflows/main.yml
+        platform:
+          - os: ubuntu-latest
+            arch: x86_64
+            shell: bash
+          - os: macos-latest
+            arch: x86_64
+            shell: bash
+          - os: windows-latest
+            arch: x86_64
+            shell: "msys2 {0}"
+            msystem: clang64
+            msys-env: mingw-w64-clang-x86_64
       fail-fast: false
+    env:
+      GH_TOKEN: ${{ github.token }}
+    #   SHELLOPTS: igncr
     steps:
-      - name: install elan
+      - name: Install elan on Ubuntu and macOS
+        if: runner.os == 'Linux' || runner.os == 'macOS'
+        shell: bash -euo pipefail {0}
         run: |
-          set -o pipefail
-          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | bash -s -- -y
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> $GITHUB_PATH
+      - name: Install elan on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          curl -O --location https://raw.githubusercontent.com/leanprover/elan/master/elan-init.ps1
+          .\elan-init.ps1 -NoPrompt 1 -DefaultToolchain none
+          echo "$HOME\.elan\bin" >> $env:GITHUB_PATH
+      - name: Install msys2 toolchain (Windows)
+        if: runner.os == 'Windows'
+        uses: msys2/setup-msys2@v2
+        with:
+          # Following https://github.com/tydeu/lean4-alloy/blob/master/.github/workflows/ci.yml
+          path-type: inherit
+          msystem: ${{ matrix.platform.msystem }}
+          cache: false
+          install: >-
+            git
+            base-devel
+            autoconf
+            automake
+            automake-wrapper
+            autotools
+            ${{ matrix.platform.msys-env }}-libtool
+            ${{ matrix.platform.msys-env }}-clang
+            ${{ matrix.platform.msys-env }}-toolchain
+            ${{ matrix.platform.msys-env }}-lld
+            ${{ matrix.platform.msys-env }}-gmp
+          # pacboy: >-
+          #   libc++:p
+          #   libc++abi:p
+          #   libunwind:p
+      - name: Setup Shell (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          # Following https://github.com/drivendataorg/cookiecutter-data-science/pull/319
+          # See also https://github.com/actions/runner-images/issues/7218
+          # Set bash executable explicitly since lake may pick wrong shell
+          echo "BASH_EXECUTABLE=`which bash`" >> "$GITHUB_ENV"
+      # Following https://github.com/axboe/fio/blob/master/.github/workflows/ci.yml
+      - name: git config line endings (Windows)
+        if: runner.os == 'Windows'
+        run: git config --global core.autocrlf input
       - uses: actions/checkout@v3
       - name: Setup Python
         uses: actions/setup-python@v4.6.1
@@ -49,17 +113,19 @@ jobs:
             cache-${{ runner.os }}-
       - name: package install
         run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+          if [[ "${{ runner.os }}" == "Linux" ]]; then
             sudo apt update
             sudo apt install -y curl wget git git-lfs clang lld libc++-dev
-          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+          elif [[ "${{ runner.os }}" == "macOS" ]]; then
             echo "Running on macOS"
+          elif [[ "${{ runner.os }}" == "Windows" ]]; then
+            echo "Running on Windows"
           else
             echo "Unsupported OS"
           fi
-      - name: pip install
-        run: |
-          pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
+      # - name: pip install
+      #   run: |
+      #     pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
       # - name: run pre-commit
       #   run: |
       #     pre-commit run --all-files
@@ -72,31 +138,33 @@ jobs:
       # - name: check ginac
       #   run: |
       #     # Not all tests are passing on mac for now
-      #     if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+      #     if [[ "${{ matrix.platform.os }}" == "ubuntu-latest" ]]; then
       #       bash scripts/check_ginac.sh
       #     fi
+      # Use `lake run clear` to avoid cache causing unclean build
       - name: lake build
         run: |
-          # avoid cache causing unclean build
           lake run clear
-          lake build
+          if [[ "${{ runner.os }}" == "Windows" ]]; then
+            bash ./scripts/build_cln.sh
+            bash ./scripts/build_ginac.sh
+            lake env lake build
+          else
+            lake build
+          fi
       - name: lake upload
         if: github.event_name == 'release'
         run: |
-          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
+          if [[ "${{ runner.os }}" == "Linux" ]]; then
             # lake upload reports "tar: .: file changed as we read it" on Ubuntu
             # https://leanprover.zulipchat.com/#narrow/stream/270676-lean4/topic/lake.20upload.20for.20Cloud.20Release
             tar -c -z --exclude=*.tar.gz --exclude=*.tar.gz.trace -f /tmp/linux-64.tar.gz -C ./build .
             gh release upload ${{ github.ref_name }} /tmp/linux-64.tar.gz --clobber
-          elif [[ "${{ matrix.os }}" == "macos-latest" ]]; then
+          elif [[ "${{ runner.os }}" == "macOS" ]]; then
             lake upload ${{ github.ref_name }}
           else
             echo "Unsupported OS"
           fi
-        shell: bash
-
-        env:
-          GH_TOKEN: ${{ github.token }}
 
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v1
