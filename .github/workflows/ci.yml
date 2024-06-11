@@ -146,6 +146,7 @@ jobs:
         run: |
           lake run clear
           if [[ "${{ runner.os }}" == "Windows" ]]; then
+            bash ./scripts/build_cln.sh
             lake env lake build
             # echo "Skipping lake build on Windows"
           else

@@ -117,11 +117,12 @@ target libcln pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
-      proc {
-        cmd := bash
-        args := #["scripts/build_cln.sh"]
-      }
+      if !Platform.isWindows then
+        let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+        proc {
+          cmd := bash
+          args := #["scripts/build_cln.sh"]
+        }
     return (dst, trace)
 
 target libginac pkg : FilePath := do
