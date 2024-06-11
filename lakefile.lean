@@ -12,8 +12,8 @@ package «GinacLean» where
     -- "-L/usr/bin/../lib/gcc/aarch64-linux-gnu/11 -L/lib/aarch64-linux-gnu -L/usr/lib/aarch64-linux-gnu -L/usr/lib/llvm-14/bin/../lib -L/lib -L/usr/lib",
     "-lginac_ffi", "-lginac", "-lcln", "-lstdc++"] -- "-v",  --, "-lc++", "-lc++abi", "-lunwind"] -- "-lstdc++"]
   weakLeanArgs := #[
-    FilePath.toString <| FilePath.normalize <| s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "cln",
-    FilePath.toString <| FilePath.normalize <| s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "ginac"
+    s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "cln",
+    s!"--load-dynlib={__dir__}/.lake/build/lib/" ++ nameToSharedLib "ginac"
   ]
 
 lean_lib «GinacLean» where
@@ -117,13 +117,24 @@ target libcln pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      -- TODO: check existence on Windows
       if !Platform.isWindows then
         let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
         proc {
           cmd := bash
           args := #["scripts/build_cln.sh"]
         }
+      -- if Platform.isWindows then
+      --   proc {
+      --     cmd := "msys2"
+      --     args := #["scripts/build_cln.sh"]
+      --   }
+      -- else
+      --   -- let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+      --   proc {
+      --     cmd := "bash"
+      --     args := #["scripts/build_cln.sh"]
+      --   }
+
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
 
@@ -136,12 +147,11 @@ target libginac pkg : FilePath := do
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
       -- TODO: check existence on Windows
-      if !Platform.isWindows then
-        let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
-        proc {
-          cmd := bash
-          args := #["scripts/build_ginac.sh"]
-        }
+      let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+      proc {
+        cmd := bash
+        args := #["scripts/build_ginac.sh"]
+      }
     -- TODO figure out how to trigger the build from lake
     return (dst, trace)
 
