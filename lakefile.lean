@@ -117,6 +117,8 @@ target libcln pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
+      -- On Windows, we need to use bash outside of lake
+      -- aclocal-1.16: error: aclocal: file '/a/_temp/msys64/usr/share/aclocal/progtest.m4' does not exist
       if !Platform.isWindows then
         let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
         proc {
@@ -133,11 +135,14 @@ target libginac pkg : FilePath := do
     createParentDirs dst
     let depTrace := Hash.ofString dst.toString
     let trace ← buildFileUnlessUpToDate dst depTrace do
-      let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
-      proc {
-        cmd := bash
-        args := #["scripts/build_ginac.sh"]
-      }
+      -- On Windows, we need to use bash outside of lake
+      -- aclocal-1.16: error: aclocal: file '/a/_temp/msys64/usr/share/aclocal/progtest.m4' does not exist
+      if !Platform.isWindows then
+        let bash := (← IO.getEnv "BASH_EXECUTABLE").getD "bash"
+        proc {
+          cmd := bash
+          args := #["scripts/build_ginac.sh"]
+        }
     return (dst, trace)
 
 def buildCpp (pkg : Package) (path : FilePath) (deps : List (BuildJob FilePath)) : Lake.SpawnM (BuildJob FilePath) := do
