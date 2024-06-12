@@ -156,9 +156,9 @@ jobs:
           else
             lake build
           fi
-      - name: lake exe
-        run: |
-          lake exe ginac_hello
+      # - name: lake exe
+      #   run: |
+      #     lake exe ginac_hello
       - name: lake upload
         if: github.event_name == 'release'
         run: |
