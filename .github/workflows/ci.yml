@@ -142,16 +142,22 @@ jobs:
       #       bash scripts/check_ginac.sh
       #     fi
       # Use `lake run clear` to avoid cache causing unclean build
+      - name: Build GiNaC (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          bash ./scripts/build_cln.sh
+          bash ./scripts/build_ginac.sh
       - name: lake build
         run: |
           lake run clear
           if [[ "${{ runner.os }}" == "Windows" ]]; then
-            bash ./scripts/build_cln.sh
-            bash ./scripts/build_ginac.sh
             lake env lake build
           else
             lake build
           fi
+      - name: lake exe
+        run: |
+          lake exe ginac_hello
       - name: lake upload
         if: github.event_name == 'release'
         run: |
