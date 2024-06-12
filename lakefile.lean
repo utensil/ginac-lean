@@ -226,7 +226,7 @@ script clear := do
     for path in paths do
       if (<-path.isDir) then continue
       let some fileName := path.fileName | continue
-      if !shouldKeep fileName #["libcln.", "libginac."] #[".pc"] then
+      if !shouldKeep fileName #["libcln.", "libginac.", "cln.dll", "ginac.dll"] #[".pc"] then
         println! s!"Removing {path.toString}"
         IO.FS.removeFile path.toString
 
