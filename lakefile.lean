@@ -18,9 +18,6 @@ package «GinacLean» where
 
 lean_lib «GinacLean» where
   roots := #[`Ginac]
-  moreLinkArgs := #[s!"-L{__dir__}/.lake/build/lib",
-  "-lginac_ffi",
-  "-lstdc++"]
   extraDepTargets := #[`libginac_ffi]
 
 @[default_target]

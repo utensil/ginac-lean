@@ -145,6 +145,7 @@ jobs:
       - name: Build GiNaC (Windows)
         if: runner.os == 'Windows'
         run: |
+          lake clean
           bash ./scripts/build_cln.sh
           bash ./scripts/build_ginac.sh
       - name: lake build
