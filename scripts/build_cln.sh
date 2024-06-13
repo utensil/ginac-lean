@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -euo pipefail
-set -v
+# set -v
 
 echo "Building CLN"
 

@@ -1,0 +1,2181 @@
+[
+  {
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "needsOverloadResolution": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "needsOverloadResolution": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "defaultCtor": {
+        "exists": true,
+        "nonTrivial": true,
+        "userProvided": true
+      },
+      "dtor": {
+        "needsOverloadResolution": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "hasMutableFields": true,
+      "hasUserDeclaredConstructor": true,
+      "isPolymorphic": true,
+      "moveAssign": {
+        "exists": true,
+        "needsOverloadResolution": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "moveCtor": {
+        "exists": true,
+        "needsOverloadResolution": true,
+        "nonTrivial": true,
+        "simple": true
+      }
+    },
+    "kind": "CXXRecordDecl",
+    "inner": [
+      {
+        "inner": [
+          {
+            "kind": "ParagraphComment"
+          }
+        ],
+        "kind": "FullComment"
+      },
+      {
+        "isReferenced": true,
+        "kind": "CXXRecordDecl",
+        "tagUsed": "class",
+        "name": "symbol",
+        "isImplicit": true,
+        "inner": null
+      },
+      {
+        "access": "private",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbol8reg_infoE",
+        "kind": "VarDecl",
+        "storageClass": "static",
+        "type": {
+          "desugaredQualType": "GiNaC::class_info<GiNaC::registered_class_options>",
+          "qualType": "GiNaC::registered_class_info",
+          "typeAliasDeclId": "0x1580c1c60"
+        },
+        "isUsed": true,
+        "name": "reg_info",
+        "inner": null
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "type": {
+          "qualType": "GiNaC::registered_class_info &()"
+        },
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "storageClass": "static",
+        "isUsed": true,
+        "name": "get_class_info_static",
+        "mangledName": "__ZN5GiNaC6symbol21get_class_info_staticEv"
+      },
+      {
+        "completeDefinition": true,
+        "kind": "CXXRecordDecl",
+        "inner": [
+          {
+            "isReferenced": true,
+            "kind": "CXXRecordDecl",
+            "tagUsed": "class",
+            "name": "visitor",
+            "isImplicit": true
+          },
+          {
+            "access": "public",
+            "kind": "AccessSpecDecl"
+          },
+          {
+            "virtual": true,
+            "kind": "CXXMethodDecl",
+            "type": {
+              "qualType": "void (const symbol &)"
+            },
+            "pure": true,
+            "isReferenced": true,
+            "name": "visit",
+            "mangledName": "__ZN5GiNaC6symbol7visitor5visitERKS0_"
+          },
+          {
+            "type": {
+              "qualType": "void () noexcept"
+            },
+            "kind": "CXXDestructorDecl",
+            "mangledName": "__ZN5GiNaC6symbol7visitorD1Ev",
+            "virtual": true,
+            "isUsed": true,
+            "name": "~visitor"
+          },
+          {
+            "inline": true,
+            "kind": "CXXMethodDecl",
+            "type": {
+              "qualType": "GiNaC::symbol::visitor &(const GiNaC::symbol::visitor &)"
+            },
+            "explicitlyDefaulted": "default",
+            "isImplicit": true,
+            "name": "operator=",
+            "mangledName": "__ZN5GiNaC6symbol7visitoraSERKS1_"
+          }
+        ],
+        "definitionData": {
+          "canConstDefaultInit": true,
+          "copyAssign": {
+            "hasConstParam": true,
+            "implicitHasConstParam": true,
+            "nonTrivial": true,
+            "simple": true
+          },
+          "copyCtor": {
+            "hasConstParam": true,
+            "implicitHasConstParam": true,
+            "needsImplicit": true,
+            "nonTrivial": true,
+            "simple": true
+          },
+          "defaultCtor": {
+            "defaultedIsConstexpr": true,
+            "exists": true,
+            "isConstexpr": true,
+            "needsImplicit": true,
+            "nonTrivial": true
+          },
+          "dtor": {
+            "nonTrivial": true,
+            "userDeclared": true
+          },
+          "hasConstexprNonCopyMoveConstructor": true,
+          "isAbstract": true,
+          "isPolymorphic": true,
+          "moveAssign": {},
+          "moveCtor": {}
+        },
+        "isReferenced": true,
+        "name": "visitor",
+        "tagUsed": "class"
+      },
+      {
+        "inner": [
+          {
+            "previousDecl": "0x158159600",
+            "kind": "FunctionTemplateDecl",
+            "parentDeclContextId": "0x15058e420",
+            "name": "dynallocate"
+          }
+        ],
+        "kind": "FriendDecl"
+      },
+      {
+        "name": "inherited",
+        "kind": "TypedefDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "basic"
+            },
+            "kind": "ElaboratedType"
+          }
+        ],
+        "type": {
+          "desugaredQualType": "GiNaC::basic",
+          "qualType": "basic"
+        },
+        "isReferenced": true
+      },
+      {
+        "name": "symbol",
+        "kind": "CXXConstructorDecl",
+        "type": {
+          "qualType": "void ()"
+        },
+        "mangledName": "__ZN5GiNaC6symbolC1Ev",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol9duplicateEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "symbol *() const"
+        },
+        "name": "duplicate"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol6acceptERNS_7visitorE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "isUsed": true,
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "GiNaC::visitor &"
+            },
+            "name": "v"
+          },
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "void (GiNaC::visitor &) const"
+        },
+        "isUsed": true,
+        "name": "accept"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol14get_class_infoEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "const GiNaC::registered_class_info &() const"
+        },
+        "isUsed": true,
+        "name": "get_class_info"
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbol14get_class_infoEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "GiNaC::registered_class_info &()"
+        },
+        "isUsed": true,
+        "name": "get_class_info"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol10class_nameEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "const char *() const"
+        },
+        "isUsed": true,
+        "name": "class_name"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol17compare_same_typeERKNS_5basicE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "other",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const GiNaC::basic &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "int (const GiNaC::basic &) const"
+        },
+        "isUsed": true,
+        "name": "compare_same_type"
+      },
+      {
+        "access": "private",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbolC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE",
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "name": "initname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &)"
+        },
+        "name": "symbol"
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbolC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_",
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "name": "initname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          },
+          {
+            "name": "texname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &, const std::string &)"
+        },
+        "name": "symbol"
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol4infoEj",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "inf",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "bool (unsigned int) const"
+        },
+        "isUsed": true,
+        "name": "info"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol4evalEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "isUsed": true,
+        "name": "eval"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol5evalfEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "isUsed": true,
+        "name": "evalf"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol6seriesERKNS_10relationalEij",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "s",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const relational &"
+            }
+          },
+          {
+            "name": "order",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "int"
+            }
+          },
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "name": "options",
+            "init": "c"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex (const relational &, int, unsigned int) const"
+        },
+        "isUsed": true,
+        "name": "series"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol4subsERKNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEEj",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "isUsed": true,
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const exmap &"
+            },
+            "name": "m"
+          },
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "name": "options",
+            "init": "c",
+            "isUsed": true
+          },
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex (const exmap &, unsigned int) const"
+        },
+        "isUsed": true,
+        "name": "subs"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol6normalERNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEESB_RNS_9containerINS1_4listEEE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "repl",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "exmap &"
+            }
+          },
+          {
+            "name": "rev_lookup",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "exmap &"
+            }
+          },
+          {
+            "name": "modifier",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "lst &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex (exmap &, exmap &, lst &) const"
+        },
+        "isUsed": true,
+        "name": "normal"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol11to_rationalERNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "repl",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "exmap &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex (exmap &) const"
+        },
+        "isUsed": true,
+        "name": "to_rational"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol13to_polynomialERNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "repl",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "exmap &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex (exmap &) const"
+        },
+        "isUsed": true,
+        "name": "to_polynomial"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol9conjugateEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "conjugate"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol9real_partEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "real_part"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol9imag_partEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "imag_part"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol13is_polynomialERKNS_2exE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "var",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const ex &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "bool (const ex &) const"
+        },
+        "isUsed": true,
+        "name": "is_polynomial"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol7archiveERNS_12archive_nodeE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "n",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "archive_node &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          },
+          {
+            "kind": "FullComment"
+          }
+        ],
+        "type": {
+          "qualType": "void (archive_node &) const"
+        },
+        "isUsed": true,
+        "name": "archive"
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbol12read_archiveERKNS_12archive_nodeERNS_9containerINSt3__14listEEE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "n",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const archive_node &"
+            }
+          },
+          {
+            "name": "syms",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "lst &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          },
+          {
+            "kind": "FullComment"
+          }
+        ],
+        "type": {
+          "qualType": "void (const archive_node &, lst &)"
+        },
+        "isUsed": true,
+        "name": "read_archive"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol10derivativeERKS0_",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "s",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const symbol &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex (const symbol &) const"
+        },
+        "isUsed": true,
+        "name": "derivative"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol18is_equal_same_typeERKNS_5basicE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "other",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const basic &"
+            }
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "bool (const basic &) const"
+        },
+        "isUsed": true,
+        "name": "is_equal_same_type"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol8calchashEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "isUsed": true,
+        "name": "calchash"
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "virtual": true,
+        "name": "get_domain",
+        "mangledName": "__ZNK5GiNaC6symbol10get_domainEv"
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbol8set_nameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "isUsed": true,
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            },
+            "name": "n"
+          },
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &)"
+        },
+        "name": "set_name"
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbol12set_TeX_nameERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "isUsed": true,
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            },
+            "name": "n"
+          },
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &)"
+        },
+        "name": "set_TeX_name"
+      },
+      {
+        "name": "get_name",
+        "kind": "CXXMethodDecl",
+        "type": {
+          "qualType": "std::string () const"
+        },
+        "mangledName": "__ZNK5GiNaC6symbol8get_nameEv",
+        "inner": null
+      },
+      {
+        "name": "get_TeX_name",
+        "kind": "CXXMethodDecl",
+        "type": {
+          "qualType": "std::string () const"
+        },
+        "mangledName": "__ZNK5GiNaC6symbol12get_TeX_nameEv",
+        "inner": null
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol8do_printERKNS_13print_contextEj",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "c",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const print_context &"
+            }
+          },
+          {
+            "name": "level",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const print_context &, unsigned int) const"
+        },
+        "name": "do_print"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol14do_print_latexERKNS_11print_latexEj",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "c",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const print_latex &"
+            }
+          },
+          {
+            "name": "level",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const print_latex &, unsigned int) const"
+        },
+        "name": "do_print_latex"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol13do_print_treeERKNS_10print_treeEj",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "c",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const print_tree &"
+            }
+          },
+          {
+            "name": "level",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const print_tree &, unsigned int) const"
+        },
+        "name": "do_print_tree"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC6symbol20do_print_python_reprERKNS_17print_python_reprEj",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "name": "c",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const print_python_repr &"
+            }
+          },
+          {
+            "name": "level",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const print_python_repr &, unsigned int) const"
+        },
+        "name": "do_print_python_repr"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "name": "serial",
+        "kind": "FieldDecl",
+        "inner": [
+          {
+            "kind": "FullComment"
+          }
+        ],
+        "type": {
+          "qualType": "unsigned int"
+        },
+        "isReferenced": true
+      },
+      {
+        "type": {
+          "desugaredQualType": "std::string",
+          "qualType": "std::string",
+          "typeAliasDeclId": "0x12d9fa4f0"
+        },
+        "kind": "FieldDecl",
+        "inner": [
+          {
+            "kind": "FullComment"
+          }
+        ],
+        "mutable": true,
+        "isReferenced": true,
+        "name": "name"
+      },
+      {
+        "name": "TeX_name",
+        "kind": "FieldDecl",
+        "inner": [
+          {
+            "kind": "FullComment"
+          }
+        ],
+        "type": {
+          "desugaredQualType": "std::string",
+          "qualType": "std::string",
+          "typeAliasDeclId": "0x12d9fa4f0"
+        },
+        "isReferenced": true
+      },
+      {
+        "access": "private",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC6symbol11next_serialE",
+        "kind": "VarDecl",
+        "storageClass": "static",
+        "type": {
+          "qualType": "unsigned int"
+        },
+        "name": "next_serial",
+        "inner": null
+      },
+      {
+        "inline": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "isUsed": true,
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const GiNaC::symbol &"
+            }
+          },
+          {
+            "kind": "CXXCtorInitializer",
+            "baseInit": {
+              "desugaredQualType": "GiNaC::basic",
+              "qualType": "basic"
+            }
+          },
+          {
+            "kind": "CXXCtorInitializer",
+            "anyInit": {
+              "type": {
+                "qualType": "unsigned int"
+              },
+              "kind": "FieldDecl",
+              "name": "serial"
+            }
+          },
+          {
+            "kind": "CXXCtorInitializer",
+            "anyInit": {
+              "type": {
+                "desugaredQualType": "std::string",
+                "qualType": "std::string",
+                "typeAliasDeclId": "0x12d9fa4f0"
+              },
+              "kind": "FieldDecl",
+              "name": "name"
+            }
+          },
+          {
+            "kind": "CXXCtorInitializer",
+            "anyInit": {
+              "type": {
+                "desugaredQualType": "std::string",
+                "qualType": "std::string",
+                "typeAliasDeclId": "0x12d9fa4f0"
+              },
+              "kind": "FieldDecl",
+              "name": "TeX_name"
+            }
+          },
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "isUsed": true,
+        "name": "symbol",
+        "mangledName": "__ZN5GiNaC6symbolC1ERKS0_",
+        "type": {
+          "qualType": "void (const GiNaC::symbol &) noexcept(false)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "GiNaC::symbol &&"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "symbol",
+        "mangledName": "__ZN5GiNaC6symbolC1EOS0_",
+        "type": {
+          "qualType": "void (GiNaC::symbol &&)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::symbol &"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC6symbolaSERKS0_",
+        "type": {
+          "qualType": "GiNaC::symbol &(const GiNaC::symbol &)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "GiNaC::symbol &&"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC6symbolaSEOS0_",
+        "type": {
+          "qualType": "GiNaC::symbol &(GiNaC::symbol &&)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXDestructorDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "isUsed": true,
+        "name": "~symbol",
+        "mangledName": "__ZN5GiNaC6symbolD1Ev",
+        "type": {
+          "qualType": "void () noexcept"
+        }
+      }
+    ],
+    "bases": [
+      {
+        "access": "public",
+        "type": {
+          "desugaredQualType": "GiNaC::basic",
+          "qualType": "basic"
+        },
+        "writtenAccess": "public"
+      }
+    ],
+    "isReferenced": true,
+    "previousDecl": "0x15810e4d0",
+    "name": "symbol",
+    "tagUsed": "class",
+    "completeDefinition": true
+  },
+  {
+    "completeDefinition": true,
+    "kind": "CXXRecordDecl",
+    "inner": [
+      {
+        "isReferenced": true,
+        "kind": "CXXRecordDecl",
+        "tagUsed": "class",
+        "name": "symbol_unarchiver",
+        "isImplicit": true,
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC17symbol_unarchiver8usecountE",
+        "kind": "VarDecl",
+        "storageClass": "static",
+        "type": {
+          "qualType": "int"
+        },
+        "name": "usecount",
+        "inner": null
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC17symbol_unarchiver6createEv",
+        "kind": "CXXMethodDecl",
+        "storageClass": "static",
+        "type": {
+          "qualType": "GiNaC::basic *()"
+        },
+        "name": "create",
+        "inner": null
+      },
+      {
+        "name": "symbol_unarchiver",
+        "kind": "CXXConstructorDecl",
+        "type": {
+          "qualType": "void ()"
+        },
+        "mangledName": "__ZN5GiNaC17symbol_unarchiverC1Ev",
+        "isUsed": true,
+        "inner": null
+      },
+      {
+        "name": "~symbol_unarchiver",
+        "kind": "CXXDestructorDecl",
+        "type": {
+          "qualType": "void () noexcept"
+        },
+        "mangledName": "__ZN5GiNaC17symbol_unarchiverD1Ev",
+        "isUsed": true,
+        "inner": null
+      },
+      {
+        "constexpr": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::symbol_unarchiver &"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "symbol_unarchiver",
+        "mangledName": "__ZN5GiNaC17symbol_unarchiverC1ERKS0_",
+        "type": {
+          "qualType": "void (const GiNaC::symbol_unarchiver &)"
+        },
+        "inline": true
+      }
+    ],
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "needsImplicit": true,
+        "simple": true,
+        "trivial": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "simple": true,
+        "trivial": true
+      },
+      "defaultCtor": {
+        "defaultedIsConstexpr": true,
+        "exists": true,
+        "nonTrivial": true,
+        "userProvided": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "hasUserDeclaredConstructor": true,
+      "isEmpty": true,
+      "isStandardLayout": true,
+      "moveAssign": {},
+      "moveCtor": {}
+    },
+    "isReferenced": true,
+    "name": "symbol_unarchiver",
+    "tagUsed": "class"
+  },
+  {
+    "storageClass": "static",
+    "kind": "VarDecl",
+    "inner": [
+      {
+        "hadMultipleCandidates": true,
+        "kind": "CXXConstructExpr",
+        "constructionKind": "complete",
+        "type": {
+          "desugaredQualType": "GiNaC::symbol_unarchiver",
+          "qualType": "symbol_unarchiver"
+        },
+        "valueCategory": "prvalue",
+        "ctorType": {
+          "qualType": "void ()"
+        },
+        "inner": null
+      }
+    ],
+    "init": "call",
+    "name": "symbol_unarchiver_instance",
+    "mangledName": "__ZN5GiNaCL26symbol_unarchiver_instanceE",
+    "type": {
+      "desugaredQualType": "GiNaC::symbol_unarchiver",
+      "qualType": "symbol_unarchiver"
+    }
+  },
+  {
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "defaultCtor": {
+        "exists": true,
+        "nonTrivial": true,
+        "userProvided": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "simple": true
+      },
+      "hasMutableFields": true,
+      "hasUserDeclaredConstructor": true,
+      "isPolymorphic": true,
+      "moveAssign": {
+        "exists": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "moveCtor": {
+        "exists": true,
+        "nonTrivial": true,
+        "simple": true
+      }
+    },
+    "kind": "CXXRecordDecl",
+    "inner": [
+      {
+        "inner": [
+          {
+            "kind": "ParagraphComment"
+          }
+        ],
+        "kind": "FullComment"
+      },
+      {
+        "isReferenced": true,
+        "kind": "CXXRecordDecl",
+        "tagUsed": "class",
+        "name": "realsymbol",
+        "isImplicit": true,
+        "inner": null
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "name": "realsymbol",
+        "kind": "CXXConstructorDecl",
+        "type": {
+          "qualType": "void ()"
+        },
+        "mangledName": "__ZN5GiNaC10realsymbolC1Ev",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC10realsymbolC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE",
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "name": "initname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &)"
+        },
+        "name": "realsymbol"
+      },
+      {
+        "mangledName": "__ZN5GiNaC10realsymbolC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_",
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "name": "initname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          },
+          {
+            "name": "texname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &, const std::string &)"
+        },
+        "name": "realsymbol"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC10realsymbol10get_domainEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "isUsed": true,
+        "name": "get_domain"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC10realsymbol9conjugateEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "isUsed": true,
+        "name": "conjugate"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC10realsymbol9real_partEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "isUsed": true,
+        "name": "real_part"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC10realsymbol9imag_partEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "ex () const"
+        },
+        "isUsed": true,
+        "name": "imag_part"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC10realsymbol9duplicateEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "realsymbol *() const"
+        },
+        "isUsed": true,
+        "name": "duplicate"
+      },
+      {
+        "inline": true,
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::realsymbol &"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC10realsymbolaSERKS0_",
+        "type": {
+          "qualType": "GiNaC::realsymbol &(const GiNaC::realsymbol &)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "GiNaC::realsymbol &&"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC10realsymbolaSEOS0_",
+        "type": {
+          "qualType": "GiNaC::realsymbol &(GiNaC::realsymbol &&)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXDestructorDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "isUsed": true,
+        "name": "~realsymbol",
+        "mangledName": "__ZN5GiNaC10realsymbolD1Ev",
+        "type": {
+          "qualType": "void () noexcept"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "isUsed": true,
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const GiNaC::realsymbol &"
+            }
+          },
+          {
+            "kind": "CXXCtorInitializer",
+            "baseInit": {
+              "desugaredQualType": "GiNaC::symbol",
+              "qualType": "symbol"
+            }
+          },
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "isUsed": true,
+        "name": "realsymbol",
+        "mangledName": "__ZN5GiNaC10realsymbolC1ERKS0_",
+        "type": {
+          "qualType": "void (const GiNaC::realsymbol &) noexcept(false)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "GiNaC::realsymbol &&"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "realsymbol",
+        "mangledName": "__ZN5GiNaC10realsymbolC1EOS0_",
+        "type": {
+          "qualType": "void (GiNaC::realsymbol &&)"
+        }
+      }
+    ],
+    "bases": [
+      {
+        "access": "public",
+        "type": {
+          "desugaredQualType": "GiNaC::symbol",
+          "qualType": "symbol"
+        },
+        "writtenAccess": "public"
+      }
+    ],
+    "isReferenced": true,
+    "name": "realsymbol",
+    "tagUsed": "class",
+    "completeDefinition": true
+  },
+  {
+    "completeDefinition": true,
+    "kind": "CXXRecordDecl",
+    "inner": [
+      {
+        "isReferenced": true,
+        "kind": "CXXRecordDecl",
+        "tagUsed": "class",
+        "name": "realsymbol_unarchiver",
+        "isImplicit": true,
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC21realsymbol_unarchiver8usecountE",
+        "kind": "VarDecl",
+        "storageClass": "static",
+        "type": {
+          "qualType": "int"
+        },
+        "name": "usecount",
+        "inner": null
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC21realsymbol_unarchiver6createEv",
+        "kind": "CXXMethodDecl",
+        "storageClass": "static",
+        "type": {
+          "qualType": "GiNaC::basic *()"
+        },
+        "name": "create",
+        "inner": null
+      },
+      {
+        "name": "realsymbol_unarchiver",
+        "kind": "CXXConstructorDecl",
+        "type": {
+          "qualType": "void ()"
+        },
+        "mangledName": "__ZN5GiNaC21realsymbol_unarchiverC1Ev",
+        "isUsed": true,
+        "inner": null
+      },
+      {
+        "name": "~realsymbol_unarchiver",
+        "kind": "CXXDestructorDecl",
+        "type": {
+          "qualType": "void () noexcept"
+        },
+        "mangledName": "__ZN5GiNaC21realsymbol_unarchiverD1Ev",
+        "isUsed": true,
+        "inner": null
+      },
+      {
+        "constexpr": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::realsymbol_unarchiver &"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "realsymbol_unarchiver",
+        "mangledName": "__ZN5GiNaC21realsymbol_unarchiverC1ERKS0_",
+        "type": {
+          "qualType": "void (const GiNaC::realsymbol_unarchiver &)"
+        },
+        "inline": true
+      }
+    ],
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "needsImplicit": true,
+        "simple": true,
+        "trivial": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "simple": true,
+        "trivial": true
+      },
+      "defaultCtor": {
+        "defaultedIsConstexpr": true,
+        "exists": true,
+        "nonTrivial": true,
+        "userProvided": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "hasUserDeclaredConstructor": true,
+      "isEmpty": true,
+      "isStandardLayout": true,
+      "moveAssign": {},
+      "moveCtor": {}
+    },
+    "isReferenced": true,
+    "name": "realsymbol_unarchiver",
+    "tagUsed": "class"
+  },
+  {
+    "storageClass": "static",
+    "kind": "VarDecl",
+    "inner": [
+      {
+        "hadMultipleCandidates": true,
+        "kind": "CXXConstructExpr",
+        "constructionKind": "complete",
+        "type": {
+          "desugaredQualType": "GiNaC::realsymbol_unarchiver",
+          "qualType": "realsymbol_unarchiver"
+        },
+        "valueCategory": "prvalue",
+        "ctorType": {
+          "qualType": "void ()"
+        },
+        "inner": null
+      }
+    ],
+    "init": "call",
+    "name": "realsymbol_unarchiver_instance",
+    "mangledName": "__ZN5GiNaCL30realsymbol_unarchiver_instanceE",
+    "type": {
+      "desugaredQualType": "GiNaC::realsymbol_unarchiver",
+      "qualType": "realsymbol_unarchiver"
+    }
+  },
+  {
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "defaultCtor": {
+        "exists": true,
+        "nonTrivial": true,
+        "userProvided": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "simple": true
+      },
+      "hasMutableFields": true,
+      "hasUserDeclaredConstructor": true,
+      "isPolymorphic": true,
+      "moveAssign": {
+        "exists": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "moveCtor": {
+        "exists": true,
+        "nonTrivial": true,
+        "simple": true
+      }
+    },
+    "kind": "CXXRecordDecl",
+    "inner": [
+      {
+        "inner": [
+          {
+            "kind": "ParagraphComment"
+          }
+        ],
+        "kind": "FullComment"
+      },
+      {
+        "isReferenced": true,
+        "kind": "CXXRecordDecl",
+        "tagUsed": "class",
+        "name": "possymbol",
+        "isImplicit": true,
+        "inner": null
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "name": "possymbol",
+        "kind": "CXXConstructorDecl",
+        "type": {
+          "qualType": "void ()"
+        },
+        "mangledName": "__ZN5GiNaC9possymbolC1Ev",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC9possymbolC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE",
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "name": "initname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &)"
+        },
+        "name": "possymbol"
+      },
+      {
+        "mangledName": "__ZN5GiNaC9possymbolC1ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEES9_",
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "name": "initname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          },
+          {
+            "name": "texname",
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const std::string &"
+            }
+          }
+        ],
+        "type": {
+          "qualType": "void (const std::string &, const std::string &)"
+        },
+        "name": "possymbol"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC9possymbol10get_domainEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "isUsed": true,
+        "name": "get_domain"
+      },
+      {
+        "mangledName": "__ZNK5GiNaC9possymbol9duplicateEv",
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          },
+          {
+            "kind": "OverrideAttr"
+          }
+        ],
+        "type": {
+          "qualType": "possymbol *() const"
+        },
+        "isUsed": true,
+        "name": "duplicate"
+      },
+      {
+        "inline": true,
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::possymbol &"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC9possymbolaSERKS0_",
+        "type": {
+          "qualType": "GiNaC::possymbol &(const GiNaC::possymbol &)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXMethodDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "GiNaC::possymbol &&"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC9possymbolaSEOS0_",
+        "type": {
+          "qualType": "GiNaC::possymbol &(GiNaC::possymbol &&)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXDestructorDecl",
+        "inner": [
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "isUsed": true,
+        "name": "~possymbol",
+        "mangledName": "__ZN5GiNaC9possymbolD1Ev",
+        "type": {
+          "qualType": "void () noexcept"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "isUsed": true,
+            "kind": "ParmVarDecl",
+            "type": {
+              "qualType": "const GiNaC::possymbol &"
+            }
+          },
+          {
+            "kind": "CXXCtorInitializer",
+            "baseInit": {
+              "desugaredQualType": "GiNaC::realsymbol",
+              "qualType": "realsymbol"
+            }
+          },
+          {
+            "kind": "CompoundStmt"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "isUsed": true,
+        "name": "possymbol",
+        "mangledName": "__ZN5GiNaC9possymbolC1ERKS0_",
+        "type": {
+          "qualType": "void (const GiNaC::possymbol &) noexcept(false)"
+        }
+      },
+      {
+        "inline": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "GiNaC::possymbol &&"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "possymbol",
+        "mangledName": "__ZN5GiNaC9possymbolC1EOS0_",
+        "type": {
+          "qualType": "void (GiNaC::possymbol &&)"
+        }
+      }
+    ],
+    "bases": [
+      {
+        "access": "public",
+        "type": {
+          "desugaredQualType": "GiNaC::realsymbol",
+          "qualType": "realsymbol"
+        },
+        "writtenAccess": "public"
+      }
+    ],
+    "name": "possymbol",
+    "tagUsed": "class",
+    "completeDefinition": true
+  },
+  {
+    "completeDefinition": true,
+    "kind": "CXXRecordDecl",
+    "inner": [
+      {
+        "isReferenced": true,
+        "kind": "CXXRecordDecl",
+        "tagUsed": "class",
+        "name": "possymbol_unarchiver",
+        "isImplicit": true,
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC20possymbol_unarchiver8usecountE",
+        "kind": "VarDecl",
+        "storageClass": "static",
+        "type": {
+          "qualType": "int"
+        },
+        "name": "usecount",
+        "inner": null
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "inner": null
+      },
+      {
+        "mangledName": "__ZN5GiNaC20possymbol_unarchiver6createEv",
+        "kind": "CXXMethodDecl",
+        "storageClass": "static",
+        "type": {
+          "qualType": "GiNaC::basic *()"
+        },
+        "name": "create",
+        "inner": null
+      },
+      {
+        "name": "possymbol_unarchiver",
+        "kind": "CXXConstructorDecl",
+        "type": {
+          "qualType": "void ()"
+        },
+        "mangledName": "__ZN5GiNaC20possymbol_unarchiverC1Ev",
+        "isUsed": true,
+        "inner": null
+      },
+      {
+        "name": "~possymbol_unarchiver",
+        "kind": "CXXDestructorDecl",
+        "type": {
+          "qualType": "void () noexcept"
+        },
+        "mangledName": "__ZN5GiNaC20possymbol_unarchiverD1Ev",
+        "isUsed": true,
+        "inner": null
+      },
+      {
+        "constexpr": true,
+        "kind": "CXXConstructorDecl",
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::possymbol_unarchiver &"
+            },
+            "kind": "ParmVarDecl"
+          }
+        ],
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "possymbol_unarchiver",
+        "mangledName": "__ZN5GiNaC20possymbol_unarchiverC1ERKS0_",
+        "type": {
+          "qualType": "void (const GiNaC::possymbol_unarchiver &)"
+        },
+        "inline": true
+      }
+    ],
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "needsImplicit": true,
+        "simple": true,
+        "trivial": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "simple": true,
+        "trivial": true
+      },
+      "defaultCtor": {
+        "defaultedIsConstexpr": true,
+        "exists": true,
+        "nonTrivial": true,
+        "userProvided": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "hasUserDeclaredConstructor": true,
+      "isEmpty": true,
+      "isStandardLayout": true,
+      "moveAssign": {},
+      "moveCtor": {}
+    },
+    "isReferenced": true,
+    "name": "possymbol_unarchiver",
+    "tagUsed": "class"
+  },
+  {
+    "storageClass": "static",
+    "kind": "VarDecl",
+    "inner": [
+      {
+        "hadMultipleCandidates": true,
+        "kind": "CXXConstructExpr",
+        "constructionKind": "complete",
+        "type": {
+          "desugaredQualType": "GiNaC::possymbol_unarchiver",
+          "qualType": "possymbol_unarchiver"
+        },
+        "valueCategory": "prvalue",
+        "ctorType": {
+          "qualType": "void ()"
+        },
+        "inner": null
+      }
+    ],
+    "init": "call",
+    "name": "possymbol_unarchiver_instance",
+    "mangledName": "__ZN5GiNaCL29possymbol_unarchiver_instanceE",
+    "type": {
+      "desugaredQualType": "GiNaC::possymbol_unarchiver",
+      "qualType": "possymbol_unarchiver"
+    }
+  }
+]

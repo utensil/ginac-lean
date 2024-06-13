@@ -7,3 +7,4 @@ build/
 codegen/tests/fixtures/all_methods.txt
 lakefile.olean
 .lake/
+codegen/tests/fixtures/*-h.json

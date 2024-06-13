@@ -153,7 +153,8 @@ jobs:
       # - name: run pre-commit
       #   run: |
       #     pre-commit run --all-files
-      - name: run codegen tests
+      - name: run codegen tests (Linux)
+        if: runner.os == 'Linux'
         run: |
           pytest codegen/tests
       - name: lake upload

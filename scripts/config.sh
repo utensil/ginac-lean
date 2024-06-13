@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-set -v
+# set -v
 
 SCRIPTS_DIR=$(cd $(dirname "$0") && pwd)
 echo "SCRIPTS_DIR=$SCRIPTS_DIR"
