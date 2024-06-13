@@ -44,7 +44,7 @@ from utils.types import (
 )
 
 dir_root: Path = Path(os.path.dirname(os.path.realpath(__file__))).parent.parent
-dir_build: Path = dir_root / "build"
+dir_build: Path = dir_root / ".lake" / "build"
 dir_codegen: Path = dir_root / "codegen"
 dir_fixture: Path = dir_codegen / "tests" / "fixtures"
 
@@ -60,7 +60,7 @@ concerned_cursor_kinds: List[CursorKind] = [
     CursorKind.CLASS_TEMPLATE,
 ]
 
-PATH_ROOT_REGEX = re.compile(".*/ginac-lean/build/ginac-1.8.7/")
+PATH_ROOT_REGEX = re.compile(r".*/ginac-lean/\.lake/build/ginac-1.8.7/")
 
 UPDATE_FIXTURES = "UPDATE_FIXTURES" in os.environ
 

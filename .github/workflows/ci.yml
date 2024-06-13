@@ -123,25 +123,6 @@ jobs:
           else
             echo "Unsupported OS"
           fi
-      # - name: pip install
-      #   run: |
-      #     pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
-      # - name: run pre-commit
-      #   run: |
-      #     pre-commit run --all-files
-      # - name: build ginac
-      #   run: |
-      #     bash scripts/build_ginac.sh
-      # - name: run codegen tests
-      #   run: |
-      #     pytest codegen/tests
-      # - name: check ginac
-      #   run: |
-      #     # Not all tests are passing on mac for now
-      #     if [[ "${{ matrix.platform.os }}" == "ubuntu-latest" ]]; then
-      #       bash scripts/check_ginac.sh
-      #     fi
-      # Use `lake run clear` to avoid cache causing unclean build
       - name: Build GiNaC (Windows)
         if: runner.os == 'Windows'
         run: |
@@ -156,9 +137,25 @@ jobs:
           else
             lake build
           fi
+      # - name: check ginac
+      #   run: |
+      #     # Not all tests are passing on mac for now
+      #     if [[ "${{ matrix.platform.os }}" == "ubuntu-latest" ]]; then
+      #       bash scripts/check_ginac.sh
+      #     fi
+      # Use `lake run clear` to avoid cache causing unclean build
       # - name: lake exe
       #   run: |
       #     lake exe ginac_hello
+      - name: pip install
+        run: |
+          pip install -r codegen/requirements.txt -r codegen/requirements-dev.txt -r codegen/requirements-tests.txt
+      # - name: run pre-commit
+      #   run: |
+      #     pre-commit run --all-files
+      - name: run codegen tests
+        run: |
+          pytest codegen/tests
       - name: lake upload
         if: github.event_name == 'release'
         run: |
