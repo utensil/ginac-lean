@@ -71,7 +71,7 @@ jobs:
           # Following https://github.com/tydeu/lean4-alloy/blob/master/.github/workflows/ci.yml
           path-type: inherit
           msystem: ${{ matrix.platform.msystem }}
-          cache: false
+          # cache: false
           install: >-
             git
             base-devel
