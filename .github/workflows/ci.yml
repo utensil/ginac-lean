@@ -99,13 +99,14 @@ jobs:
       - name: git config line endings (Windows)
         if: runner.os == 'Windows'
         run: git config --global core.autocrlf input
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup Python
-        uses: actions/setup-python@v4.6.1
+        uses: actions/setup-python@v5
         with:
           python-version: 3.11
-      - name: Set up cache for deps
-        uses: actions/cache@v3
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v4
         with:
           path: .lake
           key: cache-${{ runner.os }}-${{ github.sha }}
@@ -170,6 +171,14 @@ jobs:
           else
             echo "Unsupported OS"
           fi
+      # Following https://github.com/actions/cache/issues/1315#issuecomment-2163822166
+      - name: Always Save Cache 
+        id: cache-save
+        if: always() && steps.cache-restore.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .lake
+          key: cache-${{ runner.os }}-${{ github.sha }}
 
       # - name: Upload artifact
       #   uses: actions/upload-pages-artifact@v1
