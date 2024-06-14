@@ -1,0 +1,5126 @@
+[
+  {
+    "inner": [
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "kind": "TemplateArgument",
+                "type": {
+                  "desugaredQualType": "GiNaC::ex",
+                  "qualType": "ex"
+                },
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "decl": {
+                          "name": "ex",
+                          "kind": "CXXRecordDecl"
+                        },
+                        "kind": "RecordType",
+                        "type": {
+                          "qualType": "GiNaC::ex"
+                        }
+                      }
+                    ],
+                    "kind": "ElaboratedType",
+                    "type": {
+                      "qualType": "ex"
+                    }
+                  }
+                ]
+              },
+              {
+                "decl": {
+                  "name": "vector",
+                  "kind": "ClassTemplateSpecializationDecl"
+                },
+                "kind": "RecordType",
+                "type": {
+                  "qualType": "std::vector<GiNaC::ex>"
+                }
+              }
+            ],
+            "kind": "TemplateSpecializationType",
+            "type": {
+              "qualType": "vector<ex>"
+            },
+            "templateName": "vector"
+          }
+        ],
+        "kind": "ElaboratedType",
+        "type": {
+          "qualType": "std::vector<ex>"
+        },
+        "qualifier": "std::"
+      }
+    ],
+    "kind": "TypedefDecl",
+    "loc": {
+      "offset": 1298,
+      "line": 48,
+      "col": 25,
+      "tokLen": 8,
+      "spellingLoc": null
+    },
+    "type": {
+      "desugaredQualType": "std::vector<GiNaC::ex>",
+      "qualType": "std::vector<ex>"
+    },
+    "isReferenced": true,
+    "name": "exvector"
+  },
+  {
+    "inner": [
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "kind": "TemplateArgument",
+                "type": {
+                  "desugaredQualType": "GiNaC::ex",
+                  "qualType": "ex"
+                },
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "decl": {
+                          "name": "ex",
+                          "kind": "CXXRecordDecl"
+                        },
+                        "kind": "RecordType",
+                        "type": {
+                          "qualType": "GiNaC::ex"
+                        }
+                      }
+                    ],
+                    "kind": "ElaboratedType",
+                    "type": {
+                      "qualType": "ex"
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "TemplateArgument",
+                "type": {
+                  "desugaredQualType": "GiNaC::ex_is_less",
+                  "qualType": "ex_is_less"
+                },
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "decl": {
+                          "name": "ex_is_less",
+                          "kind": "CXXRecordDecl"
+                        },
+                        "kind": "RecordType",
+                        "type": {
+                          "qualType": "GiNaC::ex_is_less"
+                        }
+                      }
+                    ],
+                    "kind": "ElaboratedType",
+                    "type": {
+                      "qualType": "ex_is_less"
+                    }
+                  }
+                ]
+              },
+              {
+                "decl": {
+                  "name": "set",
+                  "kind": "ClassTemplateSpecializationDecl"
+                },
+                "kind": "RecordType",
+                "type": {
+                  "qualType": "std::set<GiNaC::ex, GiNaC::ex_is_less>"
+                }
+              }
+            ],
+            "kind": "TemplateSpecializationType",
+            "type": {
+              "qualType": "set<ex, ex_is_less>"
+            },
+            "templateName": "set"
+          }
+        ],
+        "kind": "ElaboratedType",
+        "type": {
+          "qualType": "std::set<ex, ex_is_less>"
+        },
+        "qualifier": "std::"
+      }
+    ],
+    "kind": "TypedefDecl",
+    "loc": {
+      "offset": 1341,
+      "line": 49,
+      "col": 34,
+      "tokLen": 5,
+      "spellingLoc": null
+    },
+    "type": {
+      "desugaredQualType": "std::set<GiNaC::ex, GiNaC::ex_is_less>",
+      "qualType": "std::set<ex, ex_is_less>"
+    },
+    "name": "exset"
+  },
+  {
+    "inner": [
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "kind": "TemplateArgument",
+                "type": {
+                  "desugaredQualType": "GiNaC::ex",
+                  "qualType": "ex"
+                },
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "decl": {
+                          "name": "ex",
+                          "kind": "CXXRecordDecl"
+                        },
+                        "kind": "RecordType",
+                        "type": {
+                          "qualType": "GiNaC::ex"
+                        }
+                      }
+                    ],
+                    "kind": "ElaboratedType",
+                    "type": {
+                      "qualType": "ex"
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "TemplateArgument",
+                "type": {
+                  "desugaredQualType": "GiNaC::ex",
+                  "qualType": "ex"
+                },
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "decl": {
+                          "name": "ex",
+                          "kind": "CXXRecordDecl"
+                        },
+                        "kind": "RecordType",
+                        "type": {
+                          "qualType": "GiNaC::ex"
+                        }
+                      }
+                    ],
+                    "kind": "ElaboratedType",
+                    "type": {
+                      "qualType": "ex"
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "TemplateArgument",
+                "type": {
+                  "desugaredQualType": "GiNaC::ex_is_less",
+                  "qualType": "ex_is_less"
+                },
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "decl": {
+                          "name": "ex_is_less",
+                          "kind": "CXXRecordDecl"
+                        },
+                        "kind": "RecordType",
+                        "type": {
+                          "qualType": "GiNaC::ex_is_less"
+                        }
+                      }
+                    ],
+                    "kind": "ElaboratedType",
+                    "type": {
+                      "qualType": "ex_is_less"
+                    }
+                  }
+                ]
+              },
+              {
+                "decl": {
+                  "name": "map",
+                  "kind": "ClassTemplateSpecializationDecl"
+                },
+                "kind": "RecordType",
+                "type": {
+                  "qualType": "std::map<GiNaC::ex, GiNaC::ex, GiNaC::ex_is_less>"
+                }
+              }
+            ],
+            "kind": "TemplateSpecializationType",
+            "type": {
+              "qualType": "map<ex, ex, ex_is_less>"
+            },
+            "templateName": "map"
+          }
+        ],
+        "kind": "ElaboratedType",
+        "type": {
+          "qualType": "std::map<ex, ex, ex_is_less>"
+        },
+        "qualifier": "std::"
+      }
+    ],
+    "kind": "TypedefDecl",
+    "loc": {
+      "offset": 1385,
+      "line": 50,
+      "col": 38,
+      "tokLen": 5,
+      "spellingLoc": null
+    },
+    "type": {
+      "desugaredQualType": "std::map<GiNaC::ex, GiNaC::ex, GiNaC::ex_is_less>",
+      "qualType": "std::map<ex, ex, ex_is_less>"
+    },
+    "isReferenced": true,
+    "name": "exmap"
+  },
+  {
+    "inner": [
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "text": " Function object for map(). ",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 2399,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 2399,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FullComment",
+        "loc": {
+          "offset": 2399,
+          "line": 84,
+          "col": 4,
+          "tokLen": 0,
+          "spellingLoc": null
+        }
+      },
+      {
+        "tagUsed": "struct",
+        "kind": "CXXRecordDecl",
+        "loc": {
+          "offset": 2437,
+          "line": 85,
+          "col": 8,
+          "tokLen": 12,
+          "spellingLoc": null
+        },
+        "name": "map_function",
+        "isImplicit": true,
+        "isReferenced": true
+      },
+      {
+        "inner": [],
+        "kind": "CXXDestructorDecl",
+        "loc": {
+          "offset": 2461,
+          "line": 86,
+          "col": 10,
+          "tokLen": 1,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "isUsed": true,
+        "name": "~map_function",
+        "mangledName": "__ZN5GiNaC12map_functionD1Ev",
+        "type": {
+          "qualType": "void () noexcept"
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "decl": {
+                          "name": "ex",
+                          "kind": "CXXRecordDecl"
+                        },
+                        "kind": "RecordType",
+                        "type": {
+                          "qualType": "GiNaC::ex"
+                        }
+                      }
+                    ],
+                    "kind": "ElaboratedType",
+                    "type": {
+                      "qualType": "ex"
+                    }
+                  }
+                ],
+                "kind": "QualType",
+                "type": {
+                  "desugaredQualType": "const GiNaC::ex",
+                  "qualType": "const ex"
+                },
+                "qualifiers": "const"
+              }
+            ],
+            "kind": "LValueReferenceType",
+            "type": {
+              "qualType": "const ex &"
+            }
+          }
+        ],
+        "kind": "TypedefDecl",
+        "loc": {
+          "offset": 2500,
+          "line": 87,
+          "col": 21,
+          "tokLen": 13,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "const ex &"
+        },
+        "name": "argument_type"
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "decl": {
+                  "name": "ex",
+                  "kind": "CXXRecordDecl"
+                },
+                "kind": "RecordType",
+                "type": {
+                  "qualType": "GiNaC::ex"
+                }
+              }
+            ],
+            "kind": "ElaboratedType",
+            "type": {
+              "qualType": "ex"
+            }
+          }
+        ],
+        "kind": "TypedefDecl",
+        "loc": {
+          "offset": 2527,
+          "line": 88,
+          "col": 13,
+          "tokLen": 11,
+          "spellingLoc": null
+        },
+        "type": {
+          "desugaredQualType": "GiNaC::ex",
+          "qualType": "ex"
+        },
+        "name": "result_type"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 2574,
+              "col": 35,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "e"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 2552,
+          "line": 89,
+          "col": 13,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "pure": true,
+        "name": "operator()",
+        "mangledName": "__ZN5GiNaC12map_functionclERKNS_2exE",
+        "type": {
+          "qualType": "ex (const ex &)"
+        },
+        "virtual": true
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::map_function &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 2437,
+              "col": 8,
+              "tokLen": 12,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 2437,
+          "line": 85,
+          "col": 8,
+          "tokLen": 12,
+          "spellingLoc": null
+        },
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC12map_functionaSERKS0_",
+        "type": {
+          "qualType": "GiNaC::map_function &(const GiNaC::map_function &)"
+        },
+        "inline": true
+      }
+    ],
+    "kind": "CXXRecordDecl",
+    "loc": {
+      "offset": 2437,
+      "line": 85,
+      "col": 8,
+      "tokLen": 12,
+      "spellingLoc": null
+    },
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "needsImplicit": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "defaultCtor": {
+        "defaultedIsConstexpr": true,
+        "exists": true,
+        "isConstexpr": true,
+        "needsImplicit": true,
+        "nonTrivial": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "hasConstexprNonCopyMoveConstructor": true,
+      "isAbstract": true,
+      "isPolymorphic": true,
+      "moveAssign": {},
+      "moveCtor": {}
+    },
+    "isReferenced": true,
+    "name": "map_function",
+    "tagUsed": "struct",
+    "completeDefinition": true
+  },
+  {
+    "inner": [
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "text": " Degenerate base class for visitors. basic and derivative classes",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 2590,
+                  "line": 93,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "  support Robert C. Martin's Acyclic Visitor pattern (cf.",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 2658,
+                  "line": 94,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "  http://condor.depaul.edu/dmumaugh/OOT/Design-Principles/acv.pdf",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 2718,
+                  "line": 95,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "  or chapter 10 of Andrei Alexandrescu's \"Modern C++ Design\"). ",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 2786,
+                  "line": 96,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 2590,
+              "line": 93,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FullComment",
+        "loc": {
+          "offset": 2590,
+          "line": 93,
+          "col": 4,
+          "tokLen": 0,
+          "spellingLoc": null
+        }
+      },
+      {
+        "tagUsed": "class",
+        "kind": "CXXRecordDecl",
+        "loc": {
+          "offset": 2858,
+          "line": 97,
+          "col": 7,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "name": "visitor",
+        "isImplicit": true,
+        "isReferenced": true
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 2868,
+          "line": 98,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [],
+        "kind": "CXXDestructorDecl",
+        "loc": {
+          "offset": 2888,
+          "line": 99,
+          "col": 10,
+          "tokLen": 1,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "isUsed": true,
+        "name": "~visitor",
+        "mangledName": "__ZN5GiNaC7visitorD1Ev",
+        "type": {
+          "qualType": "void () noexcept"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const GiNaC::visitor &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 2858,
+              "col": 7,
+              "tokLen": 7,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 2858,
+          "line": 97,
+          "col": 7,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "explicitlyDefaulted": "default",
+        "isImplicit": true,
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC7visitoraSERKS0_",
+        "type": {
+          "qualType": "GiNaC::visitor &(const GiNaC::visitor &)"
+        },
+        "inline": true
+      }
+    ],
+    "kind": "CXXRecordDecl",
+    "loc": {
+      "offset": 2858,
+      "line": 97,
+      "col": 7,
+      "tokLen": 7,
+      "spellingLoc": null
+    },
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "needsImplicit": true,
+        "nonTrivial": true,
+        "simple": true
+      },
+      "defaultCtor": {
+        "defaultedIsConstexpr": true,
+        "exists": true,
+        "isConstexpr": true,
+        "needsImplicit": true,
+        "nonTrivial": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "hasConstexprNonCopyMoveConstructor": true,
+      "isPolymorphic": true,
+      "moveAssign": {},
+      "moveCtor": {}
+    },
+    "isReferenced": true,
+    "name": "visitor",
+    "tagUsed": "class",
+    "completeDefinition": true
+  },
+  {
+    "inner": [
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "text": " This class is the ABC (abstract base class) of GiNaC's class hierarchy. ",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 2910,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 2910,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FullComment",
+        "loc": {
+          "offset": 2910,
+          "line": 103,
+          "col": 4,
+          "tokLen": 0,
+          "spellingLoc": null
+        }
+      },
+      {
+        "tagUsed": "class",
+        "kind": "CXXRecordDecl",
+        "loc": {
+          "offset": 2992,
+          "line": 104,
+          "col": 7,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "name": "basic",
+        "isImplicit": true,
+        "isReferenced": true
+      },
+      {
+        "access": "private",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        }
+      },
+      {
+        "storageClass": "static",
+        "kind": "VarDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        },
+        "type": {
+          "desugaredQualType": "GiNaC::class_info<GiNaC::registered_class_options>",
+          "qualType": "GiNaC::registered_class_info",
+          "typeAliasDeclId": "0x1703c1c60"
+        },
+        "isUsed": true,
+        "name": "reg_info",
+        "mangledName": "__ZN5GiNaC5basic8reg_infoE"
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        }
+      },
+      {
+        "inner": [],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        },
+        "storageClass": "static",
+        "isUsed": true,
+        "name": "get_class_info_static",
+        "mangledName": "__ZN5GiNaC5basic21get_class_info_staticEv",
+        "type": {
+          "qualType": "GiNaC::registered_class_info &()"
+        }
+      },
+      {
+        "inner": [
+          {
+            "tagUsed": "class",
+            "kind": "CXXRecordDecl",
+            "loc": {
+              "spellingLoc": {
+                "includedFrom": "ginac/basic.h"
+              }
+            },
+            "name": "visitor",
+            "isImplicit": true,
+            "isReferenced": true
+          },
+          {
+            "access": "public",
+            "kind": "AccessSpecDecl",
+            "loc": {
+              "spellingLoc": {
+                "includedFrom": "ginac/basic.h"
+              }
+            }
+          },
+          {
+            "inner": [
+              {
+                "type": {
+                  "qualType": "const basic &"
+                },
+                "kind": "ParmVarDecl",
+                "loc": {
+                  "spellingLoc": {
+                    "includedFrom": "ginac/basic.h"
+                  }
+                }
+              }
+            ],
+            "kind": "CXXMethodDecl",
+            "loc": {
+              "spellingLoc": {
+                "includedFrom": "ginac/basic.h"
+              }
+            },
+            "pure": true,
+            "isReferenced": true,
+            "name": "visit",
+            "mangledName": "__ZN5GiNaC5basic7visitor5visitERKS0_",
+            "type": {
+              "qualType": "void (const basic &)"
+            },
+            "virtual": true
+          },
+          {
+            "inner": [],
+            "kind": "CXXDestructorDecl",
+            "loc": {
+              "spellingLoc": {
+                "includedFrom": "ginac/basic.h"
+              }
+            },
+            "virtual": true,
+            "isUsed": true,
+            "name": "~visitor",
+            "mangledName": "__ZN5GiNaC5basic7visitorD1Ev",
+            "type": {
+              "qualType": "void () noexcept"
+            }
+          },
+          {
+            "inner": [
+              {
+                "type": {
+                  "qualType": "const GiNaC::basic::visitor &"
+                },
+                "kind": "ParmVarDecl",
+                "loc": {
+                  "spellingLoc": {
+                    "includedFrom": "ginac/basic.h"
+                  }
+                }
+              }
+            ],
+            "kind": "CXXMethodDecl",
+            "loc": {
+              "spellingLoc": {
+                "includedFrom": "ginac/basic.h"
+              }
+            },
+            "explicitlyDefaulted": "default",
+            "isImplicit": true,
+            "name": "operator=",
+            "mangledName": "__ZN5GiNaC5basic7visitoraSERKS1_",
+            "type": {
+              "qualType": "GiNaC::basic::visitor &(const GiNaC::basic::visitor &)"
+            },
+            "inline": true
+          }
+        ],
+        "kind": "CXXRecordDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        },
+        "definitionData": {
+          "canConstDefaultInit": true,
+          "copyAssign": {
+            "hasConstParam": true,
+            "implicitHasConstParam": true,
+            "nonTrivial": true,
+            "simple": true
+          },
+          "copyCtor": {
+            "hasConstParam": true,
+            "implicitHasConstParam": true,
+            "needsImplicit": true,
+            "nonTrivial": true,
+            "simple": true
+          },
+          "defaultCtor": {
+            "defaultedIsConstexpr": true,
+            "exists": true,
+            "isConstexpr": true,
+            "needsImplicit": true,
+            "nonTrivial": true
+          },
+          "dtor": {
+            "nonTrivial": true,
+            "userDeclared": true
+          },
+          "hasConstexprNonCopyMoveConstructor": true,
+          "isAbstract": true,
+          "isPolymorphic": true,
+          "moveAssign": {},
+          "moveCtor": {}
+        },
+        "isReferenced": true,
+        "name": "visitor",
+        "tagUsed": "class",
+        "completeDefinition": true
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "void"
+            },
+            "kind": "BuiltinType"
+          }
+        ],
+        "kind": "TypedefDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        },
+        "type": {
+          "qualType": "void"
+        },
+        "name": "inherited"
+      },
+      {
+        "inner": [],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        },
+        "virtual": true,
+        "name": "get_class_info",
+        "mangledName": "__ZNK5GiNaC5basic14get_class_infoEv",
+        "type": {
+          "qualType": "const GiNaC::registered_class_info &() const"
+        }
+      },
+      {
+        "inner": [],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        },
+        "virtual": true,
+        "name": "get_class_info",
+        "mangledName": "__ZN5GiNaC5basic14get_class_infoEv",
+        "type": {
+          "qualType": "GiNaC::registered_class_info &()"
+        }
+      },
+      {
+        "inner": [],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        },
+        "virtual": true,
+        "name": "class_name",
+        "mangledName": "__ZNK5GiNaC5basic10class_nameEv",
+        "type": {
+          "qualType": "const char *() const"
+        }
+      },
+      {
+        "access": "private",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "spellingLoc": {
+            "includedFrom": "ginac/basic.h"
+          }
+        }
+      },
+      {
+        "type": {
+          "desugaredQualType": "GiNaC::ex",
+          "qualType": "class ex"
+        },
+        "kind": "FriendDecl",
+        "loc": {
+          "offset": 3084,
+          "line": 108,
+          "col": 9,
+          "tokLen": 5,
+          "spellingLoc": null
+        }
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 3174,
+          "line": 111,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [],
+        "kind": "CXXConstructorDecl",
+        "loc": {
+          "offset": 3186,
+          "line": 112,
+          "col": 2,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void ()"
+        },
+        "name": "basic",
+        "mangledName": "__ZN5GiNaC5basicC1Ev"
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 3209,
+          "line": 114,
+          "col": 1,
+          "tokLen": 6,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " basic destructor, virtual because class ex will delete objects of",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 3221,
+                      "line": 115,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  derived classes via a basic*. ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 3291,
+                      "line": 116,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 3221,
+                  "line": 115,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 3221,
+              "line": 115,
+              "col": 5,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXDestructorDecl",
+        "loc": {
+          "offset": 3335,
+          "line": 117,
+          "col": 10,
+          "tokLen": 1,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "~basic",
+        "mangledName": "__ZN5GiNaC5basicD1Ev",
+        "type": {
+          "qualType": "void () noexcept"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 3453,
+              "col": 22,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXConstructorDecl",
+        "loc": {
+          "offset": 3433,
+          "line": 121,
+          "col": 2,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void (const basic &)"
+        },
+        "isUsed": true,
+        "name": "basic",
+        "mangledName": "__ZN5GiNaC5basicC1ERKS0_"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 3500,
+              "col": 40,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 3476,
+          "line": 122,
+          "col": 16,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "const basic &(const basic &)"
+        },
+        "name": "operator=",
+        "mangledName": "__ZN5GiNaC5basicaSERKS0_"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 3509,
+          "line": 124,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 3589,
+          "line": 126,
+          "col": 1,
+          "tokLen": 6,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Create a clone of this object on the heap.  One can think of this as",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 3664,
+                      "line": 128,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  simulating a virtual copy constructor which is needed for instance by",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 3737,
+                      "line": 129,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  the refcounted construction of an ex from a basic. ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 3812,
+                      "line": 130,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 3664,
+                  "line": 128,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 3664,
+              "line": 128,
+              "col": 5,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 3885,
+          "line": 131,
+          "col": 18,
+          "tokLen": 9,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "duplicate",
+        "mangledName": "__ZNK5GiNaC5basic9duplicateEv",
+        "type": {
+          "qualType": "basic *() const"
+        }
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4026,
+          "line": 139,
+          "col": 13,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "eval",
+        "mangledName": "__ZNK5GiNaC5basic4evalEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4052,
+          "line": 140,
+          "col": 13,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "evalf",
+        "mangledName": "__ZNK5GiNaC5basic5evalfEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4079,
+          "line": 141,
+          "col": 13,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "evalm",
+        "mangledName": "__ZNK5GiNaC5basic5evalmEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4106,
+          "line": 142,
+          "col": 13,
+          "tokLen": 10,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "eval_integ",
+        "mangledName": "__ZNK5GiNaC5basic10eval_integEv"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 4126,
+          "line": 143,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const exvector &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4177,
+              "col": 41,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "v"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4149,
+          "line": 144,
+          "col": 13,
+          "tokLen": 10,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "eval_ncmul",
+        "mangledName": "__ZNK5GiNaC5basic10eval_ncmulERKNSt3__16vectorINS_2exENS1_9allocatorIS3_EEEE",
+        "type": {
+          "qualType": "ex (const exvector &) const"
+        }
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 4187,
+          "line": 145,
+          "col": 1,
+          "tokLen": 6,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4234,
+              "col": 40,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "i"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4207,
+          "line": 146,
+          "col": 13,
+          "tokLen": 12,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "eval_indexed",
+        "mangledName": "__ZNK5GiNaC5basic12eval_indexedERKS0_",
+        "type": {
+          "qualType": "ex (const basic &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const print_context &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4300,
+              "col": 43,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "c"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "value": "0",
+                    "kind": "IntegerLiteral",
+                    "valueCategory": "prvalue",
+                    "type": {
+                      "qualType": "int"
+                    }
+                  }
+                ],
+                "kind": "ImplicitCastExpr",
+                "castKind": "IntegralCast",
+                "type": {
+                  "qualType": "unsigned int"
+                },
+                "valueCategory": "prvalue"
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4312,
+              "col": 55,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "level",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4272,
+          "line": 149,
+          "col": 15,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "print",
+        "mangledName": "__ZNK5GiNaC5basic5printERKNS_13print_contextEj",
+        "type": {
+          "qualType": "void (const print_context &, unsigned int) const"
+        }
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4344,
+          "line": 150,
+          "col": 15,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void () const"
+        },
+        "name": "dbgprint",
+        "mangledName": "__ZNK5GiNaC5basic8dbgprintEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4376,
+          "line": 151,
+          "col": 15,
+          "tokLen": 12,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void () const"
+        },
+        "name": "dbgprinttree",
+        "mangledName": "__ZNK5GiNaC5basic12dbgprinttreeEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4416,
+          "line": 152,
+          "col": 19,
+          "tokLen": 10,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "name": "precedence",
+        "mangledName": "__ZNK5GiNaC5basic10precedenceEv"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4474,
+              "col": 29,
+              "tokLen": 3,
+              "spellingLoc": null
+            },
+            "name": "inf"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4460,
+          "line": 155,
+          "col": 15,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "info",
+        "mangledName": "__ZNK5GiNaC5basic4infoEj",
+        "type": {
+          "qualType": "bool (unsigned int) const"
+        }
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4522,
+          "line": 158,
+          "col": 17,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "size_t () const"
+        },
+        "name": "nops",
+        "mangledName": "__ZNK5GiNaC5basic4nopsEv"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "desugaredQualType": "unsigned long",
+              "qualType": "size_t",
+              "typeAliasDeclId": "0x14910baf0"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4558,
+              "col": 23,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "i"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4548,
+          "line": 159,
+          "col": 13,
+          "tokLen": 2,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "op",
+        "mangledName": "__ZNK5GiNaC5basic2opEm",
+        "type": {
+          "qualType": "ex (size_t) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4602,
+              "col": 35,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "index"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4580,
+          "line": 160,
+          "col": 13,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "operator[]",
+        "mangledName": "__ZNK5GiNaC5basicixERKNS_2exE",
+        "type": {
+          "qualType": "ex (const ex &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "desugaredQualType": "unsigned long",
+              "qualType": "size_t",
+              "typeAliasDeclId": "0x14910baf0"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4646,
+              "col": 31,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "i"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4628,
+          "line": 161,
+          "col": 13,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "operator[]",
+        "mangledName": "__ZNK5GiNaC5basicixEm",
+        "type": {
+          "qualType": "ex (size_t) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "desugaredQualType": "unsigned long",
+              "qualType": "size_t",
+              "typeAliasDeclId": "0x14910baf0"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4684,
+              "col": 29,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "i"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4670,
+          "line": 162,
+          "col": 15,
+          "tokLen": 6,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "let_op",
+        "mangledName": "__ZN5GiNaC5basic6let_opEm",
+        "type": {
+          "qualType": "ex &(size_t)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4724,
+              "col": 37,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "index"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4702,
+          "line": 163,
+          "col": 15,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "operator[]",
+        "mangledName": "__ZN5GiNaC5basicixERKNS_2exE",
+        "type": {
+          "qualType": "ex &(const ex &)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "desugaredQualType": "unsigned long",
+              "qualType": "size_t",
+              "typeAliasDeclId": "0x14910baf0"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4764,
+              "col": 33,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "i"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4746,
+          "line": 164,
+          "col": 15,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "operator[]",
+        "mangledName": "__ZN5GiNaC5basicixEm",
+        "type": {
+          "qualType": "ex &(size_t)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4819,
+              "col": 30,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "value": "0",
+                    "kind": "IntegerLiteral",
+                    "valueCategory": "prvalue",
+                    "type": {
+                      "qualType": "int"
+                    }
+                  }
+                ],
+                "kind": "ImplicitCastExpr",
+                "castKind": "IntegralCast",
+                "type": {
+                  "qualType": "unsigned int"
+                },
+                "valueCategory": "prvalue"
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4835,
+              "col": 46,
+              "tokLen": 7,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "options",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4804,
+          "line": 167,
+          "col": 15,
+          "tokLen": 3,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "has",
+        "mangledName": "__ZNK5GiNaC5basic3hasERKNS_2exEj",
+        "type": {
+          "qualType": "bool (const ex &, unsigned int) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4886,
+              "col": 32,
+              "tokLen": 7,
+              "spellingLoc": null
+            },
+            "name": "pattern"
+          },
+          {
+            "type": {
+              "qualType": "exmap &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4903,
+              "col": 49,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "repls"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4869,
+          "line": 168,
+          "col": 15,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "match",
+        "mangledName": "__ZNK5GiNaC5basic5matchERKNS_2exERNSt3__13mapIS1_S1_NS_10ex_is_lessENS4_9allocatorINS4_4pairIS2_S1_EEEEEE",
+        "type": {
+          "qualType": "bool (const ex &, exmap &) const"
+        }
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 4917,
+          "line": 169,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 4972,
+              "col": 45,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 4942,
+          "line": 170,
+          "col": 15,
+          "tokLen": 15,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "match_same_type",
+        "mangledName": "__ZNK5GiNaC5basic15match_same_typeERKS0_",
+        "type": {
+          "qualType": "bool (const basic &) const"
+        }
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 4986,
+          "line": 171,
+          "col": 1,
+          "tokLen": 6,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const exmap &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5044,
+              "col": 32,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "m"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "value": "0",
+                    "kind": "IntegerLiteral",
+                    "valueCategory": "prvalue",
+                    "type": {
+                      "qualType": "int"
+                    }
+                  }
+                ],
+                "kind": "ImplicitCastExpr",
+                "castKind": "IntegralCast",
+                "type": {
+                  "qualType": "unsigned int"
+                },
+                "valueCategory": "prvalue"
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5056,
+              "col": 44,
+              "tokLen": 7,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "options",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5025,
+          "line": 174,
+          "col": 13,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "subs",
+        "mangledName": "__ZNK5GiNaC5basic4subsERKNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEEj",
+        "type": {
+          "qualType": "ex (const exmap &, unsigned int) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "map_function &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5129,
+              "col": 32,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "f"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5110,
+          "line": 177,
+          "col": 13,
+          "tokLen": 3,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "map",
+        "mangledName": "__ZNK5GiNaC5basic3mapERNS_12map_functionE",
+        "type": {
+          "qualType": "ex (map_function &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "GiNaC::visitor &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5210,
+              "line": 180,
+              "col": 39,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "v",
+            "isUsed": true
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5186,
+          "line": 180,
+          "col": 15,
+          "tokLen": 6,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "accept",
+        "mangledName": "__ZNK5GiNaC5basic6acceptERNS_7visitorE",
+        "type": {
+          "qualType": "void (GiNaC::visitor &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5350,
+              "col": 40,
+              "tokLen": 3,
+              "spellingLoc": null
+            },
+            "name": "var"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5325,
+          "line": 187,
+          "col": 15,
+          "tokLen": 13,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "is_polynomial",
+        "mangledName": "__ZNK5GiNaC5basic13is_polynomialERKNS_2exE",
+        "type": {
+          "qualType": "bool (const ex &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5393,
+              "col": 32,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "s"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5375,
+          "line": 188,
+          "col": 14,
+          "tokLen": 6,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "degree",
+        "mangledName": "__ZNK5GiNaC5basic6degreeERKNS_2exE",
+        "type": {
+          "qualType": "int (const ex &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5435,
+              "col": 33,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "s"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5416,
+          "line": 189,
+          "col": 14,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "ldegree",
+        "mangledName": "__ZNK5GiNaC5basic7ldegreeERKNS_2exE",
+        "type": {
+          "qualType": "int (const ex &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5474,
+              "col": 30,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "s"
+          },
+          {
+            "inner": [
+              {
+                "value": "1",
+                "kind": "IntegerLiteral",
+                "valueCategory": "prvalue",
+                "type": {
+                  "qualType": "int"
+                }
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5481,
+              "col": 37,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "n",
+            "type": {
+              "qualType": "int"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5457,
+          "line": 190,
+          "col": 13,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "coeff",
+        "mangledName": "__ZNK5GiNaC5basic5coeffERKNS_2exEi",
+        "type": {
+          "qualType": "ex (const ex &, int) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "value": "0",
+                    "kind": "IntegerLiteral",
+                    "valueCategory": "prvalue",
+                    "type": {
+                      "qualType": "int"
+                    }
+                  }
+                ],
+                "kind": "ImplicitCastExpr",
+                "castKind": "IntegralCast",
+                "type": {
+                  "qualType": "unsigned int"
+                },
+                "valueCategory": "prvalue"
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5543,
+              "col": 29,
+              "tokLen": 7,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "options",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5527,
+          "line": 193,
+          "col": 13,
+          "tokLen": 6,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "expand",
+        "mangledName": "__ZNK5GiNaC5basic6expandEj",
+        "type": {
+          "qualType": "ex (unsigned int) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5594,
+              "col": 32,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "s"
+          },
+          {
+            "inner": [
+              {
+                "value": false,
+                "kind": "CXXBoolLiteralExpr",
+                "valueCategory": "prvalue",
+                "type": {
+                  "qualType": "bool"
+                }
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5602,
+              "col": 40,
+              "tokLen": 11,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "distributed",
+            "type": {
+              "qualType": "bool"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5575,
+          "line": 194,
+          "col": 13,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "collect",
+        "mangledName": "__ZNK5GiNaC5basic7collectERKNS_2exEb",
+        "type": {
+          "qualType": "ex (const ex &, bool) const"
+        }
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 5672,
+          "line": 197,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const symbol &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5721,
+              "col": 39,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "s"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5695,
+          "line": 198,
+          "col": 13,
+          "tokLen": 10,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "derivative",
+        "mangledName": "__ZNK5GiNaC5basic10derivativeERKNS_6symbolE",
+        "type": {
+          "qualType": "ex (const symbol &) const"
+        }
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 5731,
+          "line": 199,
+          "col": 1,
+          "tokLen": 6,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const relational &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5777,
+              "col": 39,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "r"
+          },
+          {
+            "type": {
+              "qualType": "int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5784,
+              "col": 46,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "order"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "value": "0",
+                    "kind": "IntegerLiteral",
+                    "valueCategory": "prvalue",
+                    "type": {
+                      "qualType": "int"
+                    }
+                  }
+                ],
+                "kind": "ImplicitCastExpr",
+                "castKind": "IntegralCast",
+                "type": {
+                  "qualType": "unsigned int"
+                },
+                "valueCategory": "prvalue"
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5800,
+              "col": 62,
+              "tokLen": 7,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "options",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5751,
+          "line": 200,
+          "col": 13,
+          "tokLen": 6,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "series",
+        "mangledName": "__ZNK5GiNaC5basic6seriesERKNS_10relationalEij",
+        "type": {
+          "qualType": "ex (const relational &, int, unsigned int) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "exmap &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5871,
+              "col": 28,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "name": "repl"
+          },
+          {
+            "type": {
+              "qualType": "exmap &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5885,
+              "col": 42,
+              "tokLen": 10,
+              "spellingLoc": null
+            },
+            "name": "rev_lookup"
+          },
+          {
+            "type": {
+              "qualType": "lst &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5903,
+              "col": 60,
+              "tokLen": 8,
+              "spellingLoc": null
+            },
+            "name": "modifier"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5856,
+          "line": 203,
+          "col": 13,
+          "tokLen": 6,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "normal",
+        "mangledName": "__ZNK5GiNaC5basic6normalERNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEESB_RNS_9containerINS1_4listEEE",
+        "type": {
+          "qualType": "ex (exmap &, exmap &, lst &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "exmap &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5952,
+              "col": 33,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "name": "repl"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5932,
+          "line": 204,
+          "col": 13,
+          "tokLen": 11,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "to_rational",
+        "mangledName": "__ZNK5GiNaC5basic11to_rationalERNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEE",
+        "type": {
+          "qualType": "ex (exmap &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "exmap &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 5999,
+              "col": 35,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "name": "repl"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 5977,
+          "line": 205,
+          "col": 13,
+          "tokLen": 13,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "to_polynomial",
+        "mangledName": "__ZNK5GiNaC5basic13to_polynomialERNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEE",
+        "type": {
+          "qualType": "ex (exmap &) const"
+        }
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6056,
+          "line": 208,
+          "col": 18,
+          "tokLen": 15,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "numeric () const"
+        },
+        "name": "integer_content",
+        "mangledName": "__ZNK5GiNaC5basic15integer_contentEv"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const numeric &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6113,
+              "col": 33,
+              "tokLen": 2,
+              "spellingLoc": null
+            },
+            "name": "xi"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6093,
+          "line": 209,
+          "col": 13,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "smod",
+        "mangledName": "__ZNK5GiNaC5basic4smodERKNS_7numericE",
+        "type": {
+          "qualType": "ex (const numeric &) const"
+        }
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6141,
+          "line": 210,
+          "col": 18,
+          "tokLen": 15,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "numeric () const"
+        },
+        "name": "max_coefficient",
+        "mangledName": "__ZNK5GiNaC5basic15max_coefficientEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6205,
+          "line": 213,
+          "col": 19,
+          "tokLen": 16,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "exvector () const"
+        },
+        "name": "get_free_indices",
+        "mangledName": "__ZNK5GiNaC5basic16get_free_indicesEv"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6266,
+              "col": 36,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6283,
+              "col": 53,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6243,
+          "line": 214,
+          "col": 13,
+          "tokLen": 11,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "add_indexed",
+        "mangledName": "__ZNK5GiNaC5basic11add_indexedERKNS_2exES3_",
+        "type": {
+          "qualType": "ex (const ex &, const ex &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const ex &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6339,
+              "col": 43,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "qualType": "const numeric &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6361,
+              "col": 65,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6309,
+          "line": 215,
+          "col": 13,
+          "tokLen": 18,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "scalar_mul_indexed",
+        "mangledName": "__ZNK5GiNaC5basic18scalar_mul_indexedERKNS_2exERKNS_7numericE",
+        "type": {
+          "qualType": "ex (const ex &, const numeric &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "desugaredQualType": "std::__wrap_iter<GiNaC::ex *>",
+              "qualType": "exvector::iterator",
+              "typeAliasDeclId": "0x120792b50"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6422,
+              "col": 48,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "name": "self"
+          },
+          {
+            "type": {
+              "desugaredQualType": "std::__wrap_iter<GiNaC::ex *>",
+              "qualType": "exvector::iterator",
+              "typeAliasDeclId": "0x120792b50"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6447,
+              "col": 73,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          },
+          {
+            "type": {
+              "qualType": "exvector &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6465,
+              "col": 91,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "v"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6389,
+          "line": 216,
+          "col": 15,
+          "tokLen": 13,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "contract_with",
+        "mangledName": "__ZNK5GiNaC5basic13contract_withENSt3__111__wrap_iterIPNS_2exEEES5_RNS1_6vectorIS3_NS1_9allocatorIS3_EEEE",
+        "type": {
+          "qualType": "bool (exvector::iterator, exvector::iterator, exvector &) const"
+        }
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6515,
+          "line": 219,
+          "col": 19,
+          "tokLen": 11,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "name": "return_type",
+        "mangledName": "__ZNK5GiNaC5basic11return_typeEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6559,
+          "line": 220,
+          "col": 24,
+          "tokLen": 17,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "return_type_t () const"
+        },
+        "name": "return_type_tinfo",
+        "mangledName": "__ZNK5GiNaC5basic17return_type_tinfoEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6637,
+          "line": 223,
+          "col": 13,
+          "tokLen": 9,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "conjugate",
+        "mangledName": "__ZNK5GiNaC5basic9conjugateEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6668,
+          "line": 224,
+          "col": 13,
+          "tokLen": 9,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "real_part",
+        "mangledName": "__ZNK5GiNaC5basic9real_partEv"
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6699,
+          "line": 225,
+          "col": 13,
+          "tokLen": 9,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex () const"
+        },
+        "name": "imag_part",
+        "mangledName": "__ZNK5GiNaC5basic9imag_partEv"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 6774,
+          "line": 228,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6830,
+              "col": 46,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6798,
+          "line": 229,
+          "col": 14,
+          "tokLen": 17,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "compare_same_type",
+        "mangledName": "__ZNK5GiNaC5basic17compare_same_typeERKS0_",
+        "type": {
+          "qualType": "int (const basic &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 6891,
+              "col": 48,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6858,
+          "line": 230,
+          "col": 15,
+          "tokLen": 18,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "is_equal_same_type",
+        "mangledName": "__ZNK5GiNaC5basic18is_equal_same_typeERKS0_",
+        "type": {
+          "qualType": "bool (const basic &) const"
+        }
+      },
+      {
+        "virtual": true,
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 6924,
+          "line": 232,
+          "col": 19,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "isUsed": true,
+        "name": "calchash",
+        "mangledName": "__ZNK5GiNaC5basic8calchashEv"
+      },
+      {
+        "access": "public",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 6984,
+          "line": 235,
+          "col": 1,
+          "tokLen": 6,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "index": 0,
+            "kind": "TemplateTypeParmDecl",
+            "loc": {
+              "offset": 7198,
+              "line": 241,
+              "col": 18,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "depth": 0,
+            "name": "T",
+            "tagUsed": "class"
+          },
+          {
+            "inner": [
+              {
+                "type": {
+                  "qualType": "const print_context &"
+                },
+                "kind": "ParmVarDecl",
+                "loc": {
+                  "offset": 7244,
+                  "line": 242,
+                  "col": 44,
+                  "tokLen": 1,
+                  "spellingLoc": null
+                },
+                "name": "c",
+                "isReferenced": true
+              },
+              {
+                "type": {
+                  "qualType": "unsigned int"
+                },
+                "kind": "ParmVarDecl",
+                "loc": {
+                  "offset": 7256,
+                  "col": 56,
+                  "tokLen": 5,
+                  "spellingLoc": null
+                },
+                "name": "level",
+                "isReferenced": true
+              },
+              {
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "text": " Like print(), but dispatch to the specified class. Can be used by",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 6996,
+                          "line": 236,
+                          "col": 5,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      },
+                      {
+                        "text": "  implementations of print methods to dispatch to the method of the",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7066,
+                          "line": 237,
+                          "col": 4,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      },
+                      {
+                        "text": "  superclass.",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7137,
+                          "line": 238,
+                          "col": 4,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      }
+                    ],
+                    "kind": "ParagraphComment",
+                    "loc": {
+                      "offset": 6996,
+                      "line": 236,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "inner": [
+                      {
+                        "text": "  ",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7158,
+                          "col": 4,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      }
+                    ],
+                    "kind": "ParagraphComment",
+                    "loc": {
+                      "offset": 7158,
+                      "line": 240,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "inner": [
+                      {
+                        "inner": [
+                          {
+                            "text": " basic::print ",
+                            "kind": "TextComment",
+                            "loc": {
+                              "offset": 7164,
+                              "col": 10,
+                              "tokLen": 0,
+                              "spellingLoc": null
+                            }
+                          }
+                        ],
+                        "kind": "ParagraphComment",
+                        "loc": {
+                          "offset": 7164,
+                          "col": 10,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      }
+                    ],
+                    "kind": "BlockCommandComment",
+                    "loc": {
+                      "offset": 7161,
+                      "col": 7,
+                      "tokLen": 3,
+                      "spellingLoc": null
+                    },
+                    "name": "see"
+                  }
+                ],
+                "kind": "FullComment",
+                "loc": {
+                  "offset": 6996,
+                  "line": 236,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "CXXMethodDecl",
+            "loc": {
+              "offset": 7207,
+              "line": 242,
+              "col": 7,
+              "tokLen": 14,
+              "spellingLoc": null
+            },
+            "type": {
+              "qualType": "void (const print_context &, unsigned int) const"
+            },
+            "name": "print_dispatch"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Like print(), but dispatch to the specified class. Can be used by",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 6996,
+                      "line": 236,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  implementations of print methods to dispatch to the method of the",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7066,
+                      "line": 237,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  superclass.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7137,
+                      "line": 238,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 6996,
+                  "line": 236,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "text": "  ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7158,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 7158,
+                  "line": 240,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "text": " basic::print ",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7164,
+                          "col": 10,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      }
+                    ],
+                    "kind": "ParagraphComment",
+                    "loc": {
+                      "offset": 7164,
+                      "col": 10,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "BlockCommandComment",
+                "loc": {
+                  "offset": 7161,
+                  "col": 7,
+                  "tokLen": 3,
+                  "spellingLoc": null
+                },
+                "name": "see"
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 6996,
+              "line": 236,
+              "col": 5,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FunctionTemplateDecl",
+        "loc": {
+          "offset": 7207,
+          "line": 242,
+          "col": 7,
+          "tokLen": 14,
+          "spellingLoc": null
+        },
+        "name": "print_dispatch"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const registered_class_info &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 7383,
+              "col": 52,
+              "tokLen": 2,
+              "spellingLoc": null
+            },
+            "name": "ri"
+          },
+          {
+            "type": {
+              "qualType": "const print_context &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 7409,
+              "col": 78,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "c"
+          },
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 7421,
+              "col": 90,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "level"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 7338,
+          "line": 247,
+          "col": 7,
+          "tokLen": 14,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void (const registered_class_info &, const print_context &, unsigned int) const"
+        },
+        "name": "print_dispatch",
+        "mangledName": "__ZNK5GiNaC5basic14print_dispatchERKNS_10class_infoINS_24registered_class_optionsEEERKNS_13print_contextEj"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "archive_node &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 7683,
+              "col": 37,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "n"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Save (serialize) the object into archive node.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7440,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 7440,
+                  "line": 249,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "text": " Losely speaking, this method turns an expression into a byte",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7495,
+                      "line": 251,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": " stream (which can be saved and restored later on, or sent via",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7560,
+                      "line": 252,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": " network, etc.)",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7626,
+                      "line": 253,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 7495,
+                  "line": 251,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 7440,
+              "line": 249,
+              "col": 5,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 7661,
+          "line": 255,
+          "col": 15,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "archive",
+        "mangledName": "__ZNK5GiNaC5basic7archiveERNS_12archive_nodeE",
+        "type": {
+          "qualType": "void (archive_node &) const"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const archive_node &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8106,
+              "col": 48,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "n"
+          },
+          {
+            "type": {
+              "qualType": "lst &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8114,
+              "col": 56,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "name": "syms"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Load (deserialize) the object from an archive node.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7697,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 7697,
+                  "line": 256,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "text": "  ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 7757,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 7757,
+                  "line": 258,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "inner": [
+                      {
+                        "text": " This method is essentially a constructor. However,",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7764,
+                          "line": 258,
+                          "col": 11,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      },
+                      {
+                        "text": "  constructors can't be virtual. So, if unarchiving routines",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7819,
+                          "line": 259,
+                          "col": 4,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      },
+                      {
+                        "text": "  are implemented as constructors one would need to define such",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7883,
+                          "line": 260,
+                          "col": 4,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      },
+                      {
+                        "text": "  a constructor in every class, even if all it does is simply",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 7950,
+                          "line": 261,
+                          "col": 4,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      },
+                      {
+                        "text": "  calling constructor of a superclass.",
+                        "kind": "TextComment",
+                        "loc": {
+                          "offset": 8015,
+                          "line": 262,
+                          "col": 4,
+                          "tokLen": 0,
+                          "spellingLoc": null
+                        }
+                      }
+                    ],
+                    "kind": "ParagraphComment",
+                    "loc": {
+                      "offset": 7764,
+                      "line": 258,
+                      "col": 11,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "BlockCommandComment",
+                "loc": {
+                  "offset": 7760,
+                  "col": 7,
+                  "tokLen": 4,
+                  "spellingLoc": null
+                },
+                "name": "note"
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 7697,
+              "line": 256,
+              "col": 5,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8073,
+          "line": 264,
+          "col": 15,
+          "tokLen": 12,
+          "spellingLoc": null
+        },
+        "virtual": true,
+        "name": "read_archive",
+        "mangledName": "__ZN5GiNaC5basic12read_archiveERKNS_12archive_nodeERNS_9containerINSt3__14listEEE",
+        "type": {
+          "qualType": "void (const archive_node &, lst &)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const exmap &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8167,
+              "col": 34,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "m"
+          },
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8179,
+              "col": 46,
+              "tokLen": 7,
+              "spellingLoc": null
+            },
+            "name": "options"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8138,
+          "line": 266,
+          "col": 5,
+          "tokLen": 14,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex (const exmap &, unsigned int) const"
+        },
+        "name": "subs_one_level",
+        "mangledName": "__ZNK5GiNaC5basic14subs_one_levelERKNSt3__13mapINS_2exES3_NS_10ex_is_lessENS1_9allocatorINS1_4pairIKS3_S3_EEEEEEj"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const symbol &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8219,
+              "col": 25,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "s"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "value": "1",
+                    "kind": "IntegerLiteral",
+                    "valueCategory": "prvalue",
+                    "type": {
+                      "qualType": "int"
+                    }
+                  }
+                ],
+                "kind": "ImplicitCastExpr",
+                "castKind": "IntegralCast",
+                "type": {
+                  "qualType": "unsigned int"
+                },
+                "valueCategory": "prvalue"
+              }
+            ],
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8231,
+              "col": 37,
+              "tokLen": 3,
+              "spellingLoc": null
+            },
+            "init": "c",
+            "name": "nth",
+            "type": {
+              "qualType": "unsigned int"
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8199,
+          "line": 267,
+          "col": 5,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "ex (const symbol &, unsigned int) const"
+        },
+        "name": "diff",
+        "mangledName": "__ZNK5GiNaC5basic4diffERKNS_6symbolEj"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8274,
+              "col": 28,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8252,
+          "line": 268,
+          "col": 6,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "int (const basic &) const"
+        },
+        "name": "compare",
+        "mangledName": "__ZNK5GiNaC5basic7compareERKS0_"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8317,
+              "col": 30,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "other"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8294,
+          "line": 269,
+          "col": 7,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "bool (const basic &) const"
+        },
+        "name": "is_equal",
+        "mangledName": "__ZNK5GiNaC5basic8is_equalERKS0_"
+      },
+      {
+        "type": {
+          "qualType": "const basic &() const"
+        },
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8346,
+          "line": 270,
+          "col": 16,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "mangledName": "__ZNK5GiNaC5basic4holdEv",
+        "name": "hold"
+      },
+      {
+        "inner": [],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8371,
+          "line": 272,
+          "col": 11,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "unsigned int () const"
+        },
+        "name": "gethash",
+        "mangledName": "__ZNK5GiNaC5basic7gethashEv"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8718,
+              "col": 33,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "f",
+            "isUsed": true
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Set some status_flags. ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 8659,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 8659,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 8659,
+              "line": 287,
+              "col": 5,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8701,
+          "line": 288,
+          "col": 16,
+          "tokLen": 7,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "const basic &(unsigned int) const"
+        },
+        "isUsed": true,
+        "name": "setflag",
+        "mangledName": "__ZNK5GiNaC5basic7setflagEj"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8823,
+              "col": 35,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "f",
+            "isUsed": true
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Clear some status_flags. ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 8760,
+                      "col": 5,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 8760,
+                  "col": 5,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 8760,
+              "line": 290,
+              "col": 5,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8804,
+          "line": 291,
+          "col": 16,
+          "tokLen": 9,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "const basic &(unsigned int) const"
+        },
+        "name": "clearflag",
+        "mangledName": "__ZNK5GiNaC5basic9clearflagEj"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 8862,
+          "line": 293,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "type": {
+          "qualType": "void () const"
+        },
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8879,
+          "line": 294,
+          "col": 7,
+          "tokLen": 20,
+          "spellingLoc": null
+        },
+        "mangledName": "__ZNK5GiNaC5basic20ensure_if_modifiableEv",
+        "name": "ensure_if_modifiable"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const print_context &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8947,
+              "col": 38,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "c"
+          },
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 8959,
+              "col": 50,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "level"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8916,
+          "line": 296,
+          "col": 7,
+          "tokLen": 8,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void (const print_context &, unsigned int) const"
+        },
+        "name": "do_print",
+        "mangledName": "__ZNK5GiNaC5basic8do_printERKNS_13print_contextEj"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const print_tree &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 9012,
+              "col": 40,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "c"
+          },
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 9024,
+              "col": 52,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "level"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 8979,
+          "line": 297,
+          "col": 7,
+          "tokLen": 13,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void (const print_tree &, unsigned int) const"
+        },
+        "name": "do_print_tree",
+        "mangledName": "__ZNK5GiNaC5basic13do_print_treeERKNS_10print_treeEj"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const print_python_repr &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 9091,
+              "col": 54,
+              "tokLen": 1,
+              "spellingLoc": null
+            },
+            "name": "c"
+          },
+          {
+            "type": {
+              "qualType": "unsigned int"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 9103,
+              "col": 66,
+              "tokLen": 5,
+              "spellingLoc": null
+            },
+            "name": "level"
+          }
+        ],
+        "kind": "CXXMethodDecl",
+        "loc": {
+          "offset": 9044,
+          "line": 298,
+          "col": 7,
+          "tokLen": 20,
+          "spellingLoc": null
+        },
+        "type": {
+          "qualType": "void (const print_python_repr &, unsigned int) const"
+        },
+        "name": "do_print_python_repr",
+        "mangledName": "__ZNK5GiNaC5basic20do_print_python_reprERKNS_17print_python_reprEj"
+      },
+      {
+        "access": "protected",
+        "kind": "AccessSpecDecl",
+        "loc": {
+          "offset": 9140,
+          "line": 301,
+          "col": 1,
+          "tokLen": 9,
+          "spellingLoc": null
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " of type status_flags",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9192,
+                      "col": 42,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 9192,
+                  "col": 42,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 9192,
+              "col": 42,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FieldDecl",
+        "loc": {
+          "offset": 9169,
+          "line": 302,
+          "col": 19,
+          "tokLen": 5,
+          "spellingLoc": null
+        },
+        "mutable": true,
+        "isReferenced": true,
+        "name": "flags",
+        "type": {
+          "qualType": "unsigned int"
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " hash value",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9255,
+                      "col": 42,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 9255,
+                  "col": 42,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 9255,
+              "col": 42,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FieldDecl",
+        "loc": {
+          "offset": 9232,
+          "line": 303,
+          "col": 19,
+          "tokLen": 9,
+          "spellingLoc": null
+        },
+        "mutable": true,
+        "isReferenced": true,
+        "name": "hashvalue",
+        "type": {
+          "qualType": "unsigned int"
+        }
+      }
+    ],
+    "kind": "CXXRecordDecl",
+    "loc": {
+      "offset": 2992,
+      "line": 104,
+      "col": 7,
+      "tokLen": 5,
+      "spellingLoc": null
+    },
+    "bases": [
+      {
+        "access": "public",
+        "type": {
+          "desugaredQualType": "GiNaC::refcounted",
+          "qualType": "refcounted"
+        },
+        "writtenAccess": "public"
+      }
+    ],
+    "isReferenced": true,
+    "previousDecl": "0x1702bdda8",
+    "name": "basic",
+    "tagUsed": "class",
+    "completeDefinition": true,
+    "definitionData": {
+      "canConstDefaultInit": true,
+      "copyAssign": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "copyCtor": {
+        "hasConstParam": true,
+        "implicitHasConstParam": true,
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "defaultCtor": {
+        "exists": true,
+        "nonTrivial": true,
+        "userProvided": true
+      },
+      "dtor": {
+        "nonTrivial": true,
+        "userDeclared": true
+      },
+      "hasMutableFields": true,
+      "hasUserDeclaredConstructor": true,
+      "isPolymorphic": true,
+      "moveAssign": {},
+      "moveCtor": {}
+    }
+  },
+  {
+    "inner": [
+      {
+        "index": 0,
+        "kind": "TemplateTypeParmDecl",
+        "loc": {
+          "offset": 9409,
+          "line": 312,
+          "col": 17,
+          "tokLen": 1,
+          "spellingLoc": null
+        },
+        "depth": 0,
+        "isReferenced": true,
+        "name": "T",
+        "tagUsed": "class"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 9442,
+              "line": 313,
+              "col": 31,
+              "tokLen": 3,
+              "spellingLoc": null
+            },
+            "name": "obj",
+            "isReferenced": true
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Check if obj is a T, including base classes. ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9344,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 9344,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 9344,
+              "line": 311,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FunctionDecl",
+        "loc": {
+          "offset": 9424,
+          "line": 313,
+          "col": 13,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "inline": true,
+        "name": "is_a",
+        "type": {
+          "qualType": "bool (const basic &)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "text": " Check if obj is a T, including base classes. ",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 9344,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 9344,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FullComment",
+        "loc": {
+          "offset": 9344,
+          "col": 4,
+          "tokLen": 0,
+          "spellingLoc": null
+        }
+      }
+    ],
+    "kind": "FunctionTemplateDecl",
+    "loc": {
+      "offset": 9424,
+      "line": 313,
+      "col": 13,
+      "tokLen": 4,
+      "spellingLoc": null
+    },
+    "name": "is_a"
+  },
+  {
+    "inner": [
+      {
+        "index": 0,
+        "kind": "TemplateTypeParmDecl",
+        "loc": {
+          "offset": 9574,
+          "line": 319,
+          "col": 17,
+          "tokLen": 1,
+          "spellingLoc": null
+        },
+        "depth": 0,
+        "isReferenced": true,
+        "name": "T",
+        "tagUsed": "class"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "qualType": "const basic &"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 9616,
+              "line": 320,
+              "col": 40,
+              "tokLen": 3,
+              "spellingLoc": null
+            },
+            "name": "obj",
+            "isReferenced": true
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Check if obj is a T, not including base classes. ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9505,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 9505,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 9505,
+              "line": 318,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FunctionDecl",
+        "loc": {
+          "offset": 9589,
+          "line": 320,
+          "col": 13,
+          "tokLen": 12,
+          "spellingLoc": null
+        },
+        "inline": true,
+        "name": "is_exactly_a",
+        "type": {
+          "qualType": "bool (const basic &)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "text": " Check if obj is a T, not including base classes. ",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 9505,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 9505,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FullComment",
+        "loc": {
+          "offset": 9505,
+          "col": 4,
+          "tokLen": 0,
+          "spellingLoc": null
+        }
+      }
+    ],
+    "kind": "FunctionTemplateDecl",
+    "loc": {
+      "offset": 9589,
+      "line": 320,
+      "col": 13,
+      "tokLen": 12,
+      "spellingLoc": null
+    },
+    "name": "is_exactly_a"
+  },
+  {
+    "inner": [
+      {
+        "index": 0,
+        "kind": "TemplateTypeParmDecl",
+        "loc": {
+          "offset": 10056,
+          "line": 333,
+          "col": 16,
+          "tokLen": 1,
+          "spellingLoc": null
+        },
+        "depth": 0,
+        "isReferenced": true,
+        "name": "B",
+        "tagUsed": "class"
+      },
+      {
+        "isParameterPack": true,
+        "kind": "TemplateTypeParmDecl",
+        "loc": {
+          "offset": 10071,
+          "col": 31,
+          "tokLen": 4,
+          "spellingLoc": null
+        },
+        "index": 1,
+        "isReferenced": true,
+        "name": "Args",
+        "tagUsed": "typename",
+        "depth": 0
+      },
+      {
+        "inner": [
+          {
+            "isParameterPack": true,
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 10111,
+              "line": 334,
+              "col": 35,
+              "tokLen": 4,
+              "spellingLoc": null
+            },
+            "type": {
+              "qualType": "Args &&..."
+            },
+            "isReferenced": true,
+            "name": "args"
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Constructs a new (class basic or derived) B object on the heap.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9663,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 9663,
+                  "line": 325,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "text": "  This function picks the object's ctor based on the given argument types.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9733,
+                      "col": 3,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 9733,
+                  "line": 327,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "text": "  This helps the constructor of ex from basic (or a derived class B) because",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9813,
+                      "line": 329,
+                      "col": 3,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  then the constructor doesn't have to duplicate the object onto the heap.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9892,
+                      "line": 330,
+                      "col": 3,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  See ex::construct_from_basic(const basic ",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 9969,
+                      "line": 331,
+                      "col": 3,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "&",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 10012,
+                      "col": 46,
+                      "tokLen": 1,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": ") for more information.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 10013,
+                      "col": 47,
+                      "tokLen": 1,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 9813,
+                  "line": 329,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 9663,
+              "line": 325,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FunctionDecl",
+        "loc": {
+          "offset": 10088,
+          "line": 334,
+          "col": 12,
+          "tokLen": 11,
+          "spellingLoc": null
+        },
+        "inline": true,
+        "name": "dynallocate",
+        "type": {
+          "qualType": "B &(Args &&...)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "text": " Constructs a new (class basic or derived) B object on the heap.",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 9663,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 9663,
+              "line": 325,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          },
+          {
+            "inner": [
+              {
+                "text": "  This function picks the object's ctor based on the given argument types.",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 9733,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 9733,
+              "line": 327,
+              "col": 3,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          },
+          {
+            "inner": [
+              {
+                "text": "  This helps the constructor of ex from basic (or a derived class B) because",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 9813,
+                  "line": 329,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "  then the constructor doesn't have to duplicate the object onto the heap.",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 9892,
+                  "line": 330,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "  See ex::construct_from_basic(const basic ",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 9969,
+                  "line": 331,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "&",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 10012,
+                  "col": 46,
+                  "tokLen": 1,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": ") for more information.",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 10013,
+                  "col": 47,
+                  "tokLen": 1,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 9813,
+              "line": 329,
+              "col": 3,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FullComment",
+        "loc": {
+          "offset": 9663,
+          "line": 325,
+          "col": 4,
+          "tokLen": 0,
+          "spellingLoc": null
+        }
+      }
+    ],
+    "kind": "FunctionTemplateDecl",
+    "loc": {
+      "offset": 10088,
+      "line": 334,
+      "col": 12,
+      "tokLen": 11,
+      "spellingLoc": null
+    },
+    "name": "dynallocate"
+  },
+  {
+    "inner": [
+      {
+        "index": 0,
+        "kind": "TemplateTypeParmDecl",
+        "loc": {
+          "offset": 10525,
+          "line": 344,
+          "col": 16,
+          "tokLen": 1,
+          "spellingLoc": null
+        },
+        "depth": 0,
+        "isReferenced": true,
+        "name": "B",
+        "tagUsed": "class"
+      },
+      {
+        "inner": [
+          {
+            "type": {
+              "desugaredQualType": "std::initializer_list<GiNaC::ex>",
+              "qualType": "std::initializer_list<ex>"
+            },
+            "kind": "ParmVarDecl",
+            "loc": {
+              "offset": 10577,
+              "line": 345,
+              "col": 50,
+              "tokLen": 2,
+              "spellingLoc": null
+            },
+            "name": "il",
+            "isReferenced": true
+          },
+          {
+            "inner": [
+              {
+                "inner": [
+                  {
+                    "text": " Constructs a new (class basic or derived) B object on the heap.",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 10248,
+                      "col": 4,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 10248,
+                  "line": 338,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "inner": [
+                  {
+                    "text": "  This function is needed for GiNaC classes which have public ctors from",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 10318,
+                      "line": 340,
+                      "col": 3,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  initializer lists of expressions (which are not a type and not captured",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 10393,
+                      "line": 341,
+                      "col": 3,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  },
+                  {
+                    "text": "  by the variadic template version).",
+                    "kind": "TextComment",
+                    "loc": {
+                      "offset": 10469,
+                      "line": 342,
+                      "col": 3,
+                      "tokLen": 0,
+                      "spellingLoc": null
+                    }
+                  }
+                ],
+                "kind": "ParagraphComment",
+                "loc": {
+                  "offset": 10318,
+                  "line": 340,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "FullComment",
+            "loc": {
+              "offset": 10248,
+              "line": 338,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FunctionDecl",
+        "loc": {
+          "offset": 10539,
+          "line": 345,
+          "col": 12,
+          "tokLen": 11,
+          "spellingLoc": null
+        },
+        "inline": true,
+        "name": "dynallocate",
+        "type": {
+          "qualType": "B &(std::initializer_list<ex>)"
+        }
+      },
+      {
+        "inner": [
+          {
+            "inner": [
+              {
+                "text": " Constructs a new (class basic or derived) B object on the heap.",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 10248,
+                  "col": 4,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 10248,
+              "line": 338,
+              "col": 4,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          },
+          {
+            "inner": [
+              {
+                "text": "  This function is needed for GiNaC classes which have public ctors from",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 10318,
+                  "line": 340,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "  initializer lists of expressions (which are not a type and not captured",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 10393,
+                  "line": 341,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              },
+              {
+                "text": "  by the variadic template version).",
+                "kind": "TextComment",
+                "loc": {
+                  "offset": 10469,
+                  "line": 342,
+                  "col": 3,
+                  "tokLen": 0,
+                  "spellingLoc": null
+                }
+              }
+            ],
+            "kind": "ParagraphComment",
+            "loc": {
+              "offset": 10318,
+              "line": 340,
+              "col": 3,
+              "tokLen": 0,
+              "spellingLoc": null
+            }
+          }
+        ],
+        "kind": "FullComment",
+        "loc": {
+          "offset": 10248,
+          "line": 338,
+          "col": 4,
+          "tokLen": 0,
+          "spellingLoc": null
+        }
+      }
+    ],
+    "kind": "FunctionTemplateDecl",
+    "loc": {
+      "offset": 10539,
+      "line": 345,
+      "col": 12,
+      "tokLen": 11,
+      "spellingLoc": null
+    },
+    "name": "dynallocate"
+  }
+]

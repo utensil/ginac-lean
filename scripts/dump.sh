@@ -8,7 +8,7 @@ source $SCRIPTS_DIR/config.sh
 
 INCLUDE_PATH=$WORKSPACES/include
 
-header=${1:-"ginac/symbol.h"}
+header=${1:-"ginac/basic.h"}
 
 header_full=$INCLUDE_PATH/$header
 output_dir=codegen/tests/fixtures
